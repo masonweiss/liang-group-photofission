@@ -12,6 +12,52 @@ cd $HOME/liang-group
 git clone <COPY REPOSITORY SSH LINK HERE>
 ```
 
+1. Download and unpack the version of Geant4
+```
+wget https://gitlab.cern.ch/geant4/geant4/-/archive/v10.7.0/geant4-v10.7.0.tar.gz
+tar -xzvf geant4-v10.7.0.tar.gz
+```
+
+2. Verify the compressed source code has been unpacked and make an installation directory
+```
+rm geant4-v10.7.0.tar.gz
+mkdir geant4-v10.7.0-install
+```
+
+There should now only be two objects in the Geant4 folder, both directories: geant4-v10.7.0-install and geant4-v10.7.0
+
+3. Prepare build files for Geant4 using the following commands:
+```
+cd geant4-v10.7.0
+mkdir build
+cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/geant4/geant4-v10.7.0-install \
+-DGEANT4_BUILD_MULTITHREADED=ON \
+-DGEANT4_INSTALL_DATA=ON \
+-DGEANT4_USE_GDML=ON \
+-DGEANT4_USE_OPENGL_X11=ON \
+-DGEANT4_USE_QT=ON \
+-DGEANT4_USE_RAYTRACER_X11=ON 
+```
+
+4. If everything goes correctly, the following commands should finish the installation without any fatal errors (some warnings may exist)
+```
+make 
+make install
+```
+
+5. Note, after installing the data, you may need to specify the path for Geant4 to recognize it. You may also need to specifically add the executable to the path.
+```
+export G4DATA=$HOME/geant4/geant4-v10.7.0-install/share/Geant4-10.7.0/data
+source $HOME/geant4/geant4-v10.7.0-install/bin/geant4.sh
+```
+
+
+
+
+
+
+
 After installing Geant4 locally, you can test the simulation1 code. Inside this directory is a copy of the exampleB1 simulation from the official geant4 release.
 
 ## Remote Geant-4 Installation
@@ -51,15 +97,16 @@ cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/geant4/geant4-v10.7.0-install \
 
 Note: this method installs all of the default Geant4 data. The download is completed in subsequent steps, which may take quite a long time! If you're concerned about disconnecting, before running the code, you can type ```screen``` to start a screen session, run any shell command as if it were a normal terminal, and then detach the screen using Ctrl-A then Ctrl-D. To resume the screen session (assuming you haven't made more than one), press Ctrl-R. The code will run in a detached screen even if your VM connection fails. Note that you can't view the full output to console from a screen session, though. 
 
-4. If everything goes correctly, the following commands should finish the installation without any fatal errors (some warnings may exist)
+5. If everything goes correctly, the following commands should finish the installation without any fatal errors (some warnings may exist)
 ```
 make 
 make install
 ```
 
-5. Note, after installing the 
+6. Note, after installing the data, you may need to specify the path for Geant4 to recognize it. You may also need to specifically add the executable to the path.
 ```
-export G4DATA=$HOME/geant4-install/share/Geant4-10.7.0/data
+export G4DATA=$HOME/geant4/geant4-v10.7.0-install/share/Geant4-10.7.0/data
+source $HOME/geant4/geant4-v10.7.0-install/bin/geant4.sh
 ```
 
 
