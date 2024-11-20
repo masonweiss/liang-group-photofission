@@ -1,6 +1,6 @@
 CMakeFiles/ex_simulation2.dir/src/GammaNuclearPhysicsLEND.cc.o: \
-  /Users/mason/liang-group/simulation2/src/GammaNuclearPhysicsLEND.cc \
-  /Users/mason/liang-group/simulation2/include/GammaNuclearPhysicsLEND.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/src/GammaNuclearPhysicsLEND.cc \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/GammaNuclearPhysicsLEND.hh \
   /Users/mason/geant4-install/include/Geant4/G4VPhysicsConstructor.hh \
   /Users/mason/geant4-install/include/Geant4/G4ParticleTable.hh \
   /Users/mason/geant4-install/include/Geant4/G4ParticleDefinition.hh \

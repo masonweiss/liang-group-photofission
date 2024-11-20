@@ -1,6 +1,6 @@
 CMakeFiles/ex_simulation2.dir/src/PrimaryGeneratorAction.cc.o: \
-  /Users/mason/liang-group/simulation2/src/PrimaryGeneratorAction.cc \
-  /Users/mason/liang-group/simulation2/include/PrimaryGeneratorAction.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/src/PrimaryGeneratorAction.cc \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/PrimaryGeneratorAction.hh \
   /Users/mason/geant4-install/include/Geant4/G4VUserPrimaryGeneratorAction.hh \
   /Users/mason/geant4-install/include/Geant4/G4ParticleGun.hh \
   /Users/mason/geant4-install/include/Geant4/globals.hh \

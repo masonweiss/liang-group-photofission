@@ -1,6 +1,6 @@
 CMakeFiles/exampleB1.dir/exampleB1.cc.o: \
-  /Users/mason/liang-group/simulation1/B1/exampleB1.cc \
-  /Users/mason/liang-group/simulation1/B1/include/DetectorConstruction.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation1/B1/exampleB1.cc \
+  /Users/mason/liang-group/liang-group-photofission/simulation1/B1/include/DetectorConstruction.hh \
   /Users/mason/geant4-install/include/Geant4/G4VUserDetectorConstruction.hh \
   /Users/mason/geant4-install/include/Geant4/globals.hh \
   /Users/mason/geant4-install/include/Geant4/G4ios.hh \
@@ -748,7 +748,7 @@ CMakeFiles/exampleB1.dir/exampleB1.cc.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/iomanip \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/map \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__tree \
-  /Users/mason/liang-group/simulation1/B1/include/ActionInitialization.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation1/B1/include/ActionInitialization.hh \
   /Users/mason/geant4-install/include/Geant4/G4VUserActionInitialization.hh \
   /Users/mason/geant4-install/include/Geant4/G4RunManagerFactory.hh \
   /Users/mason/geant4-install/include/Geant4/G4MTRunManager.hh \

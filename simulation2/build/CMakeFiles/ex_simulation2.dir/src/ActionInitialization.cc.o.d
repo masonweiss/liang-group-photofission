@@ -1,8 +1,8 @@
 CMakeFiles/ex_simulation2.dir/src/ActionInitialization.cc.o: \
-  /Users/mason/liang-group/simulation2/src/ActionInitialization.cc \
-  /Users/mason/liang-group/simulation2/include/ActionInitialization.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/src/ActionInitialization.cc \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/ActionInitialization.hh \
   /Users/mason/geant4-install/include/Geant4/G4VUserActionInitialization.hh \
-  /Users/mason/liang-group/simulation2/include/PrimaryGeneratorAction.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/PrimaryGeneratorAction.hh \
   /Users/mason/geant4-install/include/Geant4/G4VUserPrimaryGeneratorAction.hh \
   /Users/mason/geant4-install/include/Geant4/G4ParticleGun.hh \
   /Users/mason/geant4-install/include/Geant4/globals.hh \
@@ -772,7 +772,7 @@ CMakeFiles/ex_simulation2.dir/src/ActionInitialization.cc.o: \
   /Users/mason/geant4-install/include/Geant4/G4AllocatorPool.hh \
   /Users/mason/geant4-install/include/Geant4/G4PrimaryParticle.hh \
   /Users/mason/geant4-install/include/Geant4/G4ParticleMomentum.hh \
-  /Users/mason/liang-group/simulation2/include/RunAction.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/RunAction.hh \
   /Users/mason/geant4-install/include/Geant4/G4UserRunAction.hh \
   /Users/mason/geant4-install/include/Geant4/G4Accumulable.hh \
   /Users/mason/geant4-install/include/Geant4/G4VAccumulable.hh \
@@ -854,7 +854,7 @@ CMakeFiles/ex_simulation2.dir/src/ActionInitialization.cc.o: \
   /usr/local/Cellar/root/6.32.06/include/root/ROOT/RConcurrentHashColl.hxx \
   /usr/local/Cellar/root/6.32.06/include/root/ROOT/TRWSpinLock.hxx \
   /usr/local/Cellar/root/6.32.06/include/root/ROOT/TSpinMutex.hxx \
-  /Users/mason/liang-group/simulation2/include/EventAction.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/EventAction.hh \
   /Users/mason/geant4-install/include/Geant4/G4UserEventAction.hh \
-  /Users/mason/liang-group/simulation2/include/SteppingAction.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/SteppingAction.hh \
   /Users/mason/geant4-install/include/Geant4/G4UserSteppingAction.hh

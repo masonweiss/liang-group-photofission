@@ -1,6 +1,6 @@
 CMakeFiles/ex_simulation2.dir/src/EventAction.cc.o: \
-  /Users/mason/liang-group/simulation2/src/EventAction.cc \
-  /Users/mason/liang-group/simulation2/include/EventAction.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/src/EventAction.cc \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/EventAction.hh \
   /Users/mason/geant4-install/include/Geant4/G4UserEventAction.hh \
   /Users/mason/geant4-install/include/Geant4/globals.hh \
   /Users/mason/geant4-install/include/Geant4/G4ios.hh \
@@ -748,7 +748,7 @@ CMakeFiles/ex_simulation2.dir/src/EventAction.cc.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/iomanip \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/map \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__tree \
-  /Users/mason/liang-group/simulation2/include/RunAction.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/RunAction.hh \
   /Users/mason/geant4-install/include/Geant4/G4UserRunAction.hh \
   /Users/mason/geant4-install/include/Geant4/G4Accumulable.hh \
   /Users/mason/geant4-install/include/Geant4/G4VAccumulable.hh \

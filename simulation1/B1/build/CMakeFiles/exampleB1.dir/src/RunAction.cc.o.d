@@ -1,6 +1,6 @@
 CMakeFiles/exampleB1.dir/src/RunAction.cc.o: \
-  /Users/mason/liang-group/simulation1/B1/src/RunAction.cc \
-  /Users/mason/liang-group/simulation1/B1/include/RunAction.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation1/B1/src/RunAction.cc \
+  /Users/mason/liang-group/liang-group-photofission/simulation1/B1/include/RunAction.hh \
   /Users/mason/geant4-install/include/Geant4/G4UserRunAction.hh \
   /Users/mason/geant4-install/include/Geant4/G4Types.hh \
   /Users/mason/geant4-install/include/Geant4/G4GlobalConfig.hh \
@@ -753,7 +753,7 @@ CMakeFiles/exampleB1.dir/src/RunAction.cc.o: \
   /Users/mason/geant4-install/include/Geant4/G4VAccumulable.icc \
   /Users/mason/geant4-install/include/Geant4/G4MergeMode.hh \
   /Users/mason/geant4-install/include/Geant4/G4Accumulable.icc \
-  /Users/mason/liang-group/simulation1/B1/include/PrimaryGeneratorAction.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation1/B1/include/PrimaryGeneratorAction.hh \
   /Users/mason/geant4-install/include/Geant4/G4VUserPrimaryGeneratorAction.hh \
   /Users/mason/geant4-install/include/Geant4/G4ParticleGun.hh \
   /Users/mason/geant4-install/include/Geant4/G4VPrimaryGenerator.hh \
@@ -777,7 +777,7 @@ CMakeFiles/exampleB1.dir/src/RunAction.cc.o: \
   /Users/mason/geant4-install/include/Geant4/G4AllocatorPool.hh \
   /Users/mason/geant4-install/include/Geant4/G4PrimaryParticle.hh \
   /Users/mason/geant4-install/include/Geant4/G4ParticleMomentum.hh \
-  /Users/mason/liang-group/simulation1/B1/include/DetectorConstruction.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation1/B1/include/DetectorConstruction.hh \
   /Users/mason/geant4-install/include/Geant4/G4VUserDetectorConstruction.hh \
   /Users/mason/geant4-install/include/Geant4/G4RunManager.hh \
   /Users/mason/geant4-install/include/Geant4/G4Event.hh \

@@ -1,6 +1,6 @@
 CMakeFiles/ex_simulation2.dir/src/PhysicsList.cc.o: \
-  /Users/mason/liang-group/simulation2/src/PhysicsList.cc \
-  /Users/mason/liang-group/simulation2/include/PhysicsList.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/src/PhysicsList.cc \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/PhysicsList.hh \
   /Users/mason/geant4-install/include/Geant4/G4VModularPhysicsList.hh \
   /Users/mason/geant4-install/include/Geant4/G4VPhysicsConstructor.hh \
   /Users/mason/geant4-install/include/Geant4/G4ParticleTable.hh \
@@ -1125,8 +1125,8 @@ CMakeFiles/ex_simulation2.dir/src/PhysicsList.cc.o: \
   /Users/mason/geant4-install/include/Geant4/G4IonQMDPhysics.hh \
   /Users/mason/geant4-install/include/Geant4/G4IonPhysicsPHP.hh \
   /Users/mason/geant4-install/include/Geant4/G4IonINCLXXPhysics.hh \
-  /Users/mason/liang-group/simulation2/include/GammaNuclearPhysics.hh \
-  /Users/mason/liang-group/simulation2/include/GammaNuclearPhysicsLEND.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/GammaNuclearPhysics.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/GammaNuclearPhysicsLEND.hh \
   /Users/mason/geant4-install/include/Geant4/G4RadioactiveDecayPhysics.hh \
   /Users/mason/geant4-install/include/Geant4/G4HadronInelasticProcess.hh \
   /Users/mason/geant4-install/include/Geant4/G4PhotoNuclearCrossSection.hh \

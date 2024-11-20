@@ -1,6 +1,6 @@
 CMakeFiles/ex_simulation2.dir/src/DetectorConstruction.cc.o: \
-  /Users/mason/liang-group/simulation2/src/DetectorConstruction.cc \
-  /Users/mason/liang-group/simulation2/include/DetectorConstruction.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/src/DetectorConstruction.cc \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/DetectorConstruction.hh \
   /Users/mason/geant4-install/include/Geant4/G4VUserDetectorConstruction.hh \
   /Users/mason/geant4-install/include/Geant4/globals.hh \
   /Users/mason/geant4-install/include/Geant4/G4ios.hh \

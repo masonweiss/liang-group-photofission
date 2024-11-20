@@ -1,6 +1,6 @@
 CMakeFiles/ex_simulation2.dir/src/GammaNuclearPhysics.cc.o: \
-  /Users/mason/liang-group/simulation2/src/GammaNuclearPhysics.cc \
-  /Users/mason/liang-group/simulation2/include/GammaNuclearPhysics.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/src/GammaNuclearPhysics.cc \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/GammaNuclearPhysics.hh \
   /Users/mason/geant4-install/include/Geant4/G4VPhysicsConstructor.hh \
   /Users/mason/geant4-install/include/Geant4/G4ParticleTable.hh \
   /Users/mason/geant4-install/include/Geant4/G4ParticleDefinition.hh \

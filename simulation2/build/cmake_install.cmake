@@ -1,4 +1,4 @@
-# Install script for directory: /Users/mason/liang-group/simulation2
+# Install script for directory: /Users/mason/liang-group/liang-group-photofission/simulation2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/Users/mason/liang-group/simulation2/build/ex_simulation2")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/Users/mason/liang-group/liang-group-photofission/simulation2/build/ex_simulation2")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/ex_simulation2" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/ex_simulation2")
     execute_process(COMMAND /Users/mason/opt/anaconda3/bin/install_name_tool
@@ -53,7 +53,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/Users/mason/liang-group/simulation2/build/CMakeFiles/ex_simulation2.dir/install-cxx-module-bmi-noconfig.cmake" OPTIONAL)
+  include("/Users/mason/liang-group/liang-group-photofission/simulation2/build/CMakeFiles/ex_simulation2.dir/install-cxx-module-bmi-noconfig.cmake" OPTIONAL)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -71,6 +71,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-  file(WRITE "/Users/mason/liang-group/simulation2/build/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/Users/mason/liang-group/liang-group-photofission/simulation2/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

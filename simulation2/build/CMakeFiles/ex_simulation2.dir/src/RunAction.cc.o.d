@@ -1,6 +1,6 @@
 CMakeFiles/ex_simulation2.dir/src/RunAction.cc.o: \
-  /Users/mason/liang-group/simulation2/src/RunAction.cc \
-  /Users/mason/liang-group/simulation2/include/RunAction.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/src/RunAction.cc \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/RunAction.hh \
   /Users/mason/geant4-install/include/Geant4/G4UserRunAction.hh \
   /Users/mason/geant4-install/include/Geant4/G4Types.hh \
   /Users/mason/geant4-install/include/Geant4/G4GlobalConfig.hh \
@@ -829,7 +829,7 @@ CMakeFiles/ex_simulation2.dir/src/RunAction.cc.o: \
   /usr/local/Cellar/root/6.32.06/include/root/ROOT/TRWSpinLock.hxx \
   /usr/local/Cellar/root/6.32.06/include/root/ROOT/TSpinMutex.hxx \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/condition_variable \
-  /Users/mason/liang-group/simulation2/include/PrimaryGeneratorAction.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/PrimaryGeneratorAction.hh \
   /Users/mason/geant4-install/include/Geant4/G4VUserPrimaryGeneratorAction.hh \
   /Users/mason/geant4-install/include/Geant4/G4ParticleGun.hh \
   /Users/mason/geant4-install/include/Geant4/G4VPrimaryGenerator.hh \
@@ -852,7 +852,7 @@ CMakeFiles/ex_simulation2.dir/src/RunAction.cc.o: \
   /Users/mason/geant4-install/include/Geant4/G4AllocatorPool.hh \
   /Users/mason/geant4-install/include/Geant4/G4PrimaryParticle.hh \
   /Users/mason/geant4-install/include/Geant4/G4ParticleMomentum.hh \
-  /Users/mason/liang-group/simulation2/include/DetectorConstruction.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/DetectorConstruction.hh \
   /Users/mason/geant4-install/include/Geant4/G4VUserDetectorConstruction.hh \
   /Users/mason/geant4-install/include/Geant4/G4RunManager.hh \
   /Users/mason/geant4-install/include/Geant4/G4Event.hh \

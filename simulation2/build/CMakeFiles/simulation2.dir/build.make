@@ -53,10 +53,10 @@ RM = /usr/local/Cellar/cmake/3.30.4/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/mason/liang-group/simulation2
+CMAKE_SOURCE_DIR = /Users/mason/liang-group/liang-group-photofission/simulation2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/mason/liang-group/simulation2/build
+CMAKE_BINARY_DIR = /Users/mason/liang-group/liang-group-photofission/simulation2/build
 
 # Utility rule file for simulation2.
 
@@ -81,6 +81,6 @@ CMakeFiles/simulation2.dir/clean:
 .PHONY : CMakeFiles/simulation2.dir/clean
 
 CMakeFiles/simulation2.dir/depend:
-	cd /Users/mason/liang-group/simulation2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/mason/liang-group/simulation2 /Users/mason/liang-group/simulation2 /Users/mason/liang-group/simulation2/build /Users/mason/liang-group/simulation2/build /Users/mason/liang-group/simulation2/build/CMakeFiles/simulation2.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/mason/liang-group/liang-group-photofission/simulation2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/mason/liang-group/liang-group-photofission/simulation2 /Users/mason/liang-group/liang-group-photofission/simulation2 /Users/mason/liang-group/liang-group-photofission/simulation2/build /Users/mason/liang-group/liang-group-photofission/simulation2/build /Users/mason/liang-group/liang-group-photofission/simulation2/build/CMakeFiles/simulation2.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/simulation2.dir/depend
 

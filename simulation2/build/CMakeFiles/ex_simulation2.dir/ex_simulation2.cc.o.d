@@ -1,6 +1,6 @@
 CMakeFiles/ex_simulation2.dir/ex_simulation2.cc.o: \
-  /Users/mason/liang-group/simulation2/ex_simulation2.cc \
-  /Users/mason/liang-group/simulation2/include/DetectorConstruction.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/ex_simulation2.cc \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/DetectorConstruction.hh \
   /Users/mason/geant4-install/include/Geant4/G4VUserDetectorConstruction.hh \
   /Users/mason/geant4-install/include/Geant4/globals.hh \
   /Users/mason/geant4-install/include/Geant4/G4ios.hh \
@@ -748,9 +748,9 @@ CMakeFiles/ex_simulation2.dir/ex_simulation2.cc.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/iomanip \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/map \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__tree \
-  /Users/mason/liang-group/simulation2/include/ActionInitialization.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/ActionInitialization.hh \
   /Users/mason/geant4-install/include/Geant4/G4VUserActionInitialization.hh \
-  /Users/mason/liang-group/simulation2/include/PhysicsList.hh \
+  /Users/mason/liang-group/liang-group-photofission/simulation2/include/PhysicsList.hh \
   /Users/mason/geant4-install/include/Geant4/G4VModularPhysicsList.hh \
   /Users/mason/geant4-install/include/Geant4/G4VPhysicsConstructor.hh \
   /Users/mason/geant4-install/include/Geant4/G4ParticleTable.hh \
