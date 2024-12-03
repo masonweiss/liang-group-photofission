@@ -1,8 +1,0 @@
-/Users/mason/liang-group/liang-group-photofission/simulation2/build/CMakeFiles/ex_simulation2.dir
-/Users/mason/liang-group/liang-group-photofission/simulation2/build/CMakeFiles/simulation2.dir
-/Users/mason/liang-group/liang-group-photofission/simulation2/build/CMakeFiles/edit_cache.dir
-/Users/mason/liang-group/liang-group-photofission/simulation2/build/CMakeFiles/rebuild_cache.dir
-/Users/mason/liang-group/liang-group-photofission/simulation2/build/CMakeFiles/list_install_components.dir
-/Users/mason/liang-group/liang-group-photofission/simulation2/build/CMakeFiles/install.dir
-/Users/mason/liang-group/liang-group-photofission/simulation2/build/CMakeFiles/install/local.dir
-/Users/mason/liang-group/liang-group-photofission/simulation2/build/CMakeFiles/install/strip.dir
