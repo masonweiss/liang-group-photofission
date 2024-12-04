@@ -49,7 +49,7 @@ set(EXSIMULATION2_SCRIPTS
   ex_simulation2.out
   init_vis.mac
   run1.mac
-  run2.mac
+  run_gammas.mac
   vis.mac
   )
 

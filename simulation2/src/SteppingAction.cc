@@ -1,32 +1,3 @@
-//
-// ********************************************************************
-// * License and Disclaimer                                           *
-// *                                                                  *
-// * The  Geant4 software  is  copyright of the Copyright Holders  of *
-// * the Geant4 Collaboration.  It is provided  under  the terms  and *
-// * conditions of the Geant4 Software License,  included in the file *
-// * LICENSE and available at  http://cern.ch/geant4/license .  These *
-// * include a list of copyright holders.                             *
-// *                                                                  *
-// * Neither the authors of this software system, nor their employing *
-// * institutes,nor the agencies providing financial support for this *
-// * work  make  any representation or  warranty, express or implied, *
-// * regarding  this  software system or assume any liability for its *
-// * use.  Please see the license in the file  LICENSE  and URL above *
-// * for the full disclaimer and the limitation of liability.         *
-// *                                                                  *
-// * This  code  implementation is the result of  the  scientific and *
-// * technical work of the GEANT4 collaboration.                      *
-// * By using,  copying,  modifying or  distributing the software (or *
-// * any work based  on the software)  you  agree  to acknowledge its *
-// * use  in  resulting  scientific  publications,  and indicate your *
-// * acceptance of all terms of the Geant4 Software license.          *
-// ********************************************************************
-//
-//
-/// \file simulation2/src/SteppingAction.cc
-/// \brief Implementation of the simulation2::SteppingAction class
-
 #include "SteppingAction.hh"
 #include "EventAction.hh"
 #include "DetectorConstruction.hh"
@@ -35,6 +6,13 @@
 #include "G4Event.hh"
 #include "G4RunManager.hh"
 #include "G4LogicalVolume.hh"
+
+
+#include "G4Track.hh"
+#include "G4ParticleDefinition.hh"
+#include "G4Neutron.hh"
+#include "G4VProcess.hh"
+#include "G4ProcessManager.hh"
 
 #include "G4SystemOfUnits.hh"
 #include "RunAction.hh" // Include RunAction for histogram filling =*=
@@ -52,45 +30,75 @@ SteppingAction::SteppingAction(EventAction* eventAction)
 
 void SteppingAction::UserSteppingAction(const G4Step* step)
 {
-  if (!fScoringVolume) {
-    const auto detConstruction = static_cast<const DetectorConstruction*>(
-      G4RunManager::GetRunManager()->GetUserDetectorConstruction());
-    fScoringVolume = detConstruction->GetScoringVolume();
-  }
+    if (!fScoringVolume) {
+        const auto detConstruction = static_cast<const DetectorConstruction*>(
+        G4RunManager::GetRunManager()->GetUserDetectorConstruction());
+        fScoringVolume = detConstruction->GetScoringVolume();
+    }
+    
+    // get volume of the current step
+    G4LogicalVolume* volume = step->GetPreStepPoint()->GetTouchableHandle()->GetVolume()->GetLogicalVolume();
+    
+    // check if we are in scoring volume
+    if (volume != fScoringVolume) return;
+    
+    // collect energy deposited in this step
+    G4double edepStep = step->GetTotalEnergyDeposit();
+    fEventAction->AddEdep(edepStep);
 
-  // get volume of the current step
-  G4LogicalVolume* volume
-    = step->GetPreStepPoint()->GetTouchableHandle()
-      ->GetVolume()->GetLogicalVolume();
-
-  // check if we are in scoring volume
-  if (volume != fScoringVolume) return;
-
-  // collect energy deposited in this step
-  G4double edepStep = step->GetTotalEnergyDeposit();
-  fEventAction->AddEdep(edepStep);
-
-  // // =*= Check if the particle is a neutron
-  // auto particle = step->GetTrack()->GetDefinition();
-  // if (particle->GetParticleName() == "e-") {
-  //   G4double neutronEnergy = step->GetTrack()->GetKineticEnergy();
-  //   fEventAction->AddNeutron(neutronEnergy); // Ensure this works as intended
-  // }
-  // Get the particle type
     const G4Track* track = step->GetTrack();
     const G4ParticleDefinition* particle = track->GetParticleDefinition();
 
     // Check if the particle is a neutron
-    if (particle->GetParticleName() == "e-") {
-        // Get the energy of the neutron
-        G4double energy = track->GetKineticEnergy() / MeV; // Convert to MeV if needed
+    // G4cout << "particle !!!! name is: " << particle->GetParticleName() << G4endl;
+    
+    // if (particle->GetParticleName() == "neutron") {
+    //     // Get the energy of the neutron
+    //     G4double energy = track->GetKineticEnergy(); // Energy in MeV
+    //     // Call RunAction to store the energy in the thread-local list
+    //     // G4cout << "adding energy " << energy << G4endl;
+    //     // Get the current thread ID
+    //     G4cout << energy << G4endl;
+    //     size_t threadId = G4Threading::G4GetThreadId(); // Get the thread ID
 
-        // Fill the histogram with the neutron energy
-        // fEventAction->FillNeutronHistogram(energy);
+    //     // Add neutron energy to the corresponding histogram
+    //     const RunAction* runAction = dynamic_cast<const RunAction*>(G4RunManager::GetRunManager()->GetUserRunAction());
+    //     runAction->AddNeutronEnergy(energy, threadId);  // Add energy to the correct thread's histogram
+    // }
+    if (particle->GetParticleName() == "neutron") {
+        // Get the process responsible for the neutron's creation
+        const G4VProcess* process = step->GetPostStepPoint()->GetProcessDefinedStep();
+        G4double energy = track->GetKineticEnergy(); // Energy in MeV
+        // Print the name of the process for debugging
+        if (process->GetProcessName() != "Transportation") {
+            G4cout << energy << "\t" << process->GetProcessName() << G4endl;
+        }
 
-        // Optionally, you can store the energy in your fNeutrons vector
-        fNeutrons.push_back(energy); // If you are tracking neutron energies
+        // Check if the process name indicates fission
+        if (process && process->GetProcessName() == "fission") {
+            G4cout << "Fission neutron detected!" << G4endl;
+            // You can now handle this neutron as a fission neutron
+            // For example, increment counters, fill histograms, etc.
+        }
     }
+    // G4StepPoint* postStepPoint = step->GetPostStepPoint();
+    // std::vector<const G4Track*> secondaries = step->GetSecondary();
+
+    // for (const auto& secondary : secondaries) {
+    //     G4ParticleDefinition* secondaryParticle = secondary->GetDefinition();
+        
+    //     // Check if secondary particle is a neutron and was produced by a fission process
+    //     if (secondaryParticle == G4Neutron::Neutron()) {
+    //         // You may want to check the process responsible for this secondary particle as well
+    //         const G4VProcess* secondaryProcess = secondary->GetCreatorProcess();
+            
+    //         // Check if the process responsible for the neutron is fission
+    //         if (secondaryProcess && secondaryProcess->GetProcessName() == "nFission") {
+    //             G4cout << "Fission neutron (secondary) detected!" << G4endl;
+    //             // Handle the fission secondary neutron: fill histograms, counters, etc.
+    //         }
+    //     }
+    // }
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

@@ -1,32 +1,3 @@
-//
-// ********************************************************************
-// * License and Disclaimer                                           *
-// *                                                                  *
-// * The  Geant4 software  is  copyright of the Copyright Holders  of *
-// * the Geant4 Collaboration.  It is provided  under  the terms  and *
-// * conditions of the Geant4 Software License,  included in the file *
-// * LICENSE and available at  http://cern.ch/geant4/license .  These *
-// * include a list of copyright holders.                             *
-// *                                                                  *
-// * Neither the authors of this software system, nor their employing *
-// * institutes,nor the agencies providing financial support for this *
-// * work  make  any representation or  warranty, express or implied, *
-// * regarding  this  software system or assume any liability for its *
-// * use.  Please see the license in the file  LICENSE  and URL above *
-// * for the full disclaimer and the limitation of liability.         *
-// *                                                                  *
-// * This  code  implementation is the result of  the  scientific and *
-// * technical work of the GEANT4 collaboration.                      *
-// * By using,  copying,  modifying or  distributing the software (or *
-// * any work based  on the software)  you  agree  to acknowledge its *
-// * use  in  resulting  scientific  publications,  and indicate your *
-// * acceptance of all terms of the Geant4 Software license.          *
-// ********************************************************************
-//
-//
-/// \file simulation2/src/RunAction.cc
-/// \brief Implementation of the simulation2::RunAction class
-
 #include "RunAction.hh"
 #include "PrimaryGeneratorAction.hh"
 #include "DetectorConstruction.hh"
@@ -40,15 +11,16 @@
 #include "G4UnitsTable.hh"
 #include "G4SystemOfUnits.hh"
 
+#include "G4Threading.hh"
 #include <TH1D.h>
 #include <TFile.h>
 #include <ctime>
 
 namespace simulation2
 {
-
+G4ThreadLocal std::vector<G4double>* fThreadNeutronEnergyList = nullptr;
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
+    
 RunAction::RunAction()
 {
   // add new units for dose
@@ -68,10 +40,21 @@ RunAction::RunAction()
   accumulableManager->RegisterAccumulable(fEdep);
   accumulableManager->RegisterAccumulable(fEdep2);
 
-  // *=* Initialize neutron histogram
-  fNeutronHistogram = new TH1D("neutron_hist", "Neutron Exit Energies", numberOfBins, minEnergy, maxEnergy);
+  for (size_t i = 0; i < 8; ++i) {
+        fNeutronHists[i] = nullptr;
+    }
 }
 
+RunAction::~RunAction() {
+    // Clean up histograms
+    for (size_t i = 0; i < 8; ++i) {
+        if (fNeutronHists[i]) {
+            delete fNeutronHists[i];
+            fNeutronHists[i] = nullptr;
+        }
+    }
+}
+    
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void RunAction::BeginOfRunAction(const G4Run*)
@@ -82,6 +65,10 @@ void RunAction::BeginOfRunAction(const G4Run*)
   // reset accumulables to their initial values
   G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
   accumulableManager->Reset();
+
+  for (size_t i = 0; i < 8; ++i) {
+        fNeutronHists[i] = new TH1D(Form("neutron_hist_thread_%zu", i), "Neutron Energy Distribution", 100, 0., 10.0);
+    }
 
 }
 
@@ -126,10 +113,60 @@ void RunAction::EndOfRunAction(const G4Run* run)
   }
 
   // =*= Write neutron histogram to file
-  std::string filename = "neutron_counts_" + std::to_string(std::time(nullptr)) + ".root";
-  outputFile = new TFile(filename.c_str(), "RECREATE");
-  fNeutronHistogram->Write();
-  outputFile->Close();
+  // Merge histograms from all threads
+    // TH1D* mergedHist = new TH1D("neutron_hist_merged", "Merged Neutron Exit Energies", 100, 0.0, 20.0);
+    
+    // for (auto& entry : fNeutronHistograms) {
+    //     mergedHist->Add(entry.second);  // Merge histograms from each thread
+    // }
+
+    // // Write the merged histogram to a file
+    // std::string filename = "neutron_counts_" + std::to_string(std::time(nullptr)) + ".root";
+    // outputFile = new TFile(filename.c_str(), "RECREATE");
+    // mergedHist->Write();
+    // outputFile->Close();
+    // MergeNeutronEnergyLists();
+    // Optionally, print the total number of neutrons collected
+    // G4cout << "Total neutrons recorded: " << fNeutronEnergyList.size() << G4endl;
+    
+    // G4cout << "printing energies !" << G4endl;
+    // TFile* file = new TFile("neutron_hist_merged.root", "RECREATE");
+    // fNeutronHist->Write();
+    // file->Close();
+
+    // Print summary
+    // G4cout << "End of run, total neutron count: " << fNeutronHist->GetEntries() << G4endl;
+    // for (auto energy : fNeutronEnergyList) {
+    //     G4cout << energy << G4endl;
+    //     fNeutronHist->Fill(energy);
+    // }
+    
+    // if (fNeutronHist) {
+    //     std::string filename = "neutron_counts_" + std::to_string(std::time(nullptr)) + ".root";
+    //     TFile* outputFile = new TFile(filename.c_str(), "RECREATE");
+
+    //     fNeutronHist->Write();
+    //     outputFile->Close();
+    // }
+    // Save each thread's histogram independently
+    // for (size_t i = 0; i < 8; ++i) {
+    //     if (fNeutronHists[i]) {
+    //         // Check if the histogram is correctly filled before saving
+    //         G4cout << "Saving histogram for thread " << i << " with " << fNeutronHists[i]->GetEntries() << " entries." << G4endl;
+    //         fNeutronHists[i]->Write();
+    //         if (IsMaster()) {
+    //             std::string filename = Form("neutron_hist_thread_%zu.root", i);
+    //             TFile* outputFile = new TFile(filename.c_str(), "RECREATE");
+    //             outputFile->Close();
+    //         }
+    //     }
+    //}
+    
+
+    // Print run summary
+    G4cout << "Run summary: " << G4endl;
+    G4cout << "Total events processed: " << run->GetNumberOfEvent() << G4endl;
+
 
   // Print
   //
@@ -164,11 +201,11 @@ void RunAction::AddEdep(G4double edep)
   fEdep2 += edep*edep;
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-// =*= Function to add neutron energy counts
-void RunAction::FillNeutronHistogram(G4double energy)
-{
-    G4cout << "Filling histogram with energy: " << energy << G4endl;
-    fNeutronHistogram->Fill(energy); // Fill the histogram with the neutron energy
+void RunAction::AddNeutronEnergy(G4double energy, size_t threadId) const {
+    // Add energy to the correct histogram based on threadId
+    if (threadId < 8 && fNeutronHists[threadId]) {
+        fNeutronHists[threadId]->Fill(energy);
+    }
 }
+
 }
