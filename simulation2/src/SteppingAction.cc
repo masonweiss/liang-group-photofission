@@ -88,7 +88,7 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
     //     G4ParticleDefinition* secondaryParticle = secondary->GetDefinition();
         
     //     // Check if secondary particle is a neutron and was produced by a fission process
-    //     if (secondaryParticle == G4Neutron::Neutron()) {
+    //     if (secondaryParticle->GetParticleName() == "neutron") {
     //         // You may want to check the process responsible for this secondary particle as well
     //         const G4VProcess* secondaryProcess = secondary->GetCreatorProcess();
             
@@ -99,6 +99,26 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
     //         }
     //     }
     // }
+
+    // Get the current track and post step point
+    const G4VProcess* process = step->GetPostStepPoint()->GetProcessDefinedStep();
+
+    // Check if the process name contains "fission"
+    // if (process != nullptr && process->GetProcessName().find("fission") != std::string::npos) {
+    if (process != nullptr && process->GetProcessName() != "Transportation") {
+        
+        G4cout << "Non-transport event detected!" << G4endl;
+
+        // Check if the particle produced is a neutron
+        const G4ParticleDefinition* particle = track->GetDefinition();
+        if (particle->GetParticleName() == "neutron") {
+            G4cout << "Neutron observed!" << track->GetKineticEnergy() << "\t" << process->GetProcessName() << G4endl;
+        }
+
+        // You can also print more details about the particle
+        G4cout << "Particle ID: " << particle->GetParticleName() << G4endl;
+        G4cout << "Energy: " << track->GetKineticEnergy() << " MeV" << G4endl;
+    }
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

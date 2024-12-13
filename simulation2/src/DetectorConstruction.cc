@@ -12,6 +12,9 @@
 #include "G4SystemOfUnits.hh"
 #include "G4VisAttributes.hh"
 
+#include "G4Material.hh"
+#include "G4Element.hh"
+
 #include "G4Sphere.hh"
 
 namespace simulation2
@@ -111,8 +114,22 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   fScoringVolume = logicShape2;
 
   // Capsule of U-238
-  G4Material* uranium238 = nist->FindOrBuildMaterial("G4_U");
+  // G4Material* uranium238 = nist->FindOrBuildMaterial("G4_U");
+  G4Material* uranium238 = new G4Material("Uranium238", 92, 238.0 * g/mole, 200.0 * g/cm3);
+    // G4double z = 92.0;                          // Atomic number for Uranium (U)
+    // G4double a = 238.02891 * g / mole;          // Atomic mass for Uranium-238 in g/mole
+    
+    // // Create the Uranium element
+    // G4Element* uranium = new G4Element("Uranium", "U", 1, a, z);
+    
+    // // Define material with uranium element (single element material)
+    // G4Material* uranium238 = new G4Material("Uranium238", 20.0 * g/cm3, 1);  // density of 20 g/cm³ for example
+    // uranium238->AddElement(uranium, 1.0);  // Add uranium element with 100% composition
+    
   G4ThreeVector pos_capsule = G4ThreeVector(0, 0, 0);
+  // std::cout << "Uranium Density: " << nist->FindOrBuildMaterial("G4_U")->GetDensity();
+  // uranium238->SetDensity(uranium238->GetDensity() * 1000);
+  std::cout << "Heavy Uranium Density: " << uranium238->GetDensity();
 
   auto solid_U238_capsule = new G4Orb("U238_Capsule", capsule_radius);  // its size
 

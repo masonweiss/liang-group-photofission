@@ -1,0 +1,218 @@
+/run/beamOn 100
+
+Region <DefaultRegionForTheWorld> --  -- appears in <World> world volume
+ This region is in the mass world.
+ Root logical volume(s) : World 
+ Pointers : G4VUserRegionInformation[0x0], G4UserLimits[0x0], G4FastSimulationManager[0x0], G4UserSteppingAction[0x0]
+ Materials : Galactic Uranium238 
+ Production cuts :   gamma 10 km      e- 10 km      e+ 10 km  proton 0 fm 
+
+Region <DefaultRegionForParallelWorld> --  -- is not associated to any world.
+ Root logical volume(s) : 
+ Pointers : G4VUserRegionInformation[0x0], G4UserLimits[0x0], G4FastSimulationManager[0x0], G4UserSteppingAction[0x0]
+ Materials : 
+ Production cuts :   gamma 10 km      e- 10 km      e+ 10 km  proton 0 fm 
+
+========= Table of registered couples ============================
+
+Index : 0     used in the geometry : Yes
+ Material : Galactic
+ Range cuts        :  gamma  10 km     e-  10 km     e+  10 km  proton 0 fm 
+ Energy thresholds :  gamma  990 eV     e-  990 eV     e+  990 eV  proton 0 eV 
+ Region(s) which use this couple : 
+    DefaultRegionForTheWorld
+
+Index : 1     used in the geometry : Yes
+ Material : Uranium238
+ Range cuts        :  gamma  10 km     e-  10 km     e+  10 km  proton 0 fm 
+ Energy thresholds :  gamma  9.54965 GeV    e-  9.54965 GeV    e+  9.54965 GeV proton 0 eV 
+ Region(s) which use this couple : 
+    DefaultRegionForTheWorld
+
+==================================================================
+
+### Run 13 starts.
+
+--------- Ranecu engine status ---------
+ Initial seed (index) = 0
+ Current couple of seeds = 577847110, 752965839
+----------------------------------------
+G4WT2 > /analysis/h1/getVector 
+G4WT7 > /analysis/h1/getVector 
+G4WT4 > /analysis/h1/getVector 
+G4WT7 > /analysis/h2/getVector 
+G4WT4 > /analysis/h2/getVector 
+G4WT6 > /analysis/h1/getVector 
+G4WT2 > /analysis/h2/getVector 
+G4WT3 > /analysis/h1/getVector 
+G4WT1 > /analysis/h1/getVector 
+G4WT5 > /analysis/h1/getVector 
+G4WT6 > /analysis/h2/getVector 
+G4WT1 > /analysis/h2/getVector 
+G4WT3 > /analysis/h2/getVector 
+G4WT5 > /analysis/h2/getVector 
+G4WT0 > /analysis/h1/getVector 
+G4WT0 > /analysis/h2/getVector 
+
+==========================================================================================
+--> G4TaskRunManager::CreateAndStartWorkers() --> Creating 10 tasks with 10 events/task...
+==========================================================================================
+
+Adding task 0 to task-group...
+Adding task 1 to task-group...
+G4WT4 > /analysis/h1/getVector 
+G4WT4 > /analysis/h2/getVector 
+Adding task 2 to task-group...
+G4WT2 > /analysis/h1/getVector 
+G4WT2 > /analysis/h2/getVector 
+Adding task 3 to task-group...
+G4WT6 > /analysis/h1/getVector 
+G4WT6 > /analysis/h2/getVector 
+Adding task 4 to task-group...
+Adding task 5 to task-group...
+Adding task 6 to task-group...
+Adding task 7 to task-group...
+Adding task 8 to task-group...
+Adding task 9 to task-group...
+G4WT6 > ### Run 1 starts on worker thread 6.
+G4WT3 > ### Run 2 starts on worker thread 3.
+G4WT7 > ### Run 1 starts on worker thread 7.
+G4WT0 > ### Run 4 starts on worker thread 0.
+G4WT2 > ### Run 0 starts on worker thread 2.
+G4WT5 > ### Run 2 starts on worker thread 5.
+G4WT1 > ### Run 3 starts on worker thread 1.
+G4WT4 > ### Run 0 starts on worker thread 4.
+G4WT7 > [thread 7] Thread-local run terminated.
+G4WT6 > [thread 6] Thread-local run terminated.
+G4WT2 > [thread 2] Thread-local run terminated.
+G4WT1 > [thread 1] Thread-local run terminated.
+G4WT4 > [thread 4] Thread-local run terminated.
+G4WT0 > [thread 0] Thread-local run terminated.
+G4WT5 > [thread 5] Thread-local run terminated.
+G4WT3 > [thread 3] Thread-local run terminated.
+G4WT7 > [thread 7] Run Summary
+G4WT6 > [thread 6] Run Summary
+G4WT6 > [thread 6]   Number of events processed : 20
+G4WT6 > [thread 6]   User=0.080000s Real=0.063368s Sys=0.020000s [Cpu=157.8%]
+G4WT0 > [thread 0] Run Summary
+G4WT0 > [thread 0]   Number of events processed : 0
+G4WT0 > [thread 0]   User=0.020000s Real=0.016225s Sys=0.010000s [Cpu=184.9%]
+G4WT1 > [thread 1] Run Summary
+G4WT2 > [thread 2] Run Summary
+G4WT2 > [thread 2]   Number of events processed : 0
+G4WT2 > [thread 2]   User=0.020000s Real=0.016840s Sys=0.010000s [Cpu=178.2%]
+G4WT7 > [thread 7]   Number of events processed : 60
+G4WT7 > [thread 7]   User=0.050000s Real=0.046553s Sys=0.010000s [Cpu=128.9%]
+G4WT5 > [thread 5] Run Summary
+G4WT5 > [thread 5]   Number of events processed : 0
+G4WT5 > [thread 5]   User=0.020000s Real=0.017376s Sys=0.010000s [Cpu=172.7%]
+G4WT3 > [thread 3] Run Summary
+G4WT3 > [thread 3]   Number of events processed : 20
+G4WT3 > [thread 3]   User=0.080000s Real=0.060968s Sys=0.020000s [Cpu=164.0%]
+G4WT4 > [thread 4] Run Summary
+G4WT4 > [thread 4]   Number of events processed : 0
+G4WT4 > [thread 4]   User=0.000000s Real=0.000140s Sys=0.000000s [Cpu=0.0%]
+G4WT1 > [thread 1]   Number of events processed : 0
+G4WT1 > [thread 1]   User=0.000000s Real=0.000783s Sys=0.000000s [Cpu=0.0%]
+ Run terminated.
+Run Summary
+  Number of events processed : 100
+  User=0.160000s Real=0.136613s Sys=0.030000s [Cpu=139.1%]
+
+ The run is 100 gamma of 15 MeV through 1 cm  of Water_ts (density: 1 g/cm3 )
+
+ Process calls frequency :
+            NoProcess=     66       Radioactivation=     41                  Rayl=     21
+       Transportation=    176               annihil=     89                 compt=    117
+                 conv=     90                 eIoni=    739            hadElastic=     54
+              ionIoni=     86                   msc=    101              nFission=      1
+     neutronInelastic=      7                  phot=    243         photonNuclear=      3
+
+
+ Mean energy deposit per event = 20.159 MeV;  rms = 40.849 MeV
+ Mean energy leakage per event = 526.03 keV;  rms = 2.2402 MeV
+
+ Mean energy total   per event = 20.685 MeV;  rms = 42.409 MeV
+
+ List of particles at creation :
+           I131:       1  Emean =  91.939 meV	( 91.939 meV --> 91.939 meV)	mean life = 11.578 d  
+  I131[1427.151]:       1  Emean =  4.7171 eV 	( 4.7171 eV  --> 4.7171 eV )	mean life = 0 ps 
+  I131[149.716]:       1  Emean =  6.6926 eV 	( 6.6926 eV  --> 6.6926 eV )	mean life = 1.3706 ns 
+          Mo105:       2  Emean =  178.79 meV	( 46.042 meV --> 311.54 meV)	mean life = 51.36 s  
+  Mo105[232.850]:       1  Emean =  107.35 meV	( 107.35 meV --> 107.35 meV)	mean life = 0 ps 
+  Mo105[246.740]:       1  Emean =  53.129 meV	( 53.129 meV --> 53.129 meV)	mean life = 0 ps 
+  Mo105[348.630]:       1  Emean =  134.85 eV 	( 134.85 eV  --> 134.85 eV )	mean life = 0 ps 
+  Mo105[377.690]:       1  Emean =  894.14 meV	( 894.14 meV --> 894.14 meV)	mean life = 0 ps 
+  Mo105[795.700]:       1  Emean =   99.37 MeV	( 99.37 MeV --> 99.37 MeV)	mean life = 1.1542 ns 
+  Mo105[94.860]:       1  Emean =   97.44 meV	( 97.44 meV --> 97.44 meV)	mean life = 0 ps 
+          Nb105:       1  Emean =  101.78 MeV	( 101.78 MeV --> 101.78 MeV)	mean life = 4.256 s  
+          Pd105:       2  Emean =  1.4851 eV 	( 521.51 meV --> 2.4487 eV )	stable
+  Pd105[319.216]:       1  Emean =  692.96 meV	( 692.96 meV --> 692.96 meV)	mean life = 0 ps 
+          Rh105:       2  Emean =  1.7153 eV 	( 745.33 meV --> 2.6853 eV )	mean life = 2.1256 d  
+  Rh105[129.782]:       1  Emean =  353.39 meV	( 353.39 meV --> 353.39 meV)	mean life = 1.0315 min
+  Rh105[392.560]:       1  Emean =  10.182 eV 	( 10.182 eV  --> 10.182 eV )	mean life = 0 ps 
+  Rh105[724.350]:       1  Emean =  6.1718 eV 	( 6.1718 eV  --> 6.1718 eV )	mean life = 0 ps 
+          Ru105:       2  Emean =  27.999 eV 	( 59.619 meV --> 55.939 eV )	mean life = 6.4056 h  
+  Ru105[107.937]:       1  Emean =   98.08 meV	( 98.08 meV --> 98.08 meV)	mean life = 0 ps 
+  Ru105[246.373]:       1  Emean =  27.584 eV 	( 27.584 eV  --> 27.584 eV )	mean life = 0 ps 
+  Sb130[267.240]:       1  Emean =  960.76 meV	( 960.76 meV --> 960.76 meV)	mean life = 0 ps 
+   Sb130[4.800]:       1  Emean =  173.74 meV	( 173.74 meV --> 173.74 meV)	mean life = 9.089 min
+  Sb130[74.820]:       1  Emean =  153.01 meV	( 153.01 meV --> 153.01 meV)	mean life = 5.1937 ns 
+  Sb130[749.400]:       1  Emean =  19.747 meV	( 19.747 meV --> 19.747 meV)	mean life = 0 ps 
+  Sb130[818.530]:       1  Emean =  5.2839 eV 	( 5.2839 eV  --> 5.2839 eV )	mean life = 0 ps 
+          Sb131:       1  Emean =  80.472 MeV	( 80.472 MeV --> 80.472 MeV)	mean life = 33.225 min
+          Sn130:       1  Emean =   79.25 MeV	( 79.25 MeV --> 79.25 MeV)	mean life = 5.3668 min
+          Tc105:       2  Emean =  33.688 meV	( 30.021 meV --> 37.355 meV)	mean life = 10.964 min
+  Tc105[523.750]:       1  Emean =  57.958 eV 	( 57.958 eV  --> 57.958 eV )	mean life = 0 ps 
+  Tc105[76.580]:       1  Emean =  1.0233 eV 	( 1.0233 eV  --> 1.0233 eV )	mean life = 1.3417 ns 
+  Tc105[85.430]:       1  Emean =  89.674 eV 	( 89.674 eV  --> 89.674 eV )	mean life = 30.008 ns 
+          Te130:       1  Emean =  2.9126 eV 	( 2.9126 eV  --> 2.9126 eV )	mean life = 1.1405e+21 y  
+  Te130[1632.997]:       1  Emean =  2.7551 eV 	( 2.7551 eV  --> 2.7551 eV )	mean life = 0 ps 
+  Te130[2449.480]:       1  Emean =  37.438 eV 	( 37.438 eV  --> 37.438 eV )	mean life = 0 ps 
+  Te130[839.494]:       1  Emean =  2.6022 eV 	( 2.6022 eV  --> 2.6022 eV )	mean life = 0 ps 
+          Te131:       1  Emean =  5.9762 eV 	( 5.9762 eV  --> 5.9762 eV )	mean life = 36.067 min
+  Te131[1207.140]:       1  Emean =   1.837 eV 	( 1.837 eV  --> 1.837 eV )	mean life = 0 ps 
+  Te131[1876.410]:       1  Emean =  8.3319 eV 	( 8.3319 eV  --> 8.3319 eV )	mean life = 0 ps 
+           U236:       1  Emean =  1.4265 keV	( 1.4265 keV --> 1.4265 keV)	mean life = 3.3811e+07 y  
+           U238:      61  Emean =  2.1272 keV	( 3.0775 eV  --> 15.036 keV)	mean life = 6.4504e+09 y  
+          Xe131:       1  Emean =  544.88 meV	( 544.88 meV --> 544.88 meV)	stable
+  Xe131[364.490]:       1  Emean =  1.3731 eV 	( 1.3731 eV  --> 1.3731 eV )	mean life = 0 ps 
+      anti_nu_e:      14  Emean =  1.0835 MeV	( 209.41 keV --> 3.1403 MeV)	stable
+             e+:      90  Emean =  6.5146 MeV	( 618.6 keV --> 13.827 MeV)	stable
+             e-:     470  Emean =  1.9153 MeV	( 1.5474 keV --> 14.717 MeV)	stable
+          gamma:     247  Emean =  572.53 keV	( 44.91 keV --> 4.5519 MeV)	stable
+        neutron:      15  Emean =  1.2441 MeV	( 62.655 keV --> 5.2166 MeV)	mean life = 14.67 min
+
+ List of particles emerging from the absorber :
+      anti_nu_e:      14  Emean =  1.0835 MeV	( 209.41 keV --> 3.1403 MeV) 	Eleak/event = 151.69 keV
+             e+:       2  Emean =  1.8918 MeV	( 1.5565 MeV --> 2.227 MeV) 	Eleak/event = 37.835 keV
+             e-:       4  Emean =  3.0799 MeV	( 323.73 keV --> 5.8461 MeV) 	Eleak/event = 123.2 keV
+          gamma:      11  Emean =  942.09 keV	( 421.45 keV --> 2.6964 MeV) 	Eleak/event = 103.63 keV
+        neutron:       7  Emean =  1.5668 MeV	( 61.645 keV --> 5.2166 MeV) 	Eleak/event = 109.68 keV
+
+--------- Ranecu engine status ---------
+ Initial seed (index) = 0
+ Current couple of seeds = 1522981015, 1955783593
+----------------------------------------
+100 events have been kept for refreshing and/or reviewing.
+  "/vis/reviewKeptEvents" to review one by one.
+  To see accumulated, "/vis/enable", then "/vis/viewer/flush" or "/vis/viewer/rebuild".
+There are histograms that can be viewed with visualization:
+  25 h1 histograms(s)
+  List them with "/analysis/list".
+  View them immediately with "/vis/plot" or "/vis/reviewPlots".
+  But...there are no entries. To make your histograms available for
+  plotting in this UI session, use CloseFile(false) in your
+  EndOfRunAction and Reset() in your BeginOfRunAction.
+2024-12-13 14:06:37.240 Hadr06[67065:2808179] +[CATransaction synchronize] called within transaction
+2024-12-13 14:06:37.927 Hadr06[67065:2808179] +[CATransaction synchronize] called within transaction
+2024-12-13 14:06:45.419 Hadr06[67065:2808179] +[CATransaction synchronize] called within transaction
+2024-12-13 14:07:12.646 Hadr06[67065:2808179] +[CATransaction synchronize] called within transaction
+/vis/viewer/save /Users/mason/liang-group/liang-group-photofission/simulation3/runs/u238_density1_100_particles/viewer.mac
+Viewer "viewer-0 (OpenGLStoredQt)" saved to file '/Users/mason/liang-group/liang-group-photofission/simulation3/runs/u238_density1_100_particles/viewer.mac".
+  Read the view back into this or any viewer with
+  "/control/execute /Users/mason/liang-group/liang-group-photofission/simulation3/runs/u238_density1_100_particles/viewer.mac" or use
+  "/vis/viewer/interpolate" if you have several saved files -
+  see "help /vis/viewer/interpolate" for guidance.
+2024-12-13 14:07:28.569 Hadr06[67065:2808179] +[CATransaction synchronize] called within transaction
+2024-12-13 14:07:28.673 Hadr06[67065:2808179] +[CATransaction synchronize] called within transaction
