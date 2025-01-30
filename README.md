@@ -126,3 +126,7 @@ The total utilization for the user, and the overall project, can be found with t
 expanse-client user -r expanse
 expanse-client project riu122 -p
 ```
+
+## Specific Runs
+### Simulation 4
+  * 36634700 | Shared | 64 cpu/node | 64GB mem | 01:16:04 | 1e9 particles | no histograms | sim4_1.36634700.exp-1-37.out
