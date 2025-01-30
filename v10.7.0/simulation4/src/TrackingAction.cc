@@ -51,6 +51,21 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
   else if (type == "meson")                    ih = 12;
   else if (type == "lepton")                   ih = 13;        
   if (ih > 0) analysis->FillH1(ih,energy);
+
+  // Select particles of interest
+  if (particle->GetParticleName() == "neutron" ||
+      particle->GetParticleName() == "proton" ||
+      particle->GetParticleName() == "e-" ||
+      particle->GetParticleName() == "e+" ||
+      particle->GetParticleName() == "gamma") {
+        
+      // Get the position and energy of the particle
+      G4ThreeVector position = track->GetPosition();  // Impact position
+      G4double energy = track->GetKineticEnergy();    // Particle energy
+        
+      // Store the data in the EventAction
+      fEventAction->StoreData(particle->GetParticleName(), position, energy);
+  }
    
   //to force only 1 fission : kill secondary neutrons
   ///if (particle == G4Neutron::Neutron()) {
