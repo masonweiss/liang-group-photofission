@@ -25,5 +25,6 @@
 /analysis/h1/set  1 100  100. 300. MeV	#Edep
 /analysis/h1/set  3 100    0.  20. MeV	#Eflow
 #
-/run/printProgress 10000
-/run/beamOn 1000000000
+/run/printProgress 1000
+#/run/beamOn 1000000000
+/run/beamOn 100000
