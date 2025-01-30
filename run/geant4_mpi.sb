@@ -1,0 +1,40 @@
+#!/bin/bash
+#SBATCH --job-name="geant4_simulation"
+#SBATCH --output="geant4_simulation.%j.%N.out"
+#SBATCH --partition=compute
+#SBATCH --nodes=2                    # Number of nodes
+#SBATCH --ntasks-per-node=128        # Cores per node
+#SBATCH --export=ALL
+#SBATCH -t 00:30:00                  # Set time limit (adjust as needed)
+
+## Environment Setup
+module purge
+module load slurm
+module load cpu
+module load gcc/10.2.0
+module load openmpi/4.0.4
+module load cmake/3.21.4
+
+## Compile the Geant4 code (if needed)
+# Assuming your source code is located in a directory like `geant4_code/`
+# Adjust the following based on your code's build system (CMake or Makefile)
+cd /home/mweiss1/liang-group-photofission/v10.7.0/Hadr06/build
+
+# If you need to compile with CMake (uncomment and adapt)
+cmake -DGEANT4_BUILD_MULTITHREADED=ON ..
+make
+
+# Or if you are using a Makefile (uncomment)
+# make -j
+
+## Running the Geant4 simulation
+####### cd ..  # Go to the directory where the executable is located
+
+# Use mpirun to run the Geant4 executable (assuming it's compiled with MPI support)
+mpirun -np 256 ./Hadr06 singleFission.mac
+
+# If you're using OpenMP (e.g., multithreading on a single node), set the number of threads
+# export OMP_NUM_THREADS=128  # Set number of OpenMP threads per process (if needed)
+
+# Or if your Geant4 code is multithreaded with OpenMP, you could run it like this:
+# mpirun -np 1 ./your_geant4_executable  # Running on a single node, but using OpenMP threads
