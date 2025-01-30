@@ -80,7 +80,7 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
   // if (track->GetParentID() == 0) {  // Only log primary particles
   G4int trackID = track->GetTrackID();
   G4String particleName = track->GetDefinition()->GetParticleName();
-  4double energy = track->GetKineticEnergy();
+  G4double energy = track->GetKineticEnergy();
   G4ThreeVector position = track->GetPosition();
 
   // Log information with "Creation" event type
