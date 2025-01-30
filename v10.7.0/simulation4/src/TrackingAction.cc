@@ -12,11 +12,35 @@
 #include "G4SystemOfUnits.hh"
 #include "G4UnitsTable.hh"
 
+#include <fstream>
+#include <sstream>
+#include <thread>
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 TrackingAction::TrackingAction(EventAction* event)
-:G4UserTrackingAction(), fEventAction(event)
-{ }
+:G4UserTrackingAction(), fEventAction(event), fCSVFile()
+{ 
+  // Open a unique CSV file per thread based on thread ID
+    std::stringstream filename;
+    filename << "tracking_output_thread_" << std::this_thread::get_id() << ".csv";
+    fCSVFile.open(filename.str(), std::ios::out | std::ios::app);
+    if (!fCSVFile.is_open()) {
+        G4cerr << "Error: Cannot open CSV file for thread " << std::this_thread::get_id() << G4endl;
+    }
+
+    // Write the header if the file is empty
+    if (fCSVFile.tellp() == 0) {
+        fCSVFile << "TrackID,ParticleName,Energy,PosX,PosY,PosZ,EventType\n";
+    }
+}
+
+TrackingAction::~TrackingAction()
+{
+    if (fCSVFile.is_open()) {
+        fCSVFile.close();
+    }
+}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -52,20 +76,22 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
   else if (type == "lepton")                   ih = 13;        
   if (ih > 0) analysis->FillH1(ih,energy);
 
-  // Select particles of interest
-  if (particle->GetParticleName() == "neutron" ||
-      particle->GetParticleName() == "proton" ||
-      particle->GetParticleName() == "e-" ||
-      particle->GetParticleName() == "e+" ||
-      particle->GetParticleName() == "gamma") {
-        
-      // Get the position and energy of the particle
-      G4ThreeVector position = track->GetPosition();  // Impact position
-      G4double energy = track->GetKineticEnergy();    // Particle energy
-        
-      // Store the data in the EventAction
-      fEventAction->StoreData(particle->GetParticleName(), position, energy);
-  }
+  // Log data when the particle is created (at the beginning of the track)
+    if (track->GetParentID() == 0) {  // Only log primary particles
+        G4int trackID = track->GetTrackID();
+        G4String particleName = track->GetDefinition()->GetParticleName();
+        G4double energy = track->GetKineticEnergy();
+        G4ThreeVector position = track->GetPosition();
+
+        // Log information with "Creation" event type
+        fCSVFile << trackID << ","
+                 << particleName << ","
+                 << energy << ","
+                 << position.x() << ","
+                 << position.y() << ","
+                 << position.z() << ","
+                 << "Creation\n";
+    }
    
   //to force only 1 fission : kill secondary neutrons
   ///if (particle == G4Neutron::Neutron()) {
@@ -88,6 +114,16 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
  G4double energy = track->GetKineticEnergy();
  
  fEventAction->AddEflow(energy);  
+
+ if (track->GetParentID() == 0) {  // Only log primary particles when detected
+        fCSVFile << track->GetTrackID() << ","
+                 << name << ","
+                 << energy << ","
+                 << position.x() << ","
+                 << position.y() << ","
+                 << position.z() << ","
+                 << "Detection\n";  // Log "Detection" event type
+    }
  
  Run* run = static_cast<Run*>(
               G4RunManager::GetRunManager()->GetNonConstCurrentRun());
