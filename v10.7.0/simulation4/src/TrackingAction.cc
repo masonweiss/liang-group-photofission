@@ -77,21 +77,21 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
   if (ih > 0) analysis->FillH1(ih,energy);
 
   // Log data when the particle is created (at the beginning of the track)
-    if (track->GetParentID() == 0) {  // Only log primary particles
-        G4int trackID = track->GetTrackID();
-        G4String particleName = track->GetDefinition()->GetParticleName();
-        G4double energy = track->GetKineticEnergy();
-        G4ThreeVector position = track->GetPosition();
+  // if (track->GetParentID() == 0) {  // Only log primary particles
+  G4int trackID = track->GetTrackID();
+  G4String particleName = track->GetDefinition()->GetParticleName();
+  4double energy = track->GetKineticEnergy();
+  G4ThreeVector position = track->GetPosition();
 
-        // Log information with "Creation" event type
-        fCSVFile << trackID << ","
-                 << particleName << ","
-                 << energy << ","
-                 << position.x() << ","
-                 << position.y() << ","
-                 << position.z() << ","
-                 << "Creation\n";
-    }
+  // Log information with "Creation" event type
+  fCSVFile << trackID << ","
+           << particleName << ","
+           << energy << ","
+           << position.x() << ","
+           << position.y() << ","
+           << position.z() << ","
+           << "Creation\n";
+  // }
    
   //to force only 1 fission : kill secondary neutrons
   ///if (particle == G4Neutron::Neutron()) {
@@ -116,15 +116,22 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
  
  fEventAction->AddEflow(energy);  
 
- if (track->GetParentID() == 0) {  // Only log primary particles when detected
-        fCSVFile << track->GetTrackID() << ","
+//  if (track->GetParentID() == 0) {  // Only log primary particles when detected
+//         fCSVFile << track->GetTrackID() << ","
+//                  << name << ","
+//                  << energy << ","
+//                  << position.x() << ","
+//                  << position.y() << ","
+//                  << position.z() << ","
+//                  << "Detection\n";  // Log "Detection" event type
+//     }
+fCSVFile << track->GetTrackID() << ","
                  << name << ","
                  << energy << ","
                  << position.x() << ","
                  << position.y() << ","
                  << position.z() << ","
                  << "Detection\n";  // Log "Detection" event type
-    }
  
  Run* run = static_cast<Run*>(
               G4RunManager::GetRunManager()->GetNonConstCurrentRun());

@@ -23,12 +23,16 @@ class RunAction : public G4UserRunAction
     virtual G4Run* GenerateRun();  
     virtual void BeginOfRunAction(const G4Run*);
     virtual void   EndOfRunAction(const G4Run*);
+
+    void CombineCSVFiles();  // Method to combine CSVs
                             
   private:
     DetectorConstruction*      fDetector;
     PrimaryGeneratorAction*    fPrimary;
     Run*                       fRun;    
     HistoManager*              fHistoManager;
+
+    std::string outputDirectory;
         
 };
 
