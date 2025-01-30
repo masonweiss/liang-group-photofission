@@ -114,3 +114,15 @@ Note, after installing the data, you may need to specify the path for Geant4 to 
 export G4DATA=$HOME/geant4/geant4-v10.7.0-install/share/Geant4-10.7.0/data
 source $HOME/geant4/geant4-v10.7.0-install/bin/geant4.sh
 ```
+
+## Submitting Jobs on Expanse
+
+The job's progress can be monitored (with verbose output) with the following command:
+```
+scontrol show job <id>
+```
+The total utilization for the user, and the overall project, can be found with the following commands:
+```
+expanse-client user -r expanse
+expanse-client project riu122 -p
+```
