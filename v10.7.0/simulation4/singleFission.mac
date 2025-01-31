@@ -28,10 +28,10 @@
 /analysis/h1/set 3 50  0. 300. MeV	#Eflow
 /analysis/h1/set 4 50  0. 25. MeV	#energy spectrum of gamma at creation
 /analysis/h1/set 5 50  0. 25. MeV	#energy spectrum of e+- at creation
-/analysis/h1/set 6 50  0. 25. MeV 	#energy spectrum of neutrons at creation
+/analysis/h1/set 6 100  0. 25. MeV 	#energy spectrum of neutrons at creation
 /analysis/h1/set 7 50  0. 25. MeV	#energy spectrum of protons at creation
 /analysis/h1/set 8 50  0. 25. MeV	#energy spectrum of deuterons at creation
-/analysis/h1/set 9 50  0. 25. MeV	#energy spectrum of alphas at creation
+/analysis/h1/set 9 100  0. 25. MeV	#energy spectrum of alphas at creation
 /analysis/h1/set 10 50  0. 25. MeV	#energy spectrum of all others ions at creation
 /analysis/h1/set 11 50  0. 25. MeV	#energy spectrum of all others baryons at creation
 /analysis/h1/set 12 50  0. 25. MeV	#energy spectrum of all others mesons at creation
@@ -47,13 +47,27 @@
 /analysis/h1/set 22 50  0. 25. MeV	#energy spectrum of all others emerging mesons
 /analysis/h1/set 23 50  0. 25. MeV	#energy spectrum of all others emerging leptons (neutrinos)
 /analysis/h1/set 24 50  0. 300. MeV	#Etot
-/analysis/h1/set 25 50  0. 3.14159 rad #angle of gamma
-/analysis/h1/set 26 50  0. 3.14159 rad #angle of e+-
-/analysis/h1/set 27 50  0. 3.14159 rad #angle of neutrons
-/analysis/h1/set 28 50  0. 3.14159 rad #angle of protons
-/analysis/h1/set 29 50  0. 3.14159 rad #angle of deuterons
-/analysis/h1/set 30 50  0. 3.14159 rad #angle of alphas
+
+# theta angles
+#/analysis/h1/set 25 50  0. 3.14159 rad #theta angle of gamma
+/analysis/h1/set 25 50  0. 6.2832 rad #theta angle of gamma
+/analysis/h1/set 26 50  0. 6.2832 rad #angle of e+-
+/analysis/h1/set 27 50  0. 6.2832 rad #angle of neutrons
+/analysis/h1/set 28 50  0. 6.2832 rad #angle of protons
+/analysis/h1/set 29 50  0. 6.2832 rad #angle of deuterons
+/analysis/h1/set 30 50  0. 6.2832 rad #angle of alphas
+
+# phi angles
+/analysis/h1/set 31 50  0. 6.2832 rad #theta angle of gamma
+/analysis/h1/set 32 50  0. 6.2832 rad #angle of e+-
+/analysis/h1/set 33 50  0. 6.2832 rad #angle of neutrons
+/analysis/h1/set 34 50  0. 6.2832 rad #angle of protons
+/analysis/h1/set 35 50  0. 6.2832 rad #angle of deuterons
+/analysis/h1/set 36 50  0. 6.2832 rad #angle of alphas
 #
-/run/printProgress 1000
+#/run/printProgress 1000000
 #/run/beamOn 1000000000
-/run/beamOn 10000
+#/run/beamOn 100000000
+
+/run/printProgress 10000
+/run/beamOn 1000000

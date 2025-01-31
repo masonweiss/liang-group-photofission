@@ -120,8 +120,13 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
   // theta = std::acos(z / mag);  // arccos(z / |v|)
   // // Azimuthal angle (phi)
   // phi = std::atan2(y, x);  // atan2(y, x)
-  double ang = position.phi();
-  analysis->FillH1(ih+11,ang);
+  double theta = position.theta();
+  analysis->FillH1(ih+11,theta);
+
+  double phi = position.phi();
+  analysis->FillH1(ih+17,phi);
+
+
   }
 }
 

@@ -59,12 +59,18 @@ void HistoManager::Book()
          "energy spectrum of all others emerging mesons",                //22
          "energy spectrum of all others emerging leptons (neutrinos)",   //23	
          "total energy released : edep + eflow",                         //24
-         "angle of gamma"                                                //25
-         "angle of e+-"                                                  //26
-         "angle of neutrons"                                             //27
-         "angle of protons"                                              //28
-         "angle of deuterons"                                            //29
-         "angle of alphas"                                               //30
+         "theta angle of gamma",                                         //25
+         "theta angle of e+-",                                           //26
+         "theta angle of neutrons",                                      //27
+         "theta angle of protons",                                       //28
+         "theta angle of deuterons",                                     //29
+         "theta angle of alphas",                                        //30
+         "phi angle of gamma",                                           //31
+         "phi angle of e+-",                                             //32
+         "phi angle of neutrons",                                        //33
+         "phi angle of protons",                                         //34
+         "phi angle of deuterons",                                       //35
+         "phi angle of alphas"                                           //36
        };
 
   // Default values (to be reset via /analysis/h1/set command) 
