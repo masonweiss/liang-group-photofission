@@ -12,35 +12,11 @@
 #include "G4SystemOfUnits.hh"
 #include "G4UnitsTable.hh"
 
-#include <fstream>
-#include <sstream>
-#include <thread>
-
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 TrackingAction::TrackingAction(EventAction* event)
-:G4UserTrackingAction(), fEventAction(event), fCSVFile()
-{ 
-  // Open a unique CSV file per thread based on thread ID
-    std::stringstream filename;
-    filename << "tracking_output_thread_" << std::this_thread::get_id() << ".csv";
-    fCSVFile.open(filename.str(), std::ios::out | std::ios::app);
-    if (!fCSVFile.is_open()) {
-        G4cerr << "Error: Cannot open CSV file for thread " << std::this_thread::get_id() << G4endl;
-    }
-
-    // Write the header if the file is empty
-    if (fCSVFile.tellp() == 0) {
-        fCSVFile << "TrackID,ParticleName,Energy,PosX,PosY,PosZ,EventType\n";
-    }
-}
-
-TrackingAction::~TrackingAction()
-{
-    if (fCSVFile.is_open()) {
-        fCSVFile.close();
-    }
-}
+:G4UserTrackingAction(), fEventAction(event)
+{ }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -53,9 +29,18 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
   Run* run = static_cast<Run*>(
         G4RunManager::GetRunManager()->GetNonConstCurrentRun());    
   run->ParticleCount(name,energy);
-       
+
+  // kill all neutrons
+  if (particle == G4Neutron::Neutron()) {
+    fEventAction->AddEdep(energy);  
+    G4Track* aTrack = (G4Track*)track;
+    aTrack->SetTrackStatus(fStopAndKill);
+  }
+
+         
   // histograms: energy at creation
   //
+
   G4AnalysisManager* analysis = G4AnalysisManager::Instance();
  
   G4int ih = 0;
@@ -75,23 +60,6 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
   else if (type == "meson")                    ih = 12;
   else if (type == "lepton")                   ih = 13;        
   if (ih > 0) analysis->FillH1(ih,energy);
-
-  // Log data when the particle is created (at the beginning of the track)
-  // if (track->GetParentID() == 0) {  // Only log primary particles
-  G4int trackID = track->GetTrackID();
-  G4String particleName = track->GetDefinition()->GetParticleName();
-  // G4double energy = track->GetKineticEnergy();
-  G4ThreeVector position = track->GetPosition();
-
-  // Log information with "Creation" event type
-  fCSVFile << trackID << ","
-           << particleName << ","
-           << energy << ","
-           << position.x() << ","
-           << position.y() << ","
-           << position.z() << ","
-           << "Creation\n";
-  // }
    
   //to force only 1 fission : kill secondary neutrons
   ///if (particle == G4Neutron::Neutron()) {
@@ -112,26 +80,9 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
  const G4ParticleDefinition* particle = track->GetParticleDefinition();
  G4String name   = particle->GetParticleName();
  G4double energy = track->GetKineticEnergy();
- G4ThreeVector position = track->GetPosition();
+ G4ThreeVector position = track->GetPosition()
  
  fEventAction->AddEflow(energy);  
-
-//  if (track->GetParentID() == 0) {  // Only log primary particles when detected
-//         fCSVFile << track->GetTrackID() << ","
-//                  << name << ","
-//                  << energy << ","
-//                  << position.x() << ","
-//                  << position.y() << ","
-//                  << position.z() << ","
-//                  << "Detection\n";  // Log "Detection" event type
-//     }
-fCSVFile << track->GetTrackID() << ","
-                 << name << ","
-                 << energy << ","
-                 << position.x() << ","
-                 << position.y() << ","
-                 << position.z() << ","
-                 << "Detection\n";  // Log "Detection" event type
  
  Run* run = static_cast<Run*>(
               G4RunManager::GetRunManager()->GetNonConstCurrentRun());
@@ -157,7 +108,21 @@ fCSVFile << track->GetTrackID() << ","
  else if (type == "meson")                    ih = 22;
  else if (type == "lepton")                   ih = 23;        
  if (ih > 0) analysis->FillH1(ih,energy);
+
+ if (ih == 16) {
+  // double x = position.x();
+  // double y = position.y();
+  // double z = position.z();
+
+  // double mag = position.mag();
+
+  // // Polar angle (theta)
+  // theta = std::acos(z / mag);  // arccos(z / |v|)
+  // // Azimuthal angle (phi)
+  // phi = std::atan2(y, x);  // atan2(y, x)
+  double ang = position.theta();
+  analysis->FillH1(25,ang);
+  }
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-

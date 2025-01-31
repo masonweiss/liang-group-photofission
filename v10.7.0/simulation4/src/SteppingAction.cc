@@ -45,5 +45,3 @@ void SteppingAction::UserSteppingAction(const G4Step* aStep)
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-
