@@ -109,7 +109,7 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
  else if (type == "lepton")                   ih = 23;        
  if (ih > 0) analysis->FillH1(ih,energy);
 
- if (ih == 16) {
+ if (ih > 13 && ih < 20) {
   // double x = position.x();
   // double y = position.y();
   // double z = position.z();
@@ -120,8 +120,8 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
   // theta = std::acos(z / mag);  // arccos(z / |v|)
   // // Azimuthal angle (phi)
   // phi = std::atan2(y, x);  // atan2(y, x)
-  double ang = position.theta();
-  analysis->FillH1(25,ang);
+  double ang = position.phi();
+  analysis->FillH1(ih+11,ang);
   }
 }
 

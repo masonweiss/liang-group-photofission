@@ -29,10 +29,10 @@ void HistoManager::Book()
   analysisManager->SetActivation(true);     //enable inactivation of histograms
   
   // Define histograms start values
-  const G4int kMaxHisto = 26;
+  const G4int kMaxHisto = 31;
   const G4String id[] = {"0","1","2","3","4","5","6","7","8","9",
                          "10","11","12","13","14","15","16","17","18","19",
-			 "20","21","22","23","24","25" };
+			 "20","21","22","23","24","25","26","27","28","29","30" };
   const G4String title[] = 
        { "dummy",                                                        //0
          "total energy deposit",                                         //1
@@ -59,7 +59,12 @@ void HistoManager::Book()
          "energy spectrum of all others emerging mesons",                //22
          "energy spectrum of all others emerging leptons (neutrinos)",   //23	
          "total energy released : edep + eflow",                         //24
-         "angle of electrons"                                            //25
+         "angle of gamma"                                                //25
+         "angle of e+-"                                                  //26
+         "angle of neutrons"                                             //27
+         "angle of protons"                                              //28
+         "angle of deuterons"                                            //29
+         "angle of alphas"                                               //30
        };
 
   // Default values (to be reset via /analysis/h1/set command) 
