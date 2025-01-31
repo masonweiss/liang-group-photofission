@@ -80,7 +80,7 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
  const G4ParticleDefinition* particle = track->GetParticleDefinition();
  G4String name   = particle->GetParticleName();
  G4double energy = track->GetKineticEnergy();
- G4ThreeVector position = track->GetPosition()
+ G4ThreeVector position = track->GetPosition();
  
  fEventAction->AddEflow(energy);  
  
