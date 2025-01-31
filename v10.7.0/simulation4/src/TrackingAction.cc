@@ -30,12 +30,12 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
         G4RunManager::GetRunManager()->GetNonConstCurrentRun());    
   run->ParticleCount(name,energy);
 
-  // kill all neutrons
-  if (particle == G4Neutron::Neutron()) {
-    fEventAction->AddEdep(energy);  
-    G4Track* aTrack = (G4Track*)track;
-    aTrack->SetTrackStatus(fStopAndKill);
-  }
+  // // kill all neutrons
+  // if (particle == G4Neutron::Neutron()) {
+  //   fEventAction->AddEdep(energy);  
+  //   G4Track* aTrack = (G4Track*)track;
+  //   aTrack->SetTrackStatus(fStopAndKill);
+  // }
 
          
   // histograms: energy at creation

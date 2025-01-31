@@ -47,7 +47,8 @@
 /analysis/h1/set 22 100  0. 300. MeV	#energy spectrum of all others emerging mesons
 /analysis/h1/set 23 50  0. 50. MeV	#energy spectrum of all others emerging leptons (neutrinos)
 /analysis/h1/set 24 100  0. 300. MeV	#Etot
+/analysis/h1/set 25 100  0. 3.14  #angle
 #
 /run/printProgress 1000
 #/run/beamOn 1000000000
-/run/beamOn 100000
+/run/beamOn 10000
