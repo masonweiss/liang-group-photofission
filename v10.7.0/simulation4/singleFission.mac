@@ -76,4 +76,4 @@
 /analysis/h1/set 40 50  -3.15 3.15 rad #angle of alphas
 #
 /run/printProgress 10000000
-/run/beamOn 500000000
+/run/beamOn 100000000
