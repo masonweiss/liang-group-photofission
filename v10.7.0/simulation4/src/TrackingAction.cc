@@ -124,7 +124,7 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
   analysis->FillH1(ih+13,std::cos(theta));
 
   double phi = position.phi();
-  analysis->FillH1(ih+20,phi);
+  analysis->FillH1(ih+19,phi);
 
 
   }
