@@ -61,13 +61,13 @@ void HistoManager::Book()
          "energy spectrum of all others emerging mesons",                //24
          "energy spectrum of all others emerging leptons (neutrinos)",   //25	
          "total energy released : edep + eflow",                         //26
-         "theta angle of gamma",                                         //27
-         "theta angle of e-",                                           //28
-         "theta angle of e+",                                           //29
-         "theta angle of neutrons",                                      //30
-         "theta angle of protons",                                       //31
-         "theta angle of deuterons",                                     //32
-         "theta angle of alphas",                                        //33
+         "solid polar angle of gamma",                                         //27
+         "solid polar angle of e-",                                           //28
+         "solid polar angle of e+",                                           //29
+         "solid polar angle of neutrons",                                      //30
+         "solid polar angle of protons",                                       //31
+         "solid polar angle of deuterons",                                     //32
+         "solid polar angle of alphas",                                        //33
          "phi angle of gamma",                                           //34
          "phi angle of e-",                                             //35
          "phi angle of e+",                                             //36

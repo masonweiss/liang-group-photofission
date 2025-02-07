@@ -1,0 +1,1026 @@
+
+**************************************************************
+ Geant4 version Name: geant4-10-07 [MT]   (4-December-2020)
+  << in Multi-threaded mode >> 
+                       Copyright : Geant4 Collaboration
+                      References : NIM A 506 (2003), 250-303
+                                 : IEEE-TNS 53 (2006), 270-278
+                                 : NIM A 835 (2016), 186-225
+                             WWW : http://geant4.org/
+**************************************************************
+
+userDetector->Construct() start.
+
+ The Absorber is 1 cm  of U238
+ 
+ Material:     U238    density: 19.050 g/cm3   RadL:   3.150 mm   Nucl.Int.Length:  11.387 cm 
+                       Imean: 890.000 eV   temperature: 293.15 K  pressure:   1.00 atm
+
+   --->  Element: U238 (U238)   Z = 92.0   N =   238   A = 238.051 g/mole
+         --->  Isotope:  U238   Z = 92   N = 238   A = 238.05 g/mole   abundance: 100.000 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+World is registered to the default region.
+physicsList->Construct() start.
+/home/mweiss1/geant4-install/share/Geant4-10.7.0/data/G4NDL4.6
+@@@ G4ParticleHPInelastic instantiated for particle neutron data directory variable is G4NEUTRONHPDATA pointing to /home/mweiss1/geant4-install/share/Geant4-10.7.0/data/G4NDL4.6/Inelastic
+@@@ G4ParticleHPInelasticData instantiated for particle neutron data directory variable is G4NEUTRONHPDATA pointing to /home/mweiss1/geant4-install/share/Geant4-10.7.0/data/G4NDL4.6
+NeutronHP: /Capture file for Z = 6, A = 12 is not found and NeutronHP will use /home/mweiss1/geant4-install/share/Geant4-10.7.0/data/G4NDL4.6/Capture/CrossSection/6_nat_Carbon
+NeutronHP: /Elastic file for Z = 6, A = 12 is not found and NeutronHP will use /home/mweiss1/geant4-install/share/Geant4-10.7.0/data/G4NDL4.6/Elastic/CrossSection/6_nat_Carbon
+NeutronHP: /Inelastic file for Z = 6, A = 12 is not found and NeutronHP will use /home/mweiss1/geant4-install/share/Geant4-10.7.0/data/G4NDL4.6/Inelastic/CrossSection/6_nat_Carbon
+physicsList->CheckParticleList() start.
+physicsList->setCut() start.
+======================================================================
+======          Radioactive Decay Physics Parameters           =======
+======================================================================
+Max life time                                     1.4427e+06 ps
+Internal e- conversion flag                       1
+Stored internal conversion coefficients           1
+Enable correlated gamma emission                  0
+Max 2J for sampling of angular correlations       10
+Atomic de-excitation enabled                      1
+Auger electron emission enabled                   1
+Auger cascade enabled                             1
+Check EM cuts disabled for atomic de-excitation   1
+Use Bearden atomic level energies                 0
+======================================================================
+NeutronHP: /Capture file for Z = 6, A = 12 is not found and NeutronHP will use /home/mweiss1/geant4-install/share/Geant4-10.7.0/data/G4NDL4.6/Capture/CrossSection/6_nat_Carbon
+NeutronHP: /Elastic file for Z = 6, A = 12 is not found and NeutronHP will use /home/mweiss1/geant4-install/share/Geant4-10.7.0/data/G4NDL4.6/Elastic/CrossSection/6_nat_Carbon
+NeutronHP: /Inelastic file for Z = 6, A = 12 is not found and NeutronHP will use /home/mweiss1/geant4-install/share/Geant4-10.7.0/data/G4NDL4.6/Inelastic/CrossSection/6_nat_Carbon
+NeutronHP: /Elastic file for Z = 6, A = 12 is not found and NeutronHP will use /home/mweiss1/geant4-install/share/Geant4-10.7.0/data/G4NDL4.6/Elastic/CrossSection/6_nat_Carbon
+
+=======================================================
+======       ParticleHP Physics Parameters     ========
+=======================================================
+ UseOnlyPhotoEvaporation ? 0
+ SkipMissingIsotopes ?     0
+ NeglectDoppler ?          0
+ DoNotAdjustFinalState ?   0
+ ProduceFissionFragments ? 0
+ UseWendtFissionModel ?    0
+ UseNRESP71Model ?         0
+=======================================================
+
+@@@ G4ParticleHPInelastic instantiated for particle neutron data directory variable is G4NEUTRONHPDATA pointing to /home/mweiss1/geant4-install/share/Geant4-10.7.0/data/G4NDL4.6/Inelastic
+NeutronHP: /Capture file for Z = 6, A = 12 is not found and NeutronHP will use /home/mweiss1/geant4-install/share/Geant4-10.7.0/data/G4NDL4.6/Capture/CrossSection/6_nat_Carbon
+
+====================================================================
+                  HADRONIC PROCESSES SUMMARY (verbose level 1)
+
+---------------------------------------------------
+                           Hadronic Processes for GenericIon
+
+  Process: ionElastic
+        Model:          NNDiffuseElastic: 0 meV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 meV ---> 100 TeV
+
+  Process: ionInelastic
+        Model:  Binary Light Ion Cascade: 0 meV/n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 meV ---> 100 TeV
+
+  Process: RadioactiveDecayBase
+
+---------------------------------------------------
+                           Hadronic Processes for He3
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 meV ---> 25.6 PeV
+
+  Process: He3Inelastic
+        Model:  Binary Light Ion Cascade: 0 meV/n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:     G4ParticleInelasticXS: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for alpha
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 meV ---> 25.6 PeV
+
+  Process: alphaInelastic
+        Model:  Binary Light Ion Cascade: 0 meV/n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:     G4ParticleInelasticXS: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for anti_He3
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV/n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 25.6 PeV
+
+  Process: anti_He3Inelastic
+        Model:                      FTFP: 0 meV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 25.6 PeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_alpha
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV/n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 25.6 PeV
+
+  Process: anti_alphaInelastic
+        Model:                      FTFP: 0 meV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 25.6 PeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_deuteron
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV/n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 25.6 PeV
+
+  Process: anti_deuteronInelastic
+        Model:                      FTFP: 0 meV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 25.6 PeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_lambda
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 meV ---> 100 TeV
+
+  Process: anti_lambdaInelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 0 meV ---> 25 GeV
+     Cr_sctns:            Glauber-Gribov: 0 meV ---> 100 TeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_neutron
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV ---> 100.1 MeV
+        Model:              AntiAElastic: 100 MeV ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 25.6 PeV
+
+  Process: anti_neutronInelastic
+        Model:                      FTFP: 0 meV ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 25.6 PeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_proton
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV ---> 100.1 MeV
+        Model:              AntiAElastic: 100 MeV ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 25.6 PeV
+
+  Process: anti_protonInelastic
+        Model:                      FTFP: 0 meV ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 25.6 PeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_triton
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV/n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 25.6 PeV
+
+  Process: anti_tritonInelastic
+        Model:                      FTFP: 0 meV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 meV ---> 25.6 PeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for deuteron
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 meV ---> 25.6 PeV
+
+  Process: dInelastic
+        Model:  Binary Light Ion Cascade: 0 meV/n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:     G4ParticleInelasticXS: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for gamma
+
+  Process: photonNuclear
+        Model:               GammaNPreco: 0 meV ---> 200 MeV
+        Model:            BertiniCascade: 199 MeV ---> 10 GeV
+     Cr_sctns:            PhotoNuclearXS: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for kaon+
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 meV ---> 100 TeV
+
+  Process: kaon+Inelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 3 GeV ---> 25 GeV
+        Model:            BertiniCascade: 0 meV ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for kaon-
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 meV ---> 100 TeV
+
+  Process: kaon-Inelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 3 GeV ---> 25 GeV
+        Model:            BertiniCascade: 0 meV ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 meV ---> 100 TeV
+
+  Process: hBertiniCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for lambda
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 meV ---> 100 TeV
+
+  Process: lambdaInelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 3 GeV ---> 25 GeV
+        Model:            BertiniCascade: 0 meV ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for mu-
+
+  Process: muMinusCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for neutron
+
+  Process: hadElastic
+        Model:             hElasticCHIPS: 19.5 MeV ---> 100 TeV
+        Model:          NeutronHPElastic: 0 meV ---> 20 MeV
+     Cr_sctns:        NeutronHPElasticXS: 0 meV ---> 20 MeV
+     Cr_sctns:        G4NeutronElasticXS: 0 meV ---> 100 TeV
+
+  Process: neutronInelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 3 GeV ---> 25 GeV
+        Model:            Binary Cascade: 19.9 MeV ---> 6 GeV
+        Model:        NeutronHPInelastic: 0 meV ---> 20 MeV
+     Cr_sctns:      NeutronHPInelasticXS: 0 meV ---> 20 MeV
+     Cr_sctns:      G4NeutronInelasticXS: 0 meV ---> 100 TeV
+
+  Process: nCapture
+        Model:          NeutronHPCapture: 0 meV ---> 20 MeV
+        Model:               nRadCapture: 19.9 MeV ---> 100 TeV
+     Cr_sctns:        NeutronHPCaptureXS: 0 meV ---> 20 MeV
+     Cr_sctns:        G4NeutronCaptureXS: 0 meV ---> 100 TeV
+
+  Process: nFission
+        Model:          NeutronHPFission: 0 meV ---> 20 MeV
+        Model:                G4LFission: 19.9 MeV ---> 100 TeV
+     Cr_sctns:        NeutronHPFissionXS: 0 meV ---> 20 MeV
+     Cr_sctns:          GheishaFissionXS: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for pi+
+
+  Process: hadElastic
+        Model:           hElasticGlauber: 0 meV ---> 100 TeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 meV ---> 100 TeV
+
+  Process: pi+Inelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 3 GeV ---> 25 GeV
+        Model:            BertiniCascade: 0 meV ---> 6 GeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for pi-
+
+  Process: hadElastic
+        Model:           hElasticGlauber: 0 meV ---> 100 TeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 meV ---> 100 TeV
+
+  Process: pi-Inelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 3 GeV ---> 25 GeV
+        Model:            BertiniCascade: 0 meV ---> 6 GeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 meV ---> 100 TeV
+
+  Process: hBertiniCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for proton
+
+  Process: hadElastic
+        Model:             hElasticCHIPS: 0 meV ---> 100 TeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 meV ---> 100 TeV
+
+  Process: protonInelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 3 GeV ---> 25 GeV
+        Model:            Binary Cascade: 0 meV ---> 6 GeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 meV ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for sigma-
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 meV ---> 100 TeV
+
+  Process: sigma-Inelastic
+        Model:                      QGSP: 12 GeV ---> 100 TeV
+        Model:                      FTFP: 3 GeV ---> 25 GeV
+        Model:            BertiniCascade: 0 meV ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 meV ---> 100 TeV
+
+  Process: hBertiniCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for triton
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 meV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 meV ---> 25.6 PeV
+
+  Process: tInelastic
+        Model:  Binary Light Ion Cascade: 0 meV/n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:     G4ParticleInelasticXS: 0 meV ---> 100 TeV
+
+================================================================
+### G4LevelReader: broken transition 0 from level 24 to 24 for isotope Z= 89 A= 219 - use ground level
+=======================================================================
+======       Pre-compound/De-excitation Physics Parameters     ========
+=======================================================================
+Type of pre-compound inverse x-section              3
+Pre-compound model active                           1
+Pre-compound excitation low energy (MeV)            0.1
+Pre-compound excitation high energy (MeV)           30
+Type of de-excitation inverse x-section             3
+Type of de-excitation factory                       Evaporation+GEM
+Number of de-excitation channels                    68
+Min excitation energy (keV)                         0.01
+Min energy per nucleon for multifragmentation (MeV) 2e+05
+Limit excitation energy for Fermi BreakUp (MeV)     20
+Level density (1/MeV)                               0.075
+Use simple level density model                      1
+Use discrete excitation energy of the residual      0
+Time limit for long lived isomeres (ns)             1442.7
+Isomer production flag                              1
+Internal e- conversion flag                         1
+Store e- internal conversion data                   1
+Electron internal conversion ID                     0
+Correlated gamma emission flag                      0
+Max 2J for sampling of angular correlations         10
+=======================================================================
+Start closing geometry.
+G4GeometryManager::ReportVoxelStats -- Voxel Statistics
+
+    Total memory consumed for geometry optimisation:   0 kByte
+    Total CPU time elapsed for geometry optimisation: 0 seconds
+
+=======================================================================
+--> G4MTRunManager::CreateAndStartWorkers() --> Initializing workers...
+=======================================================================
+
+Set file name: singleFission
+
+Region <DefaultRegionForTheWorld> --  -- appears in <World> world volume
+ This region is in the mass world.
+ Root logical volume(s) : World 
+ Pointers : G4VUserRegionInformation[0], G4UserLimits[0], G4FastSimulationManager[0], G4UserSteppingAction[0]
+ Materials : Galactic U238 
+ Production cuts :   gamma 10 km      e- 10 km      e+ 10 km  proton 0 fm 
+
+Region <DefaultRegionForParallelWorld> --  -- is not associated to any world.
+ Root logical volume(s) : 
+ Pointers : G4VUserRegionInformation[0], G4UserLimits[0], G4FastSimulationManager[0], G4UserSteppingAction[0]
+ Materials : 
+ Production cuts :   gamma 10 km      e- 10 km      e+ 10 km  proton 0 fm 
+
+========= Table of registered couples ============================
+
+Index : 0     used in the geometry : Yes
+ Material : Galactic
+ Range cuts        :  gamma  10 km     e-  10 km     e+  10 km  proton 0 fm 
+ Energy thresholds :  gamma  990 eV     e-  990 eV     e+  990 eV  proton 0 meV
+ Region(s) which use this couple : 
+    DefaultRegionForTheWorld
+
+Index : 1     used in the geometry : Yes
+ Material : U238
+ Range cuts        :  gamma  10 km     e-  10 km     e+  10 km  proton 0 fm 
+ Energy thresholds :  gamma  10 GeV    e-  10 GeV    e+  10 GeV proton 0 meV
+ Region(s) which use this couple : 
+    DefaultRegionForTheWorld
+
+==================================================================
+
+### Run 0 starts.
+
+--------- Ranecu engine status ---------
+ Initial seed (index) = 0
+ Current couple of seeds = 9876, 54321
+----------------------------------------
+... create file : singleFission.root - done
+... open analysis file : singleFission.root - done
+G4WT9 > Set file name: singleFission
+G4WT103 > Set file name: singleFission
+G4WT74 > Set file name: singleFission
+G4WT10 > Set file name: singleFission
+G4WT62 > Set file name: singleFission
+G4WT21 > Set file name: singleFission
+G4WT65 > Set file name: singleFission
+G4WT79 > Set file name: singleFission
+G4WT105 > Set file name: singleFission
+G4WT26 > Set file name: singleFission
+G4WT47 > Set file name: singleFission
+G4WT55 > Set file name: singleFission
+G4WT119 > Set file name: singleFission
+G4WT76 > Set file name: singleFission
+G4WT0 > Set file name: singleFission
+G4WT100 > Set file name: singleFission
+G4WT50 > Set file name: singleFission
+G4WT43 > Set file name: singleFission
+G4WT12 > Set file name: singleFission
+G4WT112 > Set file name: singleFission
+G4WT87 > Set file name: singleFission
+G4WT70 > Set file name: singleFission
+G4WT122 > Set file name: singleFission
+G4WT42 > Set file name: singleFission
+G4WT64 > Set file name: singleFission
+G4WT29 > Set file name: singleFission
+G4WT20 > Set file name: singleFission
+G4WT72 > Set file name: singleFission
+G4WT73 > Set file name: singleFission
+G4WT15 > Set file name: singleFission
+G4WT98 > Set file name: singleFission
+G4WT101 > Set file name: singleFission
+G4WT115 > Set file name: singleFission
+G4WT95 > Set file name: singleFission
+G4WT11 > Set file name: singleFission
+G4WT93 > Set file name: singleFission
+G4WT116 > Set file name: singleFission
+G4WT8 > Set file name: singleFission
+G4WT36 > Set file name: singleFission
+G4WT117 > Set file name: singleFission
+G4WT31 > Set file name: singleFission
+G4WT2 > Set file name: singleFission
+G4WT59 > Set file name: singleFission
+G4WT22 > Set file name: singleFission
+G4WT30 > Set file name: singleFission
+G4WT16 > Set file name: singleFission
+G4WT57 > Set file name: singleFission
+G4WT110 > Set file name: singleFission
+G4WT46 > Set file name: singleFission
+G4WT32 > Set file name: singleFission
+G4WT18 > Set file name: singleFission
+G4WT44 > Set file name: singleFission
+G4WT25 > Set file name: singleFission
+G4WT96 > Set file name: singleFission
+G4WT97 > Set file name: singleFission
+G4WT92 > Set file name: singleFission
+G4WT120 > Set file name: singleFission
+G4WT91 > Set file name: singleFission
+G4WT52 > Set file name: singleFission
+G4WT34 > Set file name: singleFission
+G4WT14 > Set file name: singleFission
+G4WT40 > Set file name: singleFission
+G4WT56 > Set file name: singleFission
+G4WT125 > Set file name: singleFission
+G4WT61 > Set file name: singleFission
+G4WT17 > Set file name: singleFission
+G4WT37 > Set file name: singleFission
+G4WT113 > Set file name: singleFission
+G4WT108 > Set file name: singleFission
+G4WT89 > Set file name: singleFission
+G4WT27 > Set file name: singleFission
+G4WT51 > Set file name: singleFission
+G4WT58 > Set file name: singleFission
+G4WT1 > Set file name: singleFission
+G4WT99 > Set file name: singleFission
+G4WT127 > Set file name: singleFission
+G4WT104 > Set file name: singleFission
+G4WT63 > Set file name: singleFission
+G4WT77 > Set file name: singleFission
+G4WT109 > Set file name: singleFission
+G4WT81 > Set file name: singleFission
+G4WT54 > Set file name: singleFission
+G4WT90 > Set file name: singleFission
+G4WT106 > Set file name: singleFission
+G4WT111 > Set file name: singleFission
+G4WT6 > Set file name: singleFission
+G4WT107 > Set file name: singleFission
+G4WT114 > Set file name: singleFission
+G4WT53 > Set file name: singleFission
+G4WT124 > Set file name: singleFission
+G4WT28 > Set file name: singleFission
+G4WT83 > Set file name: singleFission
+G4WT3 > Set file name: singleFission
+G4WT67 > Set file name: singleFission
+G4WT123 > Set file name: singleFission
+G4WT80 > Set file name: singleFission
+G4WT75 > Set file name: singleFission
+G4WT19 > Set file name: singleFission
+G4WT38 > Set file name: singleFission
+G4WT35 > Set file name: singleFission
+G4WT82 > Set file name: singleFission
+G4WT68 > Set file name: singleFission
+G4WT84 > Set file name: singleFission
+G4WT33 > Set file name: singleFission
+G4WT49 > Set file name: singleFission
+G4WT23 > Set file name: singleFission
+G4WT24 > Set file name: singleFission
+G4WT102 > Set file name: singleFission
+G4WT71 > Set file name: singleFission
+G4WT60 > Set file name: singleFission
+G4WT5 > Set file name: singleFission
+G4WT39 > Set file name: singleFission
+G4WT69 > Set file name: singleFission
+G4WT88 > Set file name: singleFission
+G4WT86 > Set file name: singleFission
+G4WT4 > Set file name: singleFission
+G4WT78 > Set file name: singleFission
+G4WT66 > Set file name: singleFission
+G4WT48 > Set file name: singleFission
+G4WT126 > Set file name: singleFission
+G4WT85 > Set file name: singleFission
+G4WT45 > Set file name: singleFission
+G4WT94 > Set file name: singleFission
+G4WT13 > Set file name: singleFission
+G4WT41 > Set file name: singleFission
+G4WT7 > Set file name: singleFission
+G4WT118 > Set file name: singleFission
+G4WT121 > Set file name: singleFission
+G4WT127 > ### Run 0 starts on worker thread 127.
+G4WT9 > ### Run 0 starts on worker thread 9.
+G4WT48 > ### Run 0 starts on worker thread 48.
+G4WT126 > ### Run 0 starts on worker thread 126.
+G4WT62 > ### Run 0 starts on worker thread 62.
+G4WT4 > ### Run 0 starts on worker thread 4.
+G4WT64 > ### Run 0 starts on worker thread 64.
+G4WT110 > ### Run 0 starts on worker thread 110.
+G4WT87 > ### Run 0 starts on worker thread 87.
+G4WT114 > ### Run 0 starts on worker thread 114.
+G4WT58 > ### Run 0 starts on worker thread 58.
+G4WT56 > ### Run 0 starts on worker thread 56.
+G4WT111 > ### Run 0 starts on worker thread 111.
+G4WT101 > ### Run 0 starts on worker thread 101.
+G4WT20 > ### Run 0 starts on worker thread 20.
+G4WT19 > ### Run 0 starts on worker thread 19.
+G4WT104 > ### Run 0 starts on worker thread 104.
+G4WT39 > ### Run 0 starts on worker thread 39.
+G4WT94 > ### Run 0 starts on worker thread 94.
+G4WT35 > ### Run 0 starts on worker thread 35.
+G4WT10 > ### Run 0 starts on worker thread 10.
+G4WT89 > ### Run 0 starts on worker thread 89.
+G4WT84 > ### Run 0 starts on worker thread 84.
+G4WT78 > ### Run 0 starts on worker thread 78.
+G4WT32 > ### Run 0 starts on worker thread 32.
+G4WT41 > ### Run 0 starts on worker thread 41.
+G4WT55 > ### Run 0 starts on worker thread 55.
+G4WT82 > ### Run 0 starts on worker thread 82.
+G4WT115 > ### Run 0 starts on worker thread 115.
+G4WT24 > ### Run 0 starts on worker thread 24.
+G4WT95 > ### Run 0 starts on worker thread 95.
+G4WT117 > ### Run 0 starts on worker thread 117.
+G4WT16 > ### Run 0 starts on worker thread 16.
+G4WT69 > ### Run 0 starts on worker thread 69.
+G4WT119 > ### Run 0 starts on worker thread 119.
+G4WT45 > ### Run 0 starts on worker thread 45.
+G4WT15 > ### Run 0 starts on worker thread 15.
+G4WT34 > ### Run 0 starts on worker thread 34.
+G4WT43 > ### Run 0 starts on worker thread 43.
+G4WT44 > ### Run 0 starts on worker thread 44.
+G4WT42 > ### Run 0 starts on worker thread 42.
+G4WT13 > ### Run 0 starts on worker thread 13.
+G4WT46 > ### Run 0 starts on worker thread 46.
+G4WT18 > ### Run 0 starts on worker thread 18.
+G4WT79 > ### Run 0 starts on worker thread 79.
+G4WT123 > ### Run 0 starts on worker thread 123.
+G4WT91 > ### Run 0 starts on worker thread 91.
+G4WT52 > ### Run 0 starts on worker thread 52.
+G4WT14 > ### Run 0 starts on worker thread 14.
+G4WT30 > ### Run 0 starts on worker thread 30.
+G4WT2 > ### Run 0 starts on worker thread 2.
+G4WT25 > ### Run 0 starts on worker thread 25.
+G4WT116 > ### Run 0 starts on worker thread 116.
+G4WT92 > ### Run 0 starts on worker thread 92.
+G4WT124 > ### Run 0 starts on worker thread 124.
+G4WT51 > ### Run 0 starts on worker thread 51.
+G4WT97 > ### Run 0 starts on worker thread 97.
+G4WT17 > ### Run 0 starts on worker thread 17.
+G4WT61 > ### Run 0 starts on worker thread 61.
+G4WT96 > ### Run 0 starts on worker thread 96.
+G4WT63 > ### Run 0 starts on worker thread 63.
+G4WT1 > ### Run 0 starts on worker thread 1.
+G4WT120 > ### Run 0 starts on worker thread 120.
+G4WT99 > ### Run 0 starts on worker thread 99.
+G4WT37 > ### Run 0 starts on worker thread 37.
+G4WT122 > ### Run 0 starts on worker thread 122.
+G4WT36 > ### Run 0 starts on worker thread 36.
+G4WT106 > ### Run 0 starts on worker thread 106.
+G4WT77 > ### Run 0 starts on worker thread 77.
+G4WT53 > ### Run 0 starts on worker thread 53.
+G4WT113 > ### Run 0 starts on worker thread 113.
+G4WT11 > ### Run 0 starts on worker thread 11.
+G4WT109 > ### Run 0 starts on worker thread 109.
+G4WT83 > ### Run 0 starts on worker thread 83.
+G4WT29 > ### Run 0 starts on worker thread 29.
+G4WT27 > ### Run 0 starts on worker thread 27.
+G4WT28 > ### Run 0 starts on worker thread 28.
+G4WT70 > ### Run 0 starts on worker thread 70.
+G4WT33 > ### Run 0 starts on worker thread 33.
+G4WT93 > ### Run 0 starts on worker thread 93.
+G4WT3 > ### Run 0 starts on worker thread 3.
+G4WT57 > ### Run 0 starts on worker thread 57.
+G4WT6 > ### Run 0 starts on worker thread 6.
+G4WT67 > ### Run 0 starts on worker thread 67.
+G4WT108 > ### Run 0 starts on worker thread 108.
+G4WT50 > ### Run 0 starts on worker thread 50.
+G4WT80 > ### Run 0 starts on worker thread 80.
+G4WT107 > ### Run 0 starts on worker thread 107.
+G4WT60 > ### Run 0 starts on worker thread 60.
+G4WT71 > ### Run 0 starts on worker thread 71.
+G4WT75 > ### Run 0 starts on worker thread 75.
+G4WT5 > ### Run 0 starts on worker thread 5.
+G4WT102 > ### Run 0 starts on worker thread 102.
+G4WT88 > ### Run 0 starts on worker thread 88.
+G4WT49 > ### Run 0 starts on worker thread 49.
+G4WT68 > ### Run 0 starts on worker thread 68.
+G4WT23 > ### Run 0 starts on worker thread 23.
+G4WT0 > ### Run 0 starts on worker thread 0.
+G4WT66 > ### Run 0 starts on worker thread 66.
+G4WT72 > ### Run 0 starts on worker thread 72.
+G4WT112 > ### Run 0 starts on worker thread 112.
+G4WT54 > ### Run 0 starts on worker thread 54.
+G4WT105 > ### Run 0 starts on worker thread 105.
+G4WT90 > ### Run 0 starts on worker thread 90.
+G4WT74 > ### Run 0 starts on worker thread 74.
+G4WT85 > ### Run 0 starts on worker thread 85.
+G4WT22 > ### Run 0 starts on worker thread 22.
+G4WT12 > ### Run 0 starts on worker thread 12.
+G4WT100 > ### Run 0 starts on worker thread 100.
+G4WT81 > ### Run 0 starts on worker thread 81.
+G4WT76 > ### Run 0 starts on worker thread 76.
+G4WT26 > ### Run 0 starts on worker thread 26.
+G4WT40 > ### Run 0 starts on worker thread 40.
+G4WT31 > ### Run 0 starts on worker thread 31.
+G4WT38 > ### Run 0 starts on worker thread 38.
+G4WT59 > ### Run 0 starts on worker thread 59.
+G4WT103 > ### Run 0 starts on worker thread 103.
+G4WT98 > ### Run 0 starts on worker thread 98.
+G4WT8 > ### Run 0 starts on worker thread 8.
+G4WT65 > ### Run 0 starts on worker thread 65.
+G4WT21 > ### Run 0 starts on worker thread 21.
+G4WT47 > ### Run 0 starts on worker thread 47.
+G4WT121 > ### Run 0 starts on worker thread 121.
+G4WT7 > ### Run 0 starts on worker thread 7.
+G4WT125 > ### Run 0 starts on worker thread 125.
+G4WT86 > ### Run 0 starts on worker thread 86.
+G4WT118 > ### Run 0 starts on worker thread 118.
+G4WT73 > ### Run 0 starts on worker thread 73.
+G4WT127 > ... create file : singleFission_t127.root - done
+G4WT127 > ... open analysis file : singleFission_t127.root - done
+G4WT127 > --> Event 0 starts with initial seeds (15470735,58711377).
+G4WT100 > ... create file : singleFission_t100.root - done
+G4WT100 > ... open analysis file : singleFission_t100.root - done
+G4WT48 > ... create file : singleFission_t48.root - done
+G4WT48 > ... open analysis file : singleFission_t48.root - done
+G4WT62 > ... create file : singleFission_t62.root - done
+G4WT62 > ... open analysis file : singleFission_t62.root - done
+G4WT9 > ... create file : singleFission_t9.root - done
+G4WT9 > ... open analysis file : singleFission_t9.root - done
+G4WT110 > ... create file : singleFission_t110.root - done
+G4WT110 > ... open analysis file : singleFission_t110.root - done
+G4WT126 > ... create file : singleFission_t126.root - done
+G4WT126 > ... open analysis file : singleFission_t126.root - done
+G4WT20 > ... create file : singleFission_t20.root - done
+G4WT20 > ... open analysis file : singleFission_t20.root - done
+G4WT64 > ... create file : singleFission_t64.root - done
+G4WT64 > ... open analysis file : singleFission_t64.root - done
+G4WT87 > ... create file : singleFission_t87.root - done
+G4WT87 > ... open analysis file : singleFission_t87.root - done
+G4WT58 > ... create file : singleFission_t58.root - done
+G4WT58 > ... open analysis file : singleFission_t58.root - done
+G4WT111 > ... create file : singleFission_t111.root - done
+G4WT111 > ... open analysis file : singleFission_t111.root - done
+G4WT4 > ... create file : singleFission_t4.root - done
+G4WT4 > ... open analysis file : singleFission_t4.root - done
+G4WT56 > ... create file : singleFission_t56.root - done
+G4WT56 > ... open analysis file : singleFission_t56.root - done
+G4WT101 > ... create file : singleFission_t101.root - done
+G4WT101 > ... open analysis file : singleFission_t101.root - done
+G4WT114 > ... create file : singleFission_t114.root - done
+G4WT114 > ... open analysis file : singleFission_t114.root - done
+G4WT84 > ... create file : singleFission_t84.root - done
+G4WT84 > ... open analysis file : singleFission_t84.root - done
+G4WT19 > ... create file : singleFission_t19.root - done
+G4WT19 > ... open analysis file : singleFission_t19.root - done
+G4WT10 > ... create file : singleFission_t10.root - done
+G4WT10 > ... open analysis file : singleFission_t10.root - done
+G4WT41 > ... create file : singleFission_t41.root - done
+G4WT41 > ... open analysis file : singleFission_t41.root - done
+G4WT78 > ... create file : singleFission_t78.root - done
+G4WT78 > ... open analysis file : singleFission_t78.root - done
+G4WT55 > ... create file : singleFission_t55.root - done
+G4WT55 > ... open analysis file : singleFission_t55.root - done
+G4WT82 > ... create file : singleFission_t82.root - done
+G4WT82 > ... open analysis file : singleFission_t82.root - done
+G4WT104 > ... create file : singleFission_t104.root - done
+G4WT104 > ... open analysis file : singleFission_t104.root - done
+G4WT32 > ... create file : singleFission_t32.root - done
+G4WT32 > ... open analysis file : singleFission_t32.root - done
+G4WT24 > ... create file : singleFission_t24.root - done
+G4WT24 > ... open analysis file : singleFission_t24.root - done
+G4WT94 > ... create file : singleFission_t94.root - done
+G4WT94 > ... open analysis file : singleFission_t94.root - done
+G4WT35 > ... create file : singleFission_t35.root - done
+G4WT35 > ... open analysis file : singleFission_t35.root - done
+G4WT39 > ... create file : singleFission_t39.root - done
+G4WT39 > ... open analysis file : singleFission_t39.root - done
+G4WT69 > ... create file : singleFission_t69.root - done
+G4WT69 > ... open analysis file : singleFission_t69.root - done
+G4WT89 > ... create file : singleFission_t89.root - done
+G4WT89 > ... open analysis file : singleFission_t89.root - done
+G4WT95 > ... create file : singleFission_t95.root - done
+G4WT95 > ... open analysis file : singleFission_t95.root - done
+G4WT115 > ... create file : singleFission_t115.root - done
+G4WT115 > ... open analysis file : singleFission_t115.root - done
+G4WT45 > ... create file : singleFission_t45.root - done
+G4WT45 > ... open analysis file : singleFission_t45.root - done
+G4WT16 > ... create file : singleFission_t16.root - done
+G4WT16 > ... open analysis file : singleFission_t16.root - done
+G4WT34 > ... create file : singleFission_t34.root - done
+G4WT34 > ... open analysis file : singleFission_t34.root - done
+G4WT15 > ... create file : singleFission_t15.root - done
+G4WT15 > ... open analysis file : singleFission_t15.root - done
+G4WT44 > ... create file : singleFission_t44.root - done
+G4WT44 > ... open analysis file : singleFission_t44.root - done
+G4WT119 > ... create file : singleFission_t119.root - done
+G4WT119 > ... open analysis file : singleFission_t119.root - done
+G4WT43 > ... create file : singleFission_t43.root - done
+G4WT43 > ... open analysis file : singleFission_t43.root - done
+G4WT13 > ... create file : singleFission_t13.root - done
+G4WT13 > ... open analysis file : singleFission_t13.root - done
+G4WT117 > ... create file : singleFission_t117.root - done
+G4WT117 > ... open analysis file : singleFission_t117.root - done
+G4WT42 > ... create file : singleFission_t42.root - done
+G4WT42 > ... open analysis file : singleFission_t42.root - done
+G4WT91 > ... create file : singleFission_t91.root - done
+G4WT91 > ... open analysis file : singleFission_t91.root - done
+G4WT46 > ... create file : singleFission_t46.root - done
+G4WT46 > ... open analysis file : singleFission_t46.root - done
+G4WT79 > ... create file : singleFission_t79.root - done
+G4WT79 > ... open analysis file : singleFission_t79.root - done
+G4WT18 > ... create file : singleFission_t18.root - done
+G4WT18 > ... open analysis file : singleFission_t18.root - done
+G4WT14 > ... create file : singleFission_t14.root - done
+G4WT14 > ... open analysis file : singleFission_t14.root - done
+G4WT2 > ... create file : singleFission_t2.root - done
+G4WT2 > ... open analysis file : singleFission_t2.root - done
+G4WT30 > ... create file : singleFission_t30.root - done
+G4WT30 > ... open analysis file : singleFission_t30.root - done
+G4WT25 > ... create file : singleFission_t25.root - done
+G4WT25 > ... open analysis file : singleFission_t25.root - done
+G4WT116 > ... create file : singleFission_t116.root - done
+G4WT116 > ... open analysis file : singleFission_t116.root - done
+G4WT51 > ... create file : singleFission_t51.root - done
+G4WT51 > ... open analysis file : singleFission_t51.root - done
+G4WT63 > ... create file : singleFission_t63.root - done
+G4WT63 > ... open analysis file : singleFission_t63.root - done
+G4WT92 > ... create file : singleFission_t92.root - done
+G4WT92 > ... open analysis file : singleFission_t92.root - done
+G4WT124 > ... create file : singleFission_t124.root - done
+G4WT124 > ... open analysis file : singleFission_t124.root - done
+G4WT37 > ... create file : singleFission_t37.root - done
+G4WT37 > ... open analysis file : singleFission_t37.root - done
+G4WT61 > ... create file : singleFission_t61.root - done
+G4WT61 > ... open analysis file : singleFission_t61.root - done
+G4WT36 > ... create file : singleFission_t36.root - done
+G4WT36 > ... open analysis file : singleFission_t36.root - done
+G4WT1 > ... create file : singleFission_t1.root - done
+G4WT1 > ... open analysis file : singleFission_t1.root - done
+G4WT97 > ... create file : singleFission_t97.root - done
+G4WT97 > ... open analysis file : singleFission_t97.root - done
+G4WT120 > ... create file : singleFission_t120.root - done
+G4WT120 > ... open analysis file : singleFission_t120.root - done
+G4WT17 > ... create file : singleFission_t17.root - done
+G4WT17 > ... open analysis file : singleFission_t17.root - done
+G4WT122 > ... create file : singleFission_t122.root - done
+G4WT122 > ... open analysis file : singleFission_t122.root - done
+G4WT11 > ... create file : singleFission_t11.root - done
+G4WT11 > ... open analysis file : singleFission_t11.root - done
+G4WT52 > ... create file : singleFission_t52.root - done
+G4WT52 > ... open analysis file : singleFission_t52.root - done
+G4WT77 > ... create file : singleFission_t77.root - done
+G4WT77 > ... open analysis file : singleFission_t77.root - done
+G4WT70 > ... create file : singleFission_t70.root - done
+G4WT70 > ... open analysis file : singleFission_t70.root - done
+G4WT83 > ... create file : singleFission_t83.root - done
+G4WT83 > ... open analysis file : singleFission_t83.root - done
+G4WT27 > ... create file : singleFission_t27.root - done
+G4WT27 > ... open analysis file : singleFission_t27.root - done
+G4WT93 > ... create file : singleFission_t93.root - done
+G4WT93 > ... open analysis file : singleFission_t93.root - done
+G4WT33 > ... create file : singleFission_t33.root - done
+G4WT33 > ... open analysis file : singleFission_t33.root - done
+G4WT57 > ... create file : singleFission_t57.root - done
+G4WT57 > ... open analysis file : singleFission_t57.root - done
+G4WT50 > ... create file : singleFission_t50.root - done
+G4WT50 > ... open analysis file : singleFission_t50.root - done
+G4WT6 > ... create file : singleFission_t6.root - done
+G4WT6 > ... open analysis file : singleFission_t6.root - done
+G4WT108 > ... create file : singleFission_t108.root - done
+G4WT108 > ... open analysis file : singleFission_t108.root - done
+G4WT67 > ... create file : singleFission_t67.root - done
+G4WT67 > ... open analysis file : singleFission_t67.root - done
+G4WT85 > ... create file : singleFission_t85.root - done
+G4WT85 > ... open analysis file : singleFission_t85.root - done
+G4WT28 > ... create file : singleFission_t28.root - done
+G4WT28 > ... open analysis file : singleFission_t28.root - done
+G4WT81 > ... create file : singleFission_t81.root - done
+G4WT81 > ... open analysis file : singleFission_t81.root - done
+G4WT113 > ... create file : singleFission_t113.root - done
+G4WT113 > ... open analysis file : singleFission_t113.root - done
+G4WT99 > ... create file : singleFission_t99.root - done
+G4WT99 > ... open analysis file : singleFission_t99.root - done
+G4WT5 > ... create file : singleFission_t5.root - done
+G4WT5 > ... open analysis file : singleFission_t5.root - done
+G4WT31 > ... create file : singleFission_t31.root - done
+G4WT31 > ... open analysis file : singleFission_t31.root - done
+G4WT65 > ... create file : singleFission_t65.root - done
+G4WT65 > ... open analysis file : singleFission_t65.root - done
+G4WT71 > ... create file : singleFission_t71.root - done
+G4WT71 > ... open analysis file : singleFission_t71.root - done
+G4WT60 > ... create file : singleFission_t60.root - done
+G4WT60 > ... open analysis file : singleFission_t60.root - done
+G4WT68 > ... create file : singleFission_t68.root - done
+G4WT68 > ... open analysis file : singleFission_t68.root - done
+G4WT7 > ... create file : singleFission_t7.root - done
+G4WT7 > ... open analysis file : singleFission_t7.root - done
+G4WT72 > ... create file : singleFission_t72.root - done
+G4WT72 > ... open analysis file : singleFission_t72.root - done
+G4WT0 > ... create file : singleFission_t0.root - done
+G4WT0 > ... open analysis file : singleFission_t0.root - done
+G4WT21 > ... create file : singleFission_t21.root - done
+G4WT21 > ... open analysis file : singleFission_t21.root - done
+G4WT118 > ... create file : singleFission_t118.root - done
+G4WT118 > ... open analysis file : singleFission_t118.root - done
+G4WT47 > ... create file : singleFission_t47.root - done
+G4WT47 > ... open analysis file : singleFission_t47.root - done
+G4WT121 > ... create file : singleFission_t121.root - done
+G4WT121 > ... open analysis file : singleFission_t121.root - done
+G4WT88 > ... create file : singleFission_t88.root - done
+G4WT88 > ... open analysis file : singleFission_t88.root - done
+G4WT105 > ... create file : singleFission_t105.root - done
+G4WT105 > ... open analysis file : singleFission_t105.root - done
+G4WT26 > ... create file : singleFission_t26.root - done
+G4WT26 > ... open analysis file : singleFission_t26.root - done
+G4WT12 > ... create file : singleFission_t12.root - done
+G4WT12 > ... open analysis file : singleFission_t12.root - done
+G4WT107 > ... create file : singleFission_t107.root - done
+G4WT107 > ... open analysis file : singleFission_t107.root - done
+G4WT74 > ... create file : singleFission_t74.root - done
+G4WT74 > ... open analysis file : singleFission_t74.root - done
+G4WT90 > ... create file : singleFission_t90.root - done
+G4WT90 > ... open analysis file : singleFission_t90.root - done
+G4WT38 > ... create file : singleFission_t38.root - done
+G4WT38 > ... open analysis file : singleFission_t38.root - done
+G4WT80 > ... create file : singleFission_t80.root - done
+G4WT80 > ... open analysis file : singleFission_t80.root - done
+G4WT106 > ... create file : singleFission_t106.root - done
+G4WT106 > ... open analysis file : singleFission_t106.root - done
+G4WT23 > ... create file : singleFission_t23.root - done
+G4WT23 > ... open analysis file : singleFission_t23.root - done
+G4WT98 > ... create file : singleFission_t98.root - done
+G4WT98 > ... open analysis file : singleFission_t98.root - done
+G4WT86 > ... create file : singleFission_t86.root - done
+G4WT86 > ... open analysis file : singleFission_t86.root - done
+G4WT75 > ... create file : singleFission_t75.root - done
+G4WT75 > ... open analysis file : singleFission_t75.root - done
+G4WT54 > ... create file : singleFission_t54.root - done
+G4WT54 > ... open analysis file : singleFission_t54.root - done
+G4WT22 > ... create file : singleFission_t22.root - done
+G4WT22 > ... open analysis file : singleFission_t22.root - done
+G4WT66 > ... create file : singleFission_t66.root - done
+G4WT66 > ... open analysis file : singleFission_t66.root - done
+G4WT125 > ... create file : singleFission_t125.root - done
+G4WT125 > ... open analysis file : singleFission_t125.root - done
+G4WT40 > ... create file : singleFission_t40.root - done
+G4WT40 > ... open analysis file : singleFission_t40.root - done
+G4WT102 > ... create file : singleFission_t102.root - done
+G4WT102 > ... open analysis file : singleFission_t102.root - done
+G4WT103 > ... create file : singleFission_t103.root - done
+G4WT103 > ... open analysis file : singleFission_t103.root - done
+G4WT29 > ... create file : singleFission_t29.root - done
+G4WT29 > ... open analysis file : singleFission_t29.root - done
+G4WT112 > ... create file : singleFission_t112.root - done
+G4WT112 > ... open analysis file : singleFission_t112.root - done
+G4WT76 > ... create file : singleFission_t76.root - done
+G4WT76 > ... open analysis file : singleFission_t76.root - done
+G4WT3 > ... create file : singleFission_t3.root - done
+G4WT3 > ... open analysis file : singleFission_t3.root - done
+G4WT49 > ... create file : singleFission_t49.root - done
+G4WT49 > ... open analysis file : singleFission_t49.root - done
+G4WT59 > ... create file : singleFission_t59.root - done
+G4WT59 > ... open analysis file : singleFission_t59.root - done
+G4WT73 > ... create file : singleFission_t73.root - done
+G4WT73 > ... open analysis file : singleFission_t73.root - done
+G4WT8 > ... create file : singleFission_t8.root - done
+G4WT8 > ... open analysis file : singleFission_t8.root - done
+G4WT96 > ... create file : singleFission_t96.root - done
+G4WT96 > ... open analysis file : singleFission_t96.root - done
+G4WT123 > ... create file : singleFission_t123.root - done
+G4WT123 > ... open analysis file : singleFission_t123.root - done
+G4WT53 > ... create file : singleFission_t53.root - done
+G4WT53 > ... open analysis file : singleFission_t53.root - done
+G4WT109 > ... create file : singleFission_t109.root - done
+G4WT109 > ... open analysis file : singleFission_t109.root - done
+G4WT124 > --> Event 10000000 starts with initial seeds (62547937,99627752).
+G4WT34 > --> Event 20000000 starts with initial seeds (17345242,32280376).
+G4WT44 > --> Event 30000000 starts with initial seeds (63773393,97712771).
+G4WT106 > --> Event 40000000 starts with initial seeds (24426729,43472380).
+G4WT86 > --> Event 50000000 starts with initial seeds (55000174,29676131).
+G4WT111 > --> Event 60000000 starts with initial seeds (51398625,55979398).
+G4WT76 > --> Event 70000000 starts with initial seeds (4749664,14371606).
+G4WT111 > --> Event 80000000 starts with initial seeds (99717891,96303183).
+G4WT108 > --> Event 90000000 starts with initial seeds (70752456,56232103).
+G4WT15 > --> Event 100000000 starts with initial seeds (31940457,52613681).
+G4WT40 > --> Event 110000000 starts with initial seeds (81457939,52325638).
+G4WT50 > --> Event 120000000 starts with initial seeds (83003990,70226503).
+G4WT80 > --> Event 130000000 starts with initial seeds (71402154,20688209).
+G4WT70 > --> Event 140000000 starts with initial seeds (12045585,79101312).
+G4WT21 > --> Event 150000000 starts with initial seeds (57163983,60311166).
+G4WT37 > --> Event 160000000 starts with initial seeds (88469183,41755333).
+G4WT102 > --> Event 170000000 starts with initial seeds (30673081,88060841).
+G4WT48 > --> Event 180000000 starts with initial seeds (52146672,59023570).
+G4WT24 > --> Event 190000000 starts with initial seeds (2922778,45872185).
+G4WT102 > --> Event 200000000 starts with initial seeds (95570156,14192141).
+G4WT30 > --> Event 210000000 starts with initial seeds (31004589,59585287).
+G4WT110 > --> Event 220000000 starts with initial seeds (2730699,771942).
+G4WT4 > --> Event 230000000 starts with initial seeds (78964417,959515).
+G4WT88 > --> Event 240000000 starts with initial seeds (20410306,22661187).
+G4WT67 > --> Event 250000000 starts with initial seeds (12060758,70364009).
+G4WT14 > --> Event 260000000 starts with initial seeds (2368564,40732386).
+G4WT56 > --> Event 270000000 starts with initial seeds (32159142,90779139).
+G4WT95 > --> Event 280000000 starts with initial seeds (29055713,5151018).
+G4WT109 > --> Event 290000000 starts with initial seeds (50647274,70213839).
+G4WT29 > --> Event 300000000 starts with initial seeds (94009311,36435572).
+G4WT19 > --> Event 310000000 starts with initial seeds (6330429,43679489).
+G4WT17 > --> Event 320000000 starts with initial seeds (69911534,21765865).
+G4WT64 > --> Event 330000000 starts with initial seeds (18518928,76683464).
+G4WT10 > --> Event 340000000 starts with initial seeds (66855109,32971122).
+G4WT117 > --> Event 350000000 starts with initial seeds (85766276,47892161).
+G4WT42 > --> Event 360000000 starts with initial seeds (99387719,84858860).
+G4WT62 > --> Event 370000000 starts with initial seeds (4055087,67594136).
+G4WT121 > --> Event 380000000 starts with initial seeds (66310540,15577482).
+G4WT112 > --> Event 390000000 starts with initial seeds (26593134,33391849).
+G4WT52 > --> Event 400000000 starts with initial seeds (43889352,11565498).
+G4WT96 > --> Event 410000000 starts with initial seeds (24913848,85074645).
+G4WT78 > --> Event 420000000 starts with initial seeds (34186668,4352878).
+G4WT31 > --> Event 430000000 starts with initial seeds (31724746,40247188).
+G4WT68 > --> Event 440000000 starts with initial seeds (22609120,58985743).
+G4WT74 > --> Event 450000000 starts with initial seeds (63401947,9930607).
+G4WT74 > --> Event 460000000 starts with initial seeds (33978665,38414131).
+G4WT0 > --> Event 470000000 starts with initial seeds (27437718,83234451).
+G4WT9 > --> Event 480000000 starts with initial seeds (21993977,87993639).
+G4WT127 > --> Event 490000000 starts with initial seeds (44904786,46272748).
+G4WT13 > --> Event 500000000 starts with initial seeds (41766790,29309484).
+G4WT47 > --> Event 510000000 starts with initial seeds (4509847,47984783).
+G4WT73 > --> Event 520000000 starts with initial seeds (84885663,1492649).
+G4WT112 > --> Event 530000000 starts with initial seeds (61590268,48658592).
+G4WT20 > --> Event 540000000 starts with initial seeds (63858894,6892141).
+G4WT46 > --> Event 550000000 starts with initial seeds (41992140,98523632).
+G4WT32 > --> Event 560000000 starts with initial seeds (10307740,6931975).
+G4WT25 > --> Event 570000000 starts with initial seeds (90361216,42255356).
+G4WT51 > --> Event 580000000 starts with initial seeds (49835536,54712566).
+G4WT21 > --> Event 590000000 starts with initial seeds (85199031,757980).
+G4WT73 > --> Event 600000000 starts with initial seeds (96710162,32827054).
+G4WT14 > --> Event 610000000 starts with initial seeds (87391104,44754175).
+G4WT121 > --> Event 620000000 starts with initial seeds (82207728,66159891).
+G4WT27 > --> Event 630000000 starts with initial seeds (80642023,64353353).
+G4WT116 > --> Event 640000000 starts with initial seeds (55668799,165836).
+G4WT65 > --> Event 650000000 starts with initial seeds (27243727,3140082).
+G4WT4 > --> Event 660000000 starts with initial seeds (21876162,48662163).
+G4WT124 > --> Event 670000000 starts with initial seeds (45218150,24467971).
+slurmstepd: error: *** JOB 36774764 ON exp-14-47 CANCELLED AT 2025-02-07T10:20:23 ***
