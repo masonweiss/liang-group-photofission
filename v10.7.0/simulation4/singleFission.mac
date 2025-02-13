@@ -75,5 +75,5 @@
 /analysis/h1/set 39 50  -3.15 3.15 rad #angle of deuterons
 /analysis/h1/set 40 50  -3.15 3.15 rad #angle of alphas
 #
-/run/printProgress 10000000
-/run/beamOn 1000000000
+/run/printProgress 1000000
+/run/beamOn 10000000
