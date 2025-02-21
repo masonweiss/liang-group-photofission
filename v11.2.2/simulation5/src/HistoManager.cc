@@ -101,8 +101,8 @@ void HistoManager::Book()
          "phi angle of neutrons",                                        //37
          "phi angle of protons",                                         //38
          "phi angle of deuterons",                                       //39
-         "phi angle of alphas"                                           //40
-         "creation energy of neutrons from (gamma, X)"                   //41
+         "phi angle of alphas",                                          //40
+         "creation energy of neutrons from (gamma, X)",                  //41
          "creation energy of neutrons from nFission"                     //42
        };
 

@@ -18,7 +18,7 @@
 # Also, to limit the printout, do not fill ParticleCount()
 #
 /testhadr/tracking/killNeutrons false
-/testhadr/tracking/countParticles false
+/testhadr/tracking/countParticles true
 #
 /gun/particle gamma
 /gun/energy 15000000 eV
