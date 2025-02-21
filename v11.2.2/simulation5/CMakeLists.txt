@@ -40,13 +40,7 @@ target_link_libraries(Hadr06 ${Geant4_LIBRARIES} )
 # relies on these scripts being in the current working directory.
 #
 set(Hadr04_SCRIPTS
-    debug.mac
-    envHadronic.csh
-    envHadronic.sh
-    fission.mac 
-    graphite.mac 
     hadr06.in
-    plotHisto.C
     run1.mac
     singleFission.mac 
     vis.mac
@@ -64,4 +58,3 @@ endforeach()
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
 install(TARGETS Hadr06 DESTINATION bin)
-
