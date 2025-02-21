@@ -54,12 +54,13 @@ void HistoManager::Book()
   analysisManager->SetActivation(true);     //enable inactivation of histograms
   
   // Define histograms start values
-  const G4int kMaxHisto = 43;
+  const G4int kMaxHisto = 53;
   const G4String id[] = {"0","1","2","3","4","5","6","7","8","9",
                          "10","11","12","13","14","15","16","17","18","19",
 			                   "20","21","22","23","24","25","26","27","28","29",
                          "30","31","32","33","34","35","36","37","38","39",
-                         "40","41","42"};
+                         "40","41","42","43","44","45","46","47","48","49",
+                         "50","51","52"};
   const G4String title[] = 
        { "dummy",                                                        //0
          "total energy deposit",                                         //1
@@ -103,7 +104,17 @@ void HistoManager::Book()
          "phi angle of deuterons",                                       //39
          "phi angle of alphas",                                          //40
          "creation energy of neutrons from (gamma, X)",                  //41
-         "creation energy of neutrons from nFission"                     //42
+         "creation energy of neutrons from nFission",                    //42
+         "distribution of fission product nucleon numbers (gamma, X)",   //43
+         "distribution of fission product nucleon numbers nFission",     //44
+         "energy from photonuclear reactions (all particles, creation)", //45
+         "energy from photonuclear reactions (fragments, creation)",     //46
+         "energy from fission reactions (all particles, creation)",      //47
+         "energy from fission reactions (fragments, creation)",          //48
+         "e+e- energy from pair production (at creation)",               //49
+         "e- energy from compton (at creation)",                         //50
+         "e- energy from pair production (at creation)",               //51
+         "energy of all particles at detector"                           //52
        };
 
   // Default values (to be reset via /analysis/h1/set command) 

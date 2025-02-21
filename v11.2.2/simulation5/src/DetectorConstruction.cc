@@ -57,7 +57,7 @@ DetectorConstruction::DetectorConstruction()
   fRadius = 20*cm;
   fWorldSize = 1.1*fRadius;
   DefineMaterials();
-  SetMaterial("Water_ts");  
+  SetMaterial("Galactic");  
   fDetectorMessenger = new DetectorMessenger(this);
 }
 

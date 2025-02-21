@@ -103,41 +103,65 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
     G4Track* aTrack = (G4Track*)track;
     aTrack->SetTrackStatus(fStopAndKill);
   }
+  // first check process
+  const G4VProcess* creatorProcess = track->GetCreatorProcess();
+  if (creatorProcess) {
+    G4String processName = creatorProcess->GetProcessName();
 
-  // Check if the particle is a neutron
-  if (particle == G4Neutron::Neutron()) {
-
-    // Check the process that created the neutron
-    const G4VProcess* creatorProcess = track->GetCreatorProcess();
-    if (creatorProcess) {
-      G4String processName = creatorProcess->GetProcessName();
-
-      // If the process is photoNuclear, count and fill the histogram
+    // neutron products of possible fission reactions
+    if (particle == G4Neutron::Neutron()) {
+      // photonuclear reaction neutrons
       if (processName == "photonNuclear") {
         analysis->FillH1(41, energy); // Fill histogram
       }
-      // // If the process is nFission, count and fill the histogram
-      // else if (processName == "nFission") {
-      //   analysis->FillH1(42, energy); // Fill histogram
-      // }
+      // neutron fission neutrons
+      else if (processName == "nFission") {
+        analysis->FillH1(42, energy); // Fill histogram
+      }
+    }
 
-      // ## look to see if there is a particle generated of type == "nucleus" in the same action where this neutron was made, and add energy to hist 43
-      const std::vector<const G4Track*>* secondaries = track->GetStep()->GetSecondaryInCurrentStep();
-      if (!secondaries) return;  // If no secondaries, exit early
+    // check it is a decay product
+    if (type == "nucleus") {
+      if (energy > 1) {  // only look at decay products (have high energy)
+        G4String processName = creatorProcess->GetProcessName();
+        G4String particleName = particle->GetParticleName();
 
-      // Loop over secondaries and check if they are of type "nucleus"
-      for (size_t i = 0; i < secondaries->size(); ++i) {
-        const G4Track* secondaryTrack = (*secondaries)[i];
-        if (!secondaryTrack) continue;  // Skip if secondaryTrack is null
-
-        const G4ParticleDefinition* secondaryParticle = secondaryTrack->GetParticleDefinition();
-        if (!secondaryParticle) continue;  // Skip if secondaryParticle is null
-
-        // If the secondary particle is a "nucleus", fill the histogram
-        if (secondaryParticle->GetParticleType() == "nucleus") {
-          analysis->FillH1(42, secondaryTrack->GetKineticEnergy());  // Fill histogram for "nucleus"
+        G4int a_val = std::stoi(particleName.substr(particleName.find_first_of("0123456789"), particleName.find_first_not_of("0123456789", particleName.find_first_of("0123456789")) - particleName.find_first_of("0123456789")));
+        
+        // G4cout << particleName << " of energy " << energy << "and mass" << nucnum << "created by process: " << processName << G4endl;
+        
+        // photonuclear decay products
+        if (processName == "photonNuclear") {
+          analysis->FillH1(43, a_val); // nucleon number
+          analysis->FillH1(46, energy); // energy
+        }
+        // neutron fission decay products
+        else if (processName == "nFission") {
+          analysis->FillH1(44, a_val); // nucleon number
+          analysis->FillH1(48, energy); // energy
         }
       }
+    }
+    // pair production
+    if (processName == "conv" && (particle == G4Electron::Electron() || particle == G4Positron::Positron())) {
+      analysis->FillH1(49, energy); // energy
+    }
+    // compton scattering e-
+    if (processName == "compt" && particle == G4Electron::Electron()) {
+      analysis->FillH1(50, energy); // energy
+    }
+    // compton scattering gamma
+    if (processName == "conv" && particle == G4Electron::Electron()) {
+      analysis->FillH1(51, energy); // energy
+    }
+
+    // all photo-nuclear resultant particles
+    if (processName == "photonNuclear") {
+      analysis->FillH1(45, energy); // Fill histogram
+    }
+    // all neutron fission resultant particles
+    else if (processName == "nFission") {
+      analysis->FillH1(47, energy); // Fill histogram
     }
   }
 }
@@ -199,6 +223,7 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
     double phi = position.phi();
     analysis->FillH1(ih+19,phi);
   }
+  analysis->FillH1(52, energy);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

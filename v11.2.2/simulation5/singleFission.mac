@@ -3,7 +3,7 @@
 #  
 /run/verbose 2
 #
-/testhadr/det/setIsotopeMat U238 92 235 19.05 g/cm3
+/testhadr/det/setIsotopeMat U238 92 238 19.05 g/cm3
 /testhadr/det/setRadius 1.0 cm
 #
 /run/initialize
@@ -73,6 +73,17 @@
 # neutron angles
 /analysis/h1/set 41 100  0. 25. MeV 	#energy spectrum of photoneutrons at creation
 /analysis/h1/set 42 100  0. 25. MeV 	#energy spectrum of neutron-induced fission neutrons at creation
+/analysis/h1/set 43 200  0. 200.  	    #nucleon number fission product distribution for (gamma, X)
+/analysis/h1/set 44 200  0. 200.  	    #nucleon number fission product distribution for nFission
+
+/analysis/h1/set 45 100  0. 200. MeV  	    #energy from photonuclear reactions (all particles, creation)
+/analysis/h1/set 46 100  0. 200. MeV  	    #energy from photonuclear reactions (fragments, creation)
+/analysis/h1/set 47 100  0. 200. MeV  	    #energy from fission reactions (all particles, creation)
+/analysis/h1/set 48 100  0. 200. MeV  	    #energy from fission reactions (fragments, creation)
+/analysis/h1/set 49 100  0. 25. MeV  	    #e+e- energy from pair production (at creation)
+/analysis/h1/set 50 100  0. 25. MeV  	    #e- energy from compton (at creation)
+/analysis/h1/set 51 100  0. 25. MeV  	    #e- energy from pair production (at creation)
+/analysis/h1/set 52 100  0. 25. MeV  	    #energy of all particles at detector
 
 /run/printProgress 10000
-/run/beamOn 1000000
+/run/beamOn 100000
