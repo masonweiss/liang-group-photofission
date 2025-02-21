@@ -194,6 +194,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructVolumes()
   
   //always return the root volume
   //
+  G4GeometryManager::GetInstance()->CloseGeometry()
   return fPWorld;
 }
 
