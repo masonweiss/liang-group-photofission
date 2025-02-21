@@ -113,7 +113,7 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
       G4String processName = creatorProcess->GetProcessName();
 
       // If the process is photoNuclear, count and fill the histogram
-      if (processName == "photoNuclear") {
+      if (processName == "photonNuclear") {
         analysis->FillH1(41, energy); // Fill histogram
       }
       // If the process is nFission, count and fill the histogram
