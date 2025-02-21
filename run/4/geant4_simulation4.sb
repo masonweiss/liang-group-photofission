@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --job-name="sim4_1"
-#SBATCH --output="sim4_1.%j.%N.out"
+#SBATCH --job-name="sim5_1"
+#SBATCH --output="sim5_1.%j.%N.out"
 #SBATCH --partition=compute
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -8,7 +8,7 @@
 #SBATCH --mem=249208M
 #SBATCH --account=riu122
 #SBATCH --export=ALL
-#SBATCH -t 05:30:00
+#SBATCH -t 03:00:00
 
 
 module purge
@@ -22,4 +22,4 @@ module load openmpi/4.1.1
 export OMP_NUM_THREADS=128
 
 #Run the openmp job
-/home/mweiss1/liang-group-photofission/v10.7.0/simulation4/build/Hadr06 /home/mweiss1/liang-group-photofission/v10.7.0/simulation4/build/singleFission.mac
+/home/mweiss1/liang-group-photofission/v11.2.2/simulation5/build/Hadr06 /home/mweiss1/liang-group-photofission/v11.2.2/simulation5/build/singleFission.mac
