@@ -1,0 +1,25 @@
+#!/bin/bash
+#SBATCH --job-name="sim5_1"
+#SBATCH --output="sim5_1.%j.%N.out"
+#SBATCH --partition=debug
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=128
+#SBATCH --mem=249208M
+#SBATCH --account=riu122
+#SBATCH --export=ALL
+#SBATCH -t 00:15:00
+
+
+module purge
+module load slurm
+module load cpu/0.17.3b
+module load gcc/10.2.0/npcyll4
+module load cmake/3.21.4
+module load openmpi/4.1.1
+
+#SET the number of openmp threads
+export OMP_NUM_THREADS=128
+
+#Run the openmp job
+/home/mweiss1/liang-group-photofission/v11.2.2/simulation5/build/Hadr06 /home/mweiss1/liang-group-photofission/v11.2.2/simulation5/build/singleFission.mac
