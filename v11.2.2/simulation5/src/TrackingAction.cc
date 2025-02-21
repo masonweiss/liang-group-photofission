@@ -132,7 +132,7 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
         const G4ParticleDefinition* secondaryParticle = secondaryTrack->GetParticleDefinition();
         if (secondaryParticle->GetParticleType() == "nucleus") {
           // Fill histogram for nuclei created in the same process
-          analysis->FillH1(43, secondaryTrack->GetKineticEnergy());
+          analysis->FillH1(42, secondaryTrack->GetKineticEnergy());
         }
       }
     }
