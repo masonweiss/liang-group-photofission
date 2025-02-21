@@ -55,7 +55,7 @@ GammaNuclearPhysics::GammaNuclearPhysics(const G4String& name)
 void GammaNuclearPhysics::ConstructProcess()
 {
    G4HadronInelasticProcess* process
-       = new G4HadronInelasticProcess("photonNuclear", G4Gamma::Definition());
+       = new G4HadronInelasticProcess("photonNuclear_high", G4Gamma::Definition());
    process->AddDataSet( new G4PhotoNuclearCrossSection );   
 
    // to not register a model, set Emax=0; eg. Emax1 = 0.
