@@ -122,7 +122,7 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
       // }
 
       // ## look to see if there is a particle generated of type == "nucleus" in the same action where this neutron was made, and add energy to hist 43
-      const std::vector<G4Track*>* secondaries = track->GetStep()->GetSecondaryInCurrentStep();
+      const std::vector<const G4Track*>* secondaries = track->GetStep()->GetSecondaryInCurrentStep();
       if (!secondaries) return;  // If no secondaries, exit early
 
       // Loop over secondaries and check if they are of type "nucleus"
