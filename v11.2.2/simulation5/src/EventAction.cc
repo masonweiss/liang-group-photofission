@@ -72,7 +72,7 @@ void EventAction::EndOfEventAction(const G4Event*)
   run->SumEnergies(fTotalEnergyDeposit,fTotalEnergyFlow, totalEnergy);                            
   G4AnalysisManager::Instance()->FillH1(1,fTotalEnergyDeposit);
   G4AnalysisManager::Instance()->FillH1(3,fTotalEnergyFlow);
-  G4AnalysisManager::Instance()->FillH1(24,totalEnergy);    
+  G4AnalysisManager::Instance()->FillH1(26,totalEnergy);    
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

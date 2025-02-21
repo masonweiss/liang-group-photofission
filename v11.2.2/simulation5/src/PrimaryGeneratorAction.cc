@@ -49,11 +49,11 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
   // default particle kinematic
 
   G4ParticleDefinition* particle
-           = G4ParticleTable::GetParticleTable()->FindParticle("neutron");
+           = G4ParticleTable::GetParticleTable()->FindParticle("gamma");
   fParticleGun->SetParticleDefinition(particle);
-  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(1.,0.,0.));
-  fParticleGun->SetParticleEnergy(14*MeV);
-  fParticleGun->SetParticlePosition(G4ThreeVector(0.*cm,0.*cm,0.*cm));
+  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
+  fParticleGun->SetParticleEnergy(15*MeV);
+  fParticleGun->SetParticlePosition(G4ThreeVector(0.*cm,0.*cm,-10.*cm));
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -67,17 +67,19 @@ PrimaryGeneratorAction::~PrimaryGeneratorAction()
 
 void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
-  //this function is called at the begining of event
-  //
-  //distribution uniform in solid angle
-  //
-  G4double cosTheta = 2*G4UniformRand() - 1., phi = twopi*G4UniformRand();
-  G4double sinTheta = std::sqrt(1. - cosTheta*cosTheta);
-  G4double ux = sinTheta*std::cos(phi),
-           uy = sinTheta*std::sin(phi),
-           uz = cosTheta;
+  // //this function is called at the begining of event
+  // //
+  // //distribution uniform in solid angle
+  // //
+  // G4double cosTheta = 2*G4UniformRand() - 1., phi = twopi*G4UniformRand();
+  // G4double sinTheta = std::sqrt(1. - cosTheta*cosTheta);
+  // G4double ux = sinTheta*std::cos(phi),
+  //          uy = sinTheta*std::sin(phi),
+  //          uz = cosTheta;
 
-  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(ux,uy,uz));
+  // fParticleGun->SetParticleMomentumDirection(G4ThreeVector(ux,uy,uz));
+  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
+  fParticleGun->SetParticlePosition(G4ThreeVector(0.*cm,0.*cm,-10.*cm));
   
   fParticleGun->GeneratePrimaryVertex(anEvent);
 }
