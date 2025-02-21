@@ -103,6 +103,25 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
     G4Track* aTrack = (G4Track*)track;
     aTrack->SetTrackStatus(fStopAndKill);
   }
+
+  // Check if the particle is a neutron
+  if (particle == G4Neutron::Neutron()) {
+
+    // Check the process that created the neutron
+    const G4VProcess* creatorProcess = track->GetCreatorProcess();
+    if (creatorProcess) {
+      G4String processName = creatorProcess->GetProcessName();
+
+      // If the process is photoNuclear, count and fill the histogram
+      if (processName == "photoNuclear") {
+        analysis->FillH1(41, energy); // Fill histogram
+      }
+      // If the process is nFission, count and fill the histogram
+      else if (processName == "nFission") {
+        analysis->FillH1(42, energy); // Fill histogram
+      }
+    }
+  }
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
