@@ -98,8 +98,8 @@ PhysicsList::PhysicsList()
   RegisterPhysics( new G4StoppingPhysics(verb));
       
   // Gamma-Nuclear Physics
-  RegisterPhysics( new GammaNuclearPhysics("gamma"));
-  ////RegisterPhysics( new GammaNuclearPhysicsLEND("gamma"));
+  // RegisterPhysics( new GammaNuclearPhysics("gamma"));
+  RegisterPhysics( new GammaNuclearPhysicsLEND("gamma"));
     
   // EM physics
   RegisterPhysics(new ElectromagneticPhysics());
