@@ -122,17 +122,20 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
       // }
 
       // ## look to see if there is a particle generated of type == "nucleus" in the same action where this neutron was made, and add energy to hist 43
-      // Get the secondaries of the track (particles created in the same step)
-      const G4Step* step = track->GetStep();  // Get the step for this track
-      const std::vector<G4Track*>* secondaries = step->GetSecondary();
+      const std::vector<G4Track*>* secondaries = track->GetStep()->GetSecondaryInCurrentStep();
+      if (!secondaries) return;  // If no secondaries, exit early
 
       // Loop over secondaries and check if they are of type "nucleus"
       for (size_t i = 0; i < secondaries->size(); ++i) {
         const G4Track* secondaryTrack = (*secondaries)[i];
+        if (!secondaryTrack) continue;  // Skip if secondaryTrack is null
+
         const G4ParticleDefinition* secondaryParticle = secondaryTrack->GetParticleDefinition();
+        if (!secondaryParticle) continue;  // Skip if secondaryParticle is null
+
+        // If the secondary particle is a "nucleus", fill the histogram
         if (secondaryParticle->GetParticleType() == "nucleus") {
-          // Fill histogram for nuclei created in the same process
-          analysis->FillH1(42, secondaryTrack->GetKineticEnergy());
+          analysis->FillH1(42, secondaryTrack->GetKineticEnergy());  // Fill histogram for "nucleus"
         }
       }
     }
