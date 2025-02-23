@@ -29,10 +29,10 @@
 #/analysis/h1/set 1 200  0. 300. MeV	#Edep
 #/analysis/h1/set 2 200  0. 300. MeV	#Edep (MeV/mm) along absorber
 #/analysis/h1/set 3 200  0. 300. MeV	#Eflow
-/analysis/h1/set 4 200  0. 25. MeV	#energy spectrum of gamma at creation
-/analysis/h1/set 5 200  0. 25. MeV	#energy spectrum of e- at creation
-/analysis/h1/set 6 200  0. 25. MeV	#energy spectrum of e+ at creation
-/analysis/h1/set 7 200  0. 25. MeV 	#energy spectrum of neutrons at creation
+/analysis/h1/set 4 50  0. 25. MeV	#energy spectrum of gamma at creation
+/analysis/h1/set 5 50  0. 25. MeV	#energy spectrum of e- at creation
+/analysis/h1/set 6 50  0. 25. MeV	#energy spectrum of e+ at creation
+/analysis/h1/set 7 50  0. 25. MeV 	#energy spectrum of neutrons at creation
 /analysis/h1/set 8 50  0. 25. MeV	#energy spectrum of protons at creation
 /analysis/h1/set 9 50  0. 25. MeV	#energy spectrum of deuterons at creation
 /analysis/h1/set 10 50  0. 25. MeV	#energy spectrum of alphas at creation
@@ -40,10 +40,10 @@
 #/analysis/h1/set 12 200  0. 25. MeV	#energy spectrum of all others baryons at creation
 #/analysis/h1/set 13 200  0. 25. MeV	#energy spectrum of all others mesons at creation
 #/analysis/h1/set 14 200  0. 25. MeV	#energy spectrum of all others leptons (neutrinos) at creation
-/analysis/h1/set 15 200  0. 25. MeV	#emerging gamma
-/analysis/h1/set 16 200  0. 25. MeV	#energy spectrum of emerging e-
-/analysis/h1/set 17 200  0. 25. MeV	#energy spectrum of emerging e+
-/analysis/h1/set 18 200  0. 25. MeV #emerging neutrons
+/analysis/h1/set 15 50  0. 25. MeV	#emerging gamma
+/analysis/h1/set 16 50  0. 25. MeV	#energy spectrum of emerging e-
+/analysis/h1/set 17 50  0. 25. MeV	#energy spectrum of emerging e+
+/analysis/h1/set 18 50  0. 25. MeV #emerging neutrons
 /analysis/h1/set 19 50  0. 25. MeV	#energy spectrum of emerging protons
 /analysis/h1/set 20 50  0. 25. MeV	#energy spectrum of emerging deuterons
 /analysis/h1/set 21 50  0. 25. MeV	#emerging alphas
@@ -51,7 +51,7 @@
 #/analysis/h1/set 23 200  0. 25. MeV	#energy spectrum of all others emerging baryons
 #/analysis/h1/set 24 200  0. 25. MeV	#energy spectrum of all others emerging mesons
 #/analysis/h1/set 25 200  0. 25. MeV	#energy spectrum of all others emerging leptons (neutrinos)
-/analysis/h1/set 26 200  0. 300. MeV	#Etot
+/analysis/h1/set 26 50  0. 300. MeV	#Etot
 
 # theta angles
 /analysis/h1/set 27 50  -1.01 1.01 #solid polar angle of gamma
@@ -82,7 +82,7 @@
 /analysis/h1/set 47 50  0. 200. MeV  	    #energy from fission reactions (all particles, creation)
 /analysis/h1/set 48 50  0. 200. MeV  	    #energy from fission reactions (fragments, creation)
 /analysis/h1/set 49 200  0. 25. MeV  	    #e+e- energy from pair production (at creation)
-/analysis/h1/set 50 200  0. 25. MeV  	    #e- energy from compton (at creation)
+/analysis/h1/set 50 50  0. 25. MeV  	    #e- energy from compton (at creation)
 /analysis/h1/set 51 200  0. 25. MeV  	    #e- energy from pair production (at creation)
 #/analysis/h1/set 52 200  0. 25. MeV  	    #energy of all particles at detector
 
