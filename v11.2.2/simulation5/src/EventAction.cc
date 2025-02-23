@@ -73,11 +73,12 @@ void EventAction::EndOfEventAction(const G4Event* event)
   // G4AnalysisManager::Instance()->FillH1(1,fTotalEnergyDeposit);
   // G4AnalysisManager::Instance()->FillH1(3,fTotalEnergyFlow);
   // G4AnalysisManager::Instance()->FillH1(26,totalEnergy);
-  if (event->GetEventID() % 1000000 == 0 && G4Threading::IsMasterThread()) 
+  if (event->GetEventID() % 1000000 == 0) 
   {
-      G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
-      analysisManager->Write();
-      analysisManager->Reset();  // Optional: Reset after writing
+    G4cout << event->GetEventID() << G4endl;
+  //     G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+  //     analysisManager->Write();
+  //     analysisManager->Reset();  // Optional: Reset after writing
   }
 
 }
