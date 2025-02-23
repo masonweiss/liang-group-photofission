@@ -62,14 +62,14 @@
 /analysis/h1/set 32 200  -1.01 1.01 #solid angle of deuterons
 /analysis/h1/set 33 200  -1.01 1.01 #solid angle of alphas
 
-## phi angles
-#/analysis/h1/set 34 200  -3.15 3.15 rad #phi angle of gamma
-#/analysis/h1/set 35 200  -3.15 3.15 rad #angle of e-
-#/analysis/h1/set 36 200  -3.15 3.15 rad #angle of e+
-#/analysis/h1/set 37 200  -3.15 3.15 rad #angle of neutrons
-#/analysis/h1/set 38 200  -3.15 3.15 rad #angle of protons
-#/analysis/h1/set 39 200  -3.15 3.15 rad #angle of deuterons
-#/analysis/h1/set 40 200  -3.15 3.15 rad #angle of alphas
+# phi angles
+/analysis/h1/set 34 200  -3.15 3.15 rad #phi angle of gamma
+/analysis/h1/set 35 200  -3.15 3.15 rad #angle of e-
+/analysis/h1/set 36 200  -3.15 3.15 rad #angle of e+
+/analysis/h1/set 37 200  -3.15 3.15 rad #angle of neutrons
+/analysis/h1/set 38 200  -3.15 3.15 rad #angle of protons
+/analysis/h1/set 39 200  -3.15 3.15 rad #angle of deuterons
+/analysis/h1/set 40 200  -3.15 3.15 rad #angle of alphas
 
 # neutron angles
 /analysis/h1/set 41 200  0. 25. MeV 	#energy spectrum of photoneutrons at creation
@@ -88,5 +88,5 @@
 
 #/run/printProgress 10000000
 #/run/beamOn 1000000000
-/run/printProgress 1000000
-/run/beamOn 10000000
+/run/printProgress 100000
+/run/beamOn 1000000
