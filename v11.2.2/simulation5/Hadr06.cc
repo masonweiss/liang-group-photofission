@@ -63,6 +63,8 @@ int main(int argc,char** argv) {
   G4SteppingVerbose::UseBestUnit(precision);
 
   //construct the run manager
+  std::cerr.setstate(std::ios_base::failbit);  // Suppress error messages
+
   auto runManager = G4RunManagerFactory::CreateRunManager();  
   if (argc==3) {
     G4int nThreads = G4UIcommand::ConvertToInt(argv[2]);
