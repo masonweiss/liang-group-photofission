@@ -95,7 +95,8 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
   else if (type == "baryon")                   ih = 12;         
   else if (type == "meson")                    ih = 13;
   else if (type == "lepton")                   ih = 14;  
-  if (ih > 0) analysis->FillH1(ih,energy); // FIX THIS BACK TO NORMAL
+  if (ih == 7) analysis->FillH1(ih,energy); // FIX THIS BACK TO NORMAL
+  return;
    
   //to force only 1 fission : kill secondary neutrons
   if (fKillNeutron && (particle == G4Neutron::Neutron())) {
@@ -173,6 +174,7 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
   // keep only emerging particles
   G4StepStatus status = track->GetStep()->GetPostStepPoint()->GetStepStatus();
   if (status != fWorldBoundary) return; 
+  return;
 
   const G4ParticleDefinition* particle = track->GetParticleDefinition();
   G4String name   = particle->GetParticleName();
