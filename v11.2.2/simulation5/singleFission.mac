@@ -84,5 +84,5 @@
 /analysis/h1/set 51 200  0. 25. MeV  	    #e- energy from pair production (at creation)
 /analysis/h1/set 52 200  0. 25. MeV  	    #energy of all particles at detector
 
-/run/printProgress 1000000
-/run/beamOn 10000000
+/run/printProgress 10000000
+/run/beamOn 1000000000
