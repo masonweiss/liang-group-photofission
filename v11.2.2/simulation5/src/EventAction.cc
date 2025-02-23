@@ -74,7 +74,7 @@ void EventAction::EndOfEventAction(const G4Event* event)
   G4AnalysisManager::Instance()->FillH1(3,fTotalEnergyFlow);
   G4AnalysisManager::Instance()->FillH1(26,totalEnergy);    
 
-  if (event->GetEventID() % 1000000 == 0) {
+  if (totalEnergy > 10^12) {
     G4AnalysisManager::Instance()->Write(); // Write data every 1000 events
     fTotalEnergyDeposit = 0.0;
     fTotalEnergyFlow = 0.0;
