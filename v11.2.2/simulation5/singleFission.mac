@@ -1,7 +1,7 @@
 #
 # Macro file for "Hadr06.cc"
 #  
-/run/verbose 2
+/run/verbose 1
 #
 /testhadr/det/setIsotopeMat U238 92 238 19.05 g/cm3
 /testhadr/det/setRadius 1.0 cm
@@ -85,5 +85,5 @@
 /analysis/h1/set 51 100  0. 25. MeV  	    #e- energy from pair production (at creation)
 /analysis/h1/set 52 100  0. 25. MeV  	    #energy of all particles at detector
 
-/run/printProgress 1000000
-/run/beamOn 10000000
+/run/printProgress 1000
+/run/beamOn 10000
