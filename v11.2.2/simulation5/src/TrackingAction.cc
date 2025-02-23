@@ -84,9 +84,9 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
   G4String type   = particle->GetParticleType();      
   G4double charge = particle->GetPDGCharge();
   if (charge > 3.)  ih = 11; 
-  // else if (particle == G4Gamma::Gamma())       ih = 4;
-  // else if (particle == G4Electron::Electron()) ih = 5;
-  // else if (particle == G4Positron::Positron()) ih = 6;
+  else if (particle == G4Gamma::Gamma())       ih = 4;
+  else if (particle == G4Electron::Electron()) ih = 5;
+  else if (particle == G4Positron::Positron()) ih = 6;
   else if (particle == G4Neutron::Neutron())   ih = 7;
   else if (particle == G4Proton::Proton())     ih = 8;
   else if (particle == G4Deuteron::Deuteron()) ih = 9;
