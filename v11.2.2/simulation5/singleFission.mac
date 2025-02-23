@@ -23,7 +23,11 @@
 /gun/particle gamma
 /gun/energy 15000000 eV
 #
-/analysis/setFileName singleFission
+#/analysis/setFileName singleFission
+/analysis/setFileName hadr06_run_3
+
+#/random/setSeeds 1235 5678
+
 /analysis/h1/set 1 200  0. 300. MeV	#Edep
 /analysis/h1/set 2 200  0. 300. MeV	#Edep (MeV/mm) along absorber
 /analysis/h1/set 3 200  0. 300. MeV	#Eflow
@@ -86,14 +90,5 @@
 
 #/run/printProgress 10000000
 #/run/beamOn 1000000000
-/run/printProgress 1000000
-/run/beamOn 10000000
-/run/beamOn 10000000
-/run/beamOn 10000000
-/run/beamOn 10000000
-/run/beamOn 10000000
-/run/beamOn 10000000
-/run/beamOn 10000000
-/run/beamOn 10000000
-/run/beamOn 10000000
-/run/beamOn 10000000
+/run/printProgress 100000
+/run/beamOn 1000000
