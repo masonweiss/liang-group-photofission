@@ -63,7 +63,7 @@ void EventAction::AddEflow(G4double Eflow)
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void EventAction::EndOfEventAction(const G4Event*)
+void EventAction::EndOfEventAction(const G4Event* event)
 {
   Run* run = static_cast<Run*>(
              G4RunManager::GetRunManager()->GetNonConstCurrentRun());
@@ -73,6 +73,13 @@ void EventAction::EndOfEventAction(const G4Event*)
   G4AnalysisManager::Instance()->FillH1(1,fTotalEnergyDeposit);
   G4AnalysisManager::Instance()->FillH1(3,fTotalEnergyFlow);
   G4AnalysisManager::Instance()->FillH1(26,totalEnergy);    
+
+  if (event->GetEventID() % 1000000 == 0) {
+    G4AnalysisManager::Instance()->Write(); // Write data every 1000 events
+    fTotalEnergyDeposit = 0.0;
+    fTotalEnergyFlow = 0.0;
+  }
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
