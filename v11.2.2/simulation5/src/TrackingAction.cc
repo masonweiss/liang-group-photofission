@@ -95,7 +95,7 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
   else if (type == "baryon")                   ih = 12;         
   else if (type == "meson")                    ih = 13;
   else if (type == "lepton")                   ih = 14;  
-  if (ih > 0) analysis->FillH1(ih,energy); // FIX THIS BACK TO NORMAL
+  if (ih > 0 && ih < 11) analysis->FillH1(ih,energy); // FIX THIS BACK TO NORMAL
    
   //to force only 1 fission : kill secondary neutrons
   if (fKillNeutron && (particle == G4Neutron::Neutron())) {
@@ -203,7 +203,7 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
   else if (type == "baryon")                   ih = 23;         
   else if (type == "meson")                    ih = 24;
   else if (type == "lepton")                   ih = 25;        
-  if (ih > 0) analysis->FillH1(ih,energy);
+  if (ih > 0 && ih < 22) analysis->FillH1(ih,energy);
 
   if (ih > 14 && ih < 22) {
     // double x = position.x();
@@ -222,7 +222,7 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
     // double phi = position.phi();
     // analysis->FillH1(ih+19,phi);
   }
-  analysis->FillH1(52, energy);
+  // analysis->FillH1(52, energy);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
