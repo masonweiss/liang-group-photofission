@@ -44,6 +44,7 @@ set(Hadr04_SCRIPTS
     run1.mac
     singleFission.mac 
     vis.mac
+    plotHisto.C
   )
 
 foreach(_script ${Hadr04_SCRIPTS})

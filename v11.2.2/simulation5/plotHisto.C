@@ -5,10 +5,10 @@
 
 void plotHisto() {
     // 1. Open the existing ROOT file containing the histogram
-    TFile *inputFile = TFile::Open("saved_samples/feb21_1200_10million/radius_10cm.root");  // Replace with your file name
+    TFile *inputFile = TFile::Open("singleFission.root");  // Replace with your file name
 
     // 2. Retrieve the existing histogram
-    TH1F *h = (TH1F*)inputFile->Get("16");  // Replace with your histogram name
+    TH1F *h = (TH1F*)inputFile->Get("36");  // Replace with your histogram name
 
     if (!h) {
         std::cout << "Histogram not found!" << std::endl;
@@ -17,7 +17,7 @@ void plotHisto() {
 
     // 3. Rebin the histogram to 50 bins (you can choose an appropriate rebinning factor)
     int currentBins = h->GetNbinsX();
-    int newBins = 20; // Desired number of bins
+    int newBins = 50; // Desired number of bins
     int rebinFactor = currentBins / newBins;  // Calculate rebinning factor
 
     h->Rebin(rebinFactor);  // Rebin the histogram
