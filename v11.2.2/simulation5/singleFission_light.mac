@@ -24,18 +24,10 @@
 /gun/energy 15000000 eV
 #
 /analysis/setFileName singleFission
+/random/setSeeds 1235 5678
 /analysis/h1/set 7 200  0. 25. MeV 	#energy spectrum of neutrons at creation
 
 #/run/printProgress 10000000
 #/run/beamOn 1000000000
-/run/printProgress 1000000
-/run/beamOn 10000000
-/run/beamOn 10000000
-/run/beamOn 10000000
-/run/beamOn 10000000
-/run/beamOn 10000000
-/run/beamOn 10000000
-/run/beamOn 10000000
-/run/beamOn 10000000
-/run/beamOn 10000000
-/run/beamOn 10000000
+/run/printProgress 100000
+/run/beamOn 1000000

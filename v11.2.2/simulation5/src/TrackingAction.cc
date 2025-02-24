@@ -83,23 +83,22 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
   G4int ih = 0;
   G4String type   = particle->GetParticleType();      
   G4double charge = particle->GetPDGCharge();
-  if (charge > 3.)  ih = 11; 
-  else if (particle == G4Gamma::Gamma())       ih = 4;
-  else if (particle == G4Electron::Electron()) ih = 5;
-  else if (particle == G4Positron::Positron()) ih = 6;
-  else if (particle == G4Neutron::Neutron())   ih = 7;
-  else if (particle == G4Proton::Proton())     ih = 8;
-  else if (particle == G4Deuteron::Deuteron()) ih = 9;
-  else if (particle == G4Alpha::Alpha())       ih = 10;       
-  else if (type == "nucleus")                  ih = 11;
-  else if (type == "baryon")                   ih = 12;         
-  else if (type == "meson")                    ih = 13;
-  else if (type == "lepton")                   ih = 14;  
+  if (particle == G4Gamma::Gamma())            ih = 1;
+  else if (particle == G4Electron::Electron()) ih = 2;
+  else if (particle == G4Positron::Positron()) ih = 3;
+  else if (particle == G4Neutron::Neutron())   ih = 4;
+  // else if (particle == G4Proton::Proton())     ih = 8;
+  // else if (particle == G4Deuteron::Deuteron()) ih = 9;
+  // else if (particle == G4Alpha::Alpha())       ih = 10;       
+  // else if (type == "nucleus")                  ih = 11;
+  // else if (type == "baryon")                   ih = 12;         
+  // else if (type == "meson")                    ih = 13;
+  // else if (type == "lepton")                   ih = 14;  
   if (ih > 0) analysis->FillH1(ih,energy); // FIX THIS BACK TO NORMAL
    
   //to force only 1 fission : kill secondary neutrons
   if (fKillNeutron && (particle == G4Neutron::Neutron())) {
-    fEventAction->AddEdep(energy);  
+    // fEventAction->AddEdep(energy);  
     G4Track* aTrack = (G4Track*)track;
     aTrack->SetTrackStatus(fStopAndKill);
   }
@@ -112,11 +111,11 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
     if (particle == G4Neutron::Neutron()) {
       // photonuclear reaction neutrons
       if (processName == "photonNuclear") {
-        analysis->FillH1(41, energy); // Fill histogram
+        analysis->FillH1(9, energy); // Fill histogram
       }
       // neutron fission neutrons
       else if (processName == "nFission") {
-        analysis->FillH1(42, energy); // Fill histogram
+        analysis->FillH1(10, energy); // Fill histogram
       }
     }
 
@@ -127,7 +126,7 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
         G4String particleName = particle->GetParticleName();
 
         // G4int a_val = std::stoi(particleName.substr(particleName.find_first_of("0123456789"), particleName.find_first_not_of("0123456789", particleName.find_first_of("0123456789")) - particleName.find_first_of("0123456789")));
-        G4int a_val = particle->GetBaryonNumber();
+        G4int b_val = particle->GetBaryonNumber();
         // G4cout << particleName << " of energy " << energy << "and mass" << nucnum << "created by process: " << processName << G4endl;
         
         // photonuclear decay products - IGNORE TERNARY FISSION (ALPHA OR TRITON EMITTED)
@@ -140,29 +139,30 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
           analysis->FillH1(44, a_val); // nucleon number
           analysis->FillH1(48, energy); // energy
         }
+        // G4cout << particleName << " of energy " << energy << "and mass" << nucnum << "created by process: " << processName << G4endl;
       }
     }
     // pair production
     if (processName == "conv" && (particle == G4Electron::Electron() || particle == G4Positron::Positron())) {
-      analysis->FillH1(49, energy); // energy
+      analysis->FillH1(15, energy); // energy
     }
     // compton scattering e-
     if (processName == "compt" && particle == G4Electron::Electron()) {
-      analysis->FillH1(50, energy); // energy
+      analysis->FillH1(16, energy); // energy
     }
     // compton scattering gamma
     if (processName == "conv" && particle == G4Electron::Electron()) {
-      analysis->FillH1(51, energy); // energy
+      analysis->FillH1(17, energy); // energy
     }
 
-    // all photo-nuclear resultant particles
-    if (processName == "photonNuclear") {
-      analysis->FillH1(45, energy); // Fill histogram
-    }
-    // all neutron fission resultant particles
-    else if (processName == "nFission") {
-      analysis->FillH1(47, energy); // Fill histogram
-    }
+    // // all photo-nuclear resultant particles
+    // if (processName == "photonNuclear") {
+    //   analysis->FillH1(45, energy); // Fill histogram
+    // }
+    // // all neutron fission resultant particles
+    // else if (processName == "nFission") {
+    //   analysis->FillH1(47, energy); // Fill histogram
+    // }
   }
 }
 
@@ -179,7 +179,7 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
   G4double energy = track->GetKineticEnergy();
   G4ThreeVector position = track->GetPosition();
   
-  fEventAction->AddEflow(energy);  
+  // fEventAction->AddEflow(energy);  
   
   Run* run = static_cast<Run*>(
                 G4RunManager::GetRunManager()->GetNonConstCurrentRun());
@@ -191,38 +191,37 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
   G4int ih = 0; 
   G4String type   = particle->GetParticleType();      
   G4double charge = particle->GetPDGCharge();
-  if (charge > 3.)  ih = 22; 
-  else if (particle == G4Gamma::Gamma())       ih = 15;
-  else if (particle == G4Electron::Electron()) ih = 16;
-  else if (particle == G4Positron::Positron()) ih = 17;
-  else if (particle == G4Neutron::Neutron())   ih = 18;
-  else if (particle == G4Proton::Proton())     ih = 19;
-  else if (particle == G4Deuteron::Deuteron()) ih = 20;
-  else if (particle == G4Alpha::Alpha())       ih = 21;       
-  else if (type == "nucleus")                  ih = 22;
-  else if (type == "baryon")                   ih = 23;         
-  else if (type == "meson")                    ih = 24;
-  else if (type == "lepton")                   ih = 25;        
+  if (particle == G4Gamma::Gamma())       ih = 5;
+  else if (particle == G4Electron::Electron()) ih = 6;
+  else if (particle == G4Positron::Positron()) ih = 7;
+  else if (particle == G4Neutron::Neutron())   ih = 8;
+  // else if (particle == G4Proton::Proton())     ih = 19;
+  // else if (particle == G4Deuteron::Deuteron()) ih = 20;
+  // else if (particle == G4Alpha::Alpha())       ih = 21;       
+  // else if (type == "nucleus")                  ih = 22;
+  // else if (type == "baryon")                   ih = 23;         
+  // else if (type == "meson")                    ih = 24;
+  // else if (type == "lepton")                   ih = 25;        
   if (ih > 0) analysis->FillH1(ih,energy);
 
-  if (ih > 14 && ih < 22) {
-    // double x = position.x();
-    // double y = position.y();
-    // double z = position.z();
+  // if (ih > 14 && ih < 22) {
+  //   // double x = position.x();
+  //   // double y = position.y();
+  //   // double z = position.z();
 
-    // double mag = position.mag();
+  //   // double mag = position.mag();
 
-    // // Polar angle (theta)
-    // theta = std::acos(z / mag);  // arccos(z / |v|)
-    // // Azimuthal angle (phi)
-    // phi = std::atan2(y, x);  // atan2(y, x)
-    double theta = position.theta();
-    analysis->FillH1(ih+12,std::cos(theta));
+  //   // // Polar angle (theta)
+  //   // theta = std::acos(z / mag);  // arccos(z / |v|)
+  //   // // Azimuthal angle (phi)
+  //   // phi = std::atan2(y, x);  // atan2(y, x)
+  //   // double theta = position.theta();
+  //   // analysis->FillH1(ih+12,std::cos(theta));
 
-    double phi = position.phi();
-    analysis->FillH1(ih+19,phi);
-  }
-  analysis->FillH1(52, energy);
+  //   // double phi = position.phi();
+  //   // analysis->FillH1(ih+19,phi);
+  // }
+  // // analysis->FillH1(52, energy);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
