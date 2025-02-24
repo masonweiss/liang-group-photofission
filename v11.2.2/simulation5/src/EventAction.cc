@@ -65,16 +65,14 @@ void EventAction::AddEflow(G4double Eflow)
 
 void EventAction::EndOfEventAction(const G4Event* event)
 {
-  // Run* run = static_cast<Run*>(
-  //            G4RunManager::GetRunManager()->GetNonConstCurrentRun());
+  Run* run = static_cast<Run*>(
+             G4RunManager::GetRunManager()->GetNonConstCurrentRun());
 	     
-  // G4double totalEnergy = fTotalEnergyDeposit + fTotalEnergyFlow;               
-  // run->SumEnergies(fTotalEnergyDeposit,fTotalEnergyFlow, totalEnergy);                            
-  // G4AnalysisManager::Instance()->FillH1(1,fTotalEnergyDeposit);
-  // G4AnalysisManager::Instance()->FillH1(3,fTotalEnergyFlow);
-  // G4AnalysisManager::Instance()->FillH1(26,totalEnergy);
+  G4double totalEnergy = fTotalEnergyDeposit + fTotalEnergyFlow;               
+  run->SumEnergies(fTotalEnergyDeposit,fTotalEnergyFlow, totalEnergy);                            
+  G4AnalysisManager::Instance()->FillH1(1,fTotalEnergyDeposit);
+  G4AnalysisManager::Instance()->FillH1(3,fTotalEnergyFlow);
+  G4AnalysisManager::Instance()->FillH1(26,totalEnergy);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-

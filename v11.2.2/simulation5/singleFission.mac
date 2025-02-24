@@ -23,30 +23,68 @@
 /gun/particle gamma
 /gun/energy 15000000 eV
 #
-#/analysis/setFileName singleFission
-/analysis/setFileName hadr06_run_3
+/analysis/setFileName singleFission
+/random/setSeeds 1235 5678
 
-#/random/setSeeds 1235 5678
+/analysis/h1/set 1 200  0. 300. MeV	#Edep
+/analysis/h1/set 2 200  0. 300. MeV	#Edep (MeV/mm) along absorber
+/analysis/h1/set 3 200  0. 300. MeV	#Eflow
+/analysis/h1/set 4 200  0. 25. MeV	#energy spectrum of gamma at creation
+/analysis/h1/set 5 200  0. 25. MeV	#energy spectrum of e- at creation
+/analysis/h1/set 6 200  0. 25. MeV	#energy spectrum of e+ at creation
+/analysis/h1/set 7 200  0. 25. MeV 	#energy spectrum of neutrons at creation
+/analysis/h1/set 8 200  0. 25. MeV	#energy spectrum of protons at creation
+/analysis/h1/set 9 200  0. 25. MeV	#energy spectrum of deuterons at creation
+/analysis/h1/set 10 200  0. 25. MeV	#energy spectrum of alphas at creation
+/analysis/h1/set 11 200  0. 25. MeV	#energy spectrum of all others ions at creation
+/analysis/h1/set 12 200  0. 25. MeV	#energy spectrum of all others baryons at creation
+/analysis/h1/set 13 200  0. 25. MeV	#energy spectrum of all others mesons at creation
+/analysis/h1/set 14 200  0. 25. MeV	#energy spectrum of all others leptons (neutrinos) at creation
+/analysis/h1/set 15 200  0. 25. MeV	#emerging gamma
+/analysis/h1/set 16 200  0. 25. MeV	#energy spectrum of emerging e-
+/analysis/h1/set 17 200  0. 25. MeV	#energy spectrum of emerging e+
+/analysis/h1/set 18 200  0. 25. MeV #emerging neutrons
+/analysis/h1/set 19 200  0. 25. MeV	#energy spectrum of emerging protons
+/analysis/h1/set 20 200  0. 25. MeV	#energy spectrum of emerging deuterons
+/analysis/h1/set 21 200  0. 25. MeV	#emerging alphas
+/analysis/h1/set 22 200  0. 25. MeV	#emerging generic ions
+/analysis/h1/set 23 200  0. 25. MeV	#energy spectrum of all others emerging baryons
+/analysis/h1/set 24 200  0. 25. MeV	#energy spectrum of all others emerging mesons
+/analysis/h1/set 25 200  0. 25. MeV	#energy spectrum of all others emerging leptons (neutrinos)
+/analysis/h1/set 26 200  0. 300. MeV	#Etot
 
-/analysis/h1/set 1 50  0. 25. MeV	#energy spectrum of gamma at creation
-/analysis/h1/set 2 50  0. 25. MeV	#energy spectrum of e- at creation
-/analysis/h1/set 3 50  0. 25. MeV	#energy spectrum of e+ at creation
-/analysis/h1/set 4 50  0. 25. MeV 	#energy spectrum of neutrons at creation
-/analysis/h1/set 5 50  0. 25. MeV	#emerging gamma
-/analysis/h1/set 6 50  0. 25. MeV	#energy spectrum of emerging e-
-/analysis/h1/set 7 50  0. 25. MeV	#energy spectrum of emerging e+
-/analysis/h1/set 8 50  0. 25. MeV  #emerging neutrons
+# theta angles
+/analysis/h1/set 27 200  -1.01 1.01 #solid polar angle of gamma
+/analysis/h1/set 28 200  -1.01 1.01 #solid angle of e-
+/analysis/h1/set 29 200  -1.01 1.01 #solid angle of e+
+/analysis/h1/set 30 200  -1.01 1.01 #solid angle of neutrons
+/analysis/h1/set 31 200  -1.01 1.01 #solid angle of protons
+/analysis/h1/set 32 200  -1.01 1.01 #solid angle of deuterons
+/analysis/h1/set 33 200  -1.01 1.01 #solid angle of alphas
 
-/analysis/h1/set 9 100  0. 25. MeV 	#energy spectrum of photoneutrons at creation
-/analysis/h1/set 10 100  0. 25. MeV 	#energy spectrum of neutron-induced fission neutrons at creation
-/analysis/h1/set 11 100  0. 200.  	    #nucleon number fission product distribution for (gamma, X)
-/analysis/h1/set 12 100  0. 200.  	    #nucleon number fission product distribution for nFission
+# phi angles
+/analysis/h1/set 34 200  -3.15 3.15 rad #phi angle of gamma
+/analysis/h1/set 35 200  -3.15 3.15 rad #angle of e-
+/analysis/h1/set 36 200  -3.15 3.15 rad #angle of e+
+/analysis/h1/set 37 200  -3.15 3.15 rad #angle of neutrons
+/analysis/h1/set 38 200  -3.15 3.15 rad #angle of protons
+/analysis/h1/set 39 200  -3.15 3.15 rad #angle of deuterons
+/analysis/h1/set 40 200  -3.15 3.15 rad #angle of alphas
 
-/analysis/h1/set 13 50  0. 200. MeV  	    #energy from photonuclear reactions (fragments, creation)
-/analysis/h1/set 14 50  0. 200. MeV  	    #energy from fission reactions (fragments, creation)
-/analysis/h1/set 15 100  0. 25. MeV  	    #e+e- energy from pair production (at creation)
-/analysis/h1/set 16 50  0. 25. MeV  	    #e- energy from compton (at creation)
-/analysis/h1/set 17 100  0. 25. MeV  	    #e- energy from pair production (at creation)
+# neutron angles
+/analysis/h1/set 41 200  0. 25. MeV 	#energy spectrum of photoneutrons at creation
+/analysis/h1/set 42 200  0. 25. MeV 	#energy spectrum of neutron-induced fission neutrons at creation
+/analysis/h1/set 43 200  0. 200.  	    #nucleon number fission product distribution for (gamma, X)
+/analysis/h1/set 44 200  0. 200.  	    #nucleon number fission product distribution for nFission
+
+/analysis/h1/set 45 200  0. 200. MeV  	    #energy from photonuclear reactions (all particles, creation)
+/analysis/h1/set 46 200  0. 200. MeV  	    #energy from photonuclear reactions (fragments, creation)
+/analysis/h1/set 47 200  0. 200. MeV  	    #energy from fission reactions (all particles, creation)
+/analysis/h1/set 48 200  0. 200. MeV  	    #energy from fission reactions (fragments, creation)
+/analysis/h1/set 49 200  0. 25. MeV  	    #e+e- energy from pair production (at creation)
+/analysis/h1/set 50 200  0. 25. MeV  	    #e- energy from compton (at creation)
+/analysis/h1/set 51 200  0. 25. MeV  	    #e- energy from pair production (at creation)
+/analysis/h1/set 52 200  0. 25. MeV  	    #energy of all particles at detector
 
 #/run/printProgress 10000000
 #/run/beamOn 1000000000
