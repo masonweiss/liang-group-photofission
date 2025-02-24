@@ -95,8 +95,7 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
   else if (type == "baryon")                   ih = 12;         
   else if (type == "meson")                    ih = 13;
   else if (type == "lepton")                   ih = 14;  
-  if (ih == 7) analysis->FillH1(ih,energy); // FIX THIS BACK TO NORMAL
-  return;
+  if (ih > 0) analysis->FillH1(ih,energy);
    
   //to force only 1 fission : kill secondary neutrons
   if (fKillNeutron && (particle == G4Neutron::Neutron())) {
