@@ -75,11 +75,11 @@ void HistoManager::Book()
          "energy from fission reactions (fragments, creation)",          //48
          "e+e- energy from pair production (at creation)",               //49
          "e- energy from compton (at creation)",                         //50
-         "e- energy from pair production (at creation)",               //51
+         "e- energy from pair production (at creation)",                 //51
        };
 
   // Default values (to be reset via /analysis/h1/set command) 
-  G4int nbins = 200;
+  G4int nbins = 50;
   G4double vmin = 0.;
   G4double vmax = 200.;
 

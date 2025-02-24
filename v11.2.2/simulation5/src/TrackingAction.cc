@@ -124,21 +124,18 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
       if (energy > 1) {  // only look at decay products (have high energy)
         G4String processName = creatorProcess->GetProcessName();
         G4String particleName = particle->GetParticleName();
-
-        G4int a_val = std::stoi(particleName.substr(particleName.find_first_of("0123456789"), particleName.find_first_not_of("0123456789", particleName.find_first_of("0123456789")) - particleName.find_first_of("0123456789")));
+        G4int b_val = particle->GetBaryonNumber();
         
-        // G4cout << particleName << " of energy " << energy << "and mass" << nucnum << "created by process: " << processName << G4endl;
-        
-        // photonuclear decay products
-        if (processName == "photonNuclear") {
-          analysis->FillH1(11, a_val); // nucleon number
+        if (processName == "photonNuclear" && b_val > 4) {
+          analysis->FillH1(11, b_val); // nucleon number
           analysis->FillH1(13, energy); // energy
         }
         // neutron fission decay products
-        else if (processName == "nFission") {
-          analysis->FillH1(12, a_val); // nucleon number
+        else if (processName == "nFission" && b_val > 4) {
+          analysis->FillH1(12, b_val); // nucleon number
           analysis->FillH1(14, energy); // energy
         }
+        // G4cout << particleName << " of energy " << energy << "and mass" << nucnum << "created by process: " << processName << G4endl;
       }
     }
     // pair production
@@ -190,10 +187,10 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
   G4int ih = 0; 
   G4String type   = particle->GetParticleType();      
   G4double charge = particle->GetPDGCharge();
-  if (particle == G4Gamma::Gamma())       ih = 15;
-  else if (particle == G4Electron::Electron()) ih = 16;
-  else if (particle == G4Positron::Positron()) ih = 17;
-  else if (particle == G4Neutron::Neutron())   ih = 18;
+  if (particle == G4Gamma::Gamma())       ih = 5;
+  else if (particle == G4Electron::Electron()) ih = 6;
+  else if (particle == G4Positron::Positron()) ih = 7;
+  else if (particle == G4Neutron::Neutron())   ih = 8;
   // else if (particle == G4Proton::Proton())     ih = 19;
   // else if (particle == G4Deuteron::Deuteron()) ih = 20;
   // else if (particle == G4Alpha::Alpha())       ih = 21;       

@@ -35,16 +35,16 @@
 /analysis/h1/set 7 50  0. 25. MeV	#energy spectrum of emerging e+
 /analysis/h1/set 8 50  0. 25. MeV  #emerging neutrons
 
-/analysis/h1/set 9 200  0. 25. MeV 	#energy spectrum of photoneutrons at creation
-/analysis/h1/set 10 200  0. 25. MeV 	#energy spectrum of neutron-induced fission neutrons at creation
-/analysis/h1/set 11 200  0. 200.  	    #nucleon number fission product distribution for (gamma, X)
-/analysis/h1/set 12 200  0. 200.  	    #nucleon number fission product distribution for nFission
+/analysis/h1/set 9 100  0. 25. MeV 	#energy spectrum of photoneutrons at creation
+/analysis/h1/set 10 100  0. 25. MeV 	#energy spectrum of neutron-induced fission neutrons at creation
+/analysis/h1/set 11 100  0. 200.  	    #nucleon number fission product distribution for (gamma, X)
+/analysis/h1/set 12 100  0. 200.  	    #nucleon number fission product distribution for nFission
 
 /analysis/h1/set 13 50  0. 200. MeV  	    #energy from photonuclear reactions (fragments, creation)
 /analysis/h1/set 14 50  0. 200. MeV  	    #energy from fission reactions (fragments, creation)
-/analysis/h1/set 15 200  0. 25. MeV  	    #e+e- energy from pair production (at creation)
+/analysis/h1/set 15 100  0. 25. MeV  	    #e+e- energy from pair production (at creation)
 /analysis/h1/set 16 50  0. 25. MeV  	    #e- energy from compton (at creation)
-/analysis/h1/set 17 200  0. 25. MeV  	    #e- energy from pair production (at creation)
+/analysis/h1/set 17 100  0. 25. MeV  	    #e- energy from pair production (at creation)
 
 #/run/printProgress 10000000
 #/run/beamOn 1000000000
