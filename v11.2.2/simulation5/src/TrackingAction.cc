@@ -174,7 +174,6 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
   // keep only emerging particles
   G4StepStatus status = track->GetStep()->GetPostStepPoint()->GetStepStatus();
   if (status != fWorldBoundary) return; 
-  return;
 
   const G4ParticleDefinition* particle = track->GetParticleDefinition();
   G4String name   = particle->GetParticleName();
