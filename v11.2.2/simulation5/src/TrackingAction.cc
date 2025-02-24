@@ -126,17 +126,17 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
         G4String processName = creatorProcess->GetProcessName();
         G4String particleName = particle->GetParticleName();
 
-        G4int a_val = std::stoi(particleName.substr(particleName.find_first_of("0123456789"), particleName.find_first_not_of("0123456789", particleName.find_first_of("0123456789")) - particleName.find_first_of("0123456789")));
-        
+        // G4int a_val = std::stoi(particleName.substr(particleName.find_first_of("0123456789"), particleName.find_first_not_of("0123456789", particleName.find_first_of("0123456789")) - particleName.find_first_of("0123456789")));
+        G4int a_val = particle->GetBaryonNumber();
         // G4cout << particleName << " of energy " << energy << "and mass" << nucnum << "created by process: " << processName << G4endl;
         
-        // photonuclear decay products
-        if (processName == "photonNuclear") {
+        // photonuclear decay products - IGNORE TERNARY FISSION (ALPHA OR TRITON EMITTED)
+        if (processName == "photonNuclear" && a_val > 4) {
           analysis->FillH1(43, a_val); // nucleon number
           analysis->FillH1(46, energy); // energy
         }
-        // neutron fission decay products
-        else if (processName == "nFission") {
+        // neutron fission decay products - IGNORE TERNARY FISSION (ALPHA OR TRITON EMITTED)
+        else if (processName == "nFission" && a_val > 4) {
           analysis->FillH1(44, a_val); // nucleon number
           analysis->FillH1(48, energy); // energy
         }
