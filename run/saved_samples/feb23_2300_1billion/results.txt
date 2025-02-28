@@ -1,0 +1,221 @@
+1mm
+num Nfissions:       |   energy from Nfission:
+num Pfissions:       |   energy from Pfission:
+num pairprod:        |   energy from pairprod: 
+
+R = pp / (nf + pf) = 
+
+5mm
+
+
+
+10mm
+
+
+
+
+50mm
+
+
+
+
+
+
+100mm
+
+
+
+
+
+
+
+
+(base) mason@masons-mbp saved_samples % python analysis.py
+============= 1 mm =============
+Process Calls:
+Decay                         35
+NoProcess                     35065111
+Radioactivation               13545370
+Rayl                          146269023
+Transportation                1997199188
+annihil                       785809951
+compt                         843458766
+conv                          795134827
+eIoni                         14231976781
+hIoni                         828
+hadElastic                    9522277
+ionIoni                       49387896
+msc                           883580261
+nCapture                      144194
+nFission                      374591
+neutronInelastic              4030310
+phot                          1428208122
+photonNuclear                 14260834
+Other                         0
+
+Particles at CREATION
+anti_nu_e            |      Count: 60708           |    Mean Energy 1.2745       MeV     |     Total Energy of all particles per gamma 7.7372346e-05 MeV
+e+                   |      Count: 174157869       |    Mean Energy 6.9667       MeV     |     Total Energy of all particles per gamma 1.2133056259623 MeV
+e-                   |      Count: 261971539       |    Mean Energy 5.99734      MeV     |     Total Energy of all particles per gamma 1.5711323897062601 MeV
+gamma                |      Count: 161982345       |    Mean Energy 0.718149     MeV     |     Total Energy of all particles per gamma 0.116327459079405 MeV
+neutron              |      Count: 8996538         |    Mean Energy 1.65577      MeV     |     Total Energy of all particles per gamma 0.01489619772426 MeV
+
+Particles at DETECTION
+anti_nu_e            |      Count: 60708           |    Mean Energy 1.2745       MeV     |     Total Energy of all particles per gamma 7.7372346e-05 MeV
+e+                   |      Count: 103050048       |    Mean Energy 5.37022      MeV     |     Total Energy of all particles per gamma 0.55340142877056 MeV
+e-                   |      Count: 117658539       |    Mean Energy 5.80884      MeV     |     Total Energy of all particles per gamma 0.68345962768476 MeV
+gamma                |      Count: 948228507       |    Mean Energy 12.7626      MeV     |     Total Energy of all particles per gamma 12.1018611434382 MeV
+neutron              |      Count: 8894703         |    Mean Energy 1.65148      MeV     |     Total Energy of all particles per gamma 0.01468942411044 MeV
+
+
+
+============= 5 mm =============
+Process Calls:
+Decay                         8
+NoProcess                     4980921
+Radioactivation               3050382
+Rayl                          3562081
+Transportation                3378472363
+annihil                       71563098
+compt                         46306945
+conv                          174157869
+eIoni                         596344982
+hIoni                         172
+hadElastic                    197186
+ionIoni                       8103162
+msc                           1792044659
+nCapture                      2930
+nFission                      8951
+neutronInelastic              89954
+phot                          36371961
+photonNuclear                 3224008
+Other                         0
+
+Particles at CREATION
+anti_nu_e            |      Count: 201687          |    Mean Energy 1.26815      MeV     |     Total Energy of all particles per gamma 0.00025576936905 MeV
+e+                   |      Count: 592092078       |    Mean Energy 6.8689       MeV     |     Total Energy of all particles per gamma 4.0670212745742 MeV
+e-                   |      Count: 1903975866      |    Mean Energy 2.93079      MeV     |     Total Energy of all particles per gamma 5.580153428314141 MeV
+gamma                |      Count: 1187346633      |    Mean Energy 0.659714     MeV     |     Total Energy of all particles per gamma 0.783309196642962 MeV
+neutron              |      Count: 31563635        |    Mean Energy 1.6289       MeV     |     Total Energy of all particles per gamma 0.0514140050515 MeV
+
+Particles at DETECTION
+anti_nu_e            |      Count: 201687          |    Mean Energy 1.26815      MeV     |     Total Energy of all particles per gamma 0.00025576936905 MeV
+e+                   |      Count: 33599549        |    Mean Energy 5.32241      MeV     |     Total Energy of all particles per gamma 0.17883057559308999 MeV
+e-                   |      Count: 39953096        |    Mean Energy 5.49188      MeV     |     Total Energy of all particles per gamma 0.21941760886048 MeV
+gamma                |      Count: 781210862       |    Mean Energy 6.75776      MeV     |     Total Energy of all particles per gamma 5.27923551478912 MeV
+neutron              |      Count: 29843634        |    Mean Energy 1.60778      MeV     |     Total Energy of all particles per gamma 0.04798199787252 MeV
+
+
+
+============= 1 cm =============
+Process Calls:
+Decay                         47
+NoProcess                     208559884
+Radioactivation               15145123
+Rayl                          198662936
+Transportation                1372549996
+annihil                       911784279
+compt                         1155242151
+conv                          911014340
+eIoni                         17257486390
+hIoni                         867
+hadElastic                    143960579
+ionIoni                       226989637
+msc                           697056210
+nCapture                      2286622
+nFission                      2059481
+neutronInelastic              35417210
+phot                          1949018725
+photonNuclear                 15933939
+Other                         0
+
+Particles at CREATION
+anti_nu_e            |      Count: 266357          |    Mean Energy 1.27236      MeV     |     Total Energy of all particles per gamma 0.00033890199251999996 MeV
+e+                   |      Count: 795134827       |    Mean Energy 6.78198      MeV     |     Total Energy of all particles per gamma 5.39258849401746 MeV
+e-                   |      Count: 3089488102      |    Mean Energy 2.45751      MeV     |     Total Energy of all particles per gamma 7.59244790554602 MeV
+gamma                |      Count: 1663789310      |    Mean Energy 0.655417     MeV     |     Total Energy of all particles per gamma 1.0904757981922701 MeV
+neutron              |      Count: 44208489        |    Mean Energy 1.59625      MeV     |     Total Energy of all particles per gamma 0.07056780056624999 MeV
+
+Particles at DETECTION
+anti_nu_e            |      Count: 266357          |    Mean Energy 1.27236      MeV     |     Total Energy of all particles per gamma 0.00033890199251999996 MeV
+e+                   |      Count: 13144996        |    Mean Energy 4.74866      MeV     |     Total Energy of all particles per gamma 0.062421116705360005 MeV
+e-                   |      Count: 17132321        |    Mean Energy 4.59049      MeV     |     Total Energy of all particles per gamma 0.07864574822729001 MeV
+gamma                |      Count: 426185527       |    Mean Energy 4.50077      MeV     |     Total Energy of all particles per gamma 1.91816303435579 MeV
+neutron              |      Count: 39659394        |    Mean Energy 1.55572      MeV     |     Total Energy of all particles per gamma 0.061698912433679996 MeV
+
+
+
+============= 5 cm =============
+Process Calls:
+Decay                         43
+NoProcess                     109437572
+Radioactivation               15138695
+Rayl                          194427152
+Transportation                1392526853
+annihil                       910367907
+compt                         1135637962
+conv                          909653762
+eIoni                         17148621773
+hIoni                         935
+hadElastic                    62648110
+ionIoni                       126976192
+msc                           699396515
+nCapture                      977852
+nFission                      1465124
+neutronInelastic              20009779
+phot                          1902014842
+photonNuclear                 15929074
+Other                         0
+
+Particles at CREATION
+anti_nu_e            |      Count: 297417          |    Mean Energy 1.27246      MeV     |     Total Energy of all particles per gamma 0.00037845123582 MeV
+e+                   |      Count: 909653762       |    Mean Energy 6.65007      MeV     |     Total Energy of all particles per gamma 6.04926119306334 MeV
+e-                   |      Count: 3973043217      |    Mean Energy 2.19758      MeV     |     Total Energy of all particles per gamma 8.731080312814859 MeV
+gamma                |      Count: 1967783931      |    Mean Energy 0.647784     MeV     |     Total Energy of all particles per gamma 1.274698945958904 MeV
+neutron              |      Count: 67743183        |    Mean Energy 1.41418      MeV     |     Total Energy of all particles per gamma 0.09580105453494 MeV
+
+Particles at DETECTION
+anti_nu_e            |      Count: 297417          |    Mean Energy 1.27246      MeV     |     Total Energy of all particles per gamma 0.00037845123582 MeV
+e+                   |      Count: 3640188         |    Mean Energy 2.49992      MeV     |     Total Energy of all particles per gamma 0.00910017878496 MeV
+e-                   |      Count: 5744939         |    Mean Energy 2.25966      MeV     |     Total Energy of all particles per gamma 0.012981608860739999 MeV
+gamma                |      Count: 140186253       |    Mean Energy 0.808336     MeV     |     Total Energy of all particles per gamma 0.11331759500500801 MeV
+neutron              |      Count: 45290428        |    Mean Energy 1.29491      MeV     |     Total Energy of all particles per gamma 0.058647028121480003 MeV
+
+
+
+============= 10 cm =============
+Process Calls:
+Decay                         37
+NoProcess                     20923517
+Radioactivation               10216492
+Rayl                          82260667
+Transportation                2778428723
+annihil                       561267074
+compt                         491486456
+conv                          592092078
+eIoni                         9496426686
+hIoni                         634
+hadElastic                    3447222
+ionIoni                       31533360
+msc                           1228835881
+nCapture                      52135
+nFission                      145277
+neutronInelastic              1522589
+phot                          803261777
+photonNuclear                 10781916
+Other                         0
+
+Particles at CREATION
+anti_nu_e            |      Count: 296954          |    Mean Energy 1.27515      MeV     |     Total Energy of all particles per gamma 0.0003786608931 MeV
+e+                   |      Count: 911014340       |    Mean Energy 6.64125      MeV     |     Total Energy of all particles per gamma 6.050273985525001 MeV
+e-                   |      Count: 4041603067      |    Mean Energy 2.16618      MeV     |     Total Energy of all particles per gamma 8.75483973167406 MeV
+gamma                |      Count: 2006576025      |    Mean Energy 0.644123     MeV     |     Total Energy of all particles per gamma 1.292481768951075 MeV
+neutron              |      Count: 84817994        |    Mean Energy 1.27338      MeV     |     Total Energy of all particles per gamma 0.10800553719971999 MeV
+
+Particles at DETECTION
+anti_nu_e            |      Count: 296954          |    Mean Energy 1.27515      MeV     |     Total Energy of all particles per gamma 0.0003786608931 MeV
+e+                   |      Count: 3586745         |    Mean Energy 2.49781      MeV     |     Total Energy of all particles per gamma 0.008959007528449999 MeV
+e-                   |      Count: 5640890         |    Mean Energy 2.26388      MeV     |     Total Energy of all particles per gamma 0.0127702980532 MeV
+gamma                |      Count: 130609021       |    Mean Energy 0.776918     MeV     |     Total Energy of all particles per gamma 0.101472499377278 MeV
+neutron              |      Count: 45054681        |    Mean Energy 1.15471      MeV     |     Total Energy of all particles per gamma 0.05202509069751 MeV
+
