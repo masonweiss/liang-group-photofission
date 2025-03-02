@@ -175,7 +175,7 @@ unique_absorbers = np.unique(absorbers)
 grouped_data = np.zeros((len(unique_absorbers), process_counts.shape[1] + 1), dtype=object)
 
 # Aggregate values by absorber thickness
-for i, absorber in enumerate(unique_absorbers):
+for i, absorber in enumerate(list(size_maps.keys())[::-1]):
     mask = absorbers == absorber  # Find rows with the same absorber
     grouped_data[i, 0] = size_maps[absorber]  # Keep absorber name
     grouped_data[i, 1:] = np.sum(process_counts[mask], axis=0)  # Sum process counts
