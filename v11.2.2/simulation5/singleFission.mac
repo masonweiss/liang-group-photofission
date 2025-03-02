@@ -21,7 +21,7 @@
 /testhadr/tracking/countParticles true
 #
 /gun/particle gamma
-/gun/energy 15000000 eV
+/gun/energy 13800000 eV
 #
 /analysis/setFileName singleFission
 /random/setSeeds 1235 5678
