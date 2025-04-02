@@ -1,0 +1,33 @@
+
+**************************************************************
+ Geant4 version Name: geant4-11-02-patch-02 [MT]   (21-June-2024)
+  << in Multi-threaded mode >> 
+                       Copyright : Geant4 Collaboration
+                      References : NIM A 506 (2003), 250-303
+                                 : IEEE-TNS 53 (2006), 270-278
+                                 : NIM A 835 (2016), 186-225
+                             WWW : http://geant4.org/
+**************************************************************
+
+
+==========================================================================================
+G4TaskRunManager :: Using G4ThreadPool...
+==========================================================================================
+
+userDetector->Construct() start.
+
+ The Absorber is 1 cm  of U238
+ 
+ Material:     U238    density: 19.050 g/cm3   RadL:   3.150 mm   Nucl.Int.Length:  11.387 cm 
+                       Imean: 890.000 eV   temperature: 293.15 K  pressure:   1.00 atm
+
+   --->  Element: U238 (U238)   Z = 92.0   N =   238   A = 238.051 g/mole
+         --->  Isotope:  U238   Z = 92   N = 238   A = 238.05 g/mole   abundance: 100.000 %
+          ElmMassFraction: 100.00 %  ElmAbundance 100.00 % 
+
+World is registered to the default region.
+physicsList->Construct() start.
+@@@ G4ParticleHPInelasticData instantiated for particle neutron data directory variable is G4NEUTRONHPDATA pointing to /home/mweiss1/geant4/geant4-v11.2.2-install-2/share/Geant4/data/G4NDL4.7.1
+physicsList->CheckParticleList() start.
+physicsList->setCut() start.
+slurmstepd: error: *** JOB 37191740 ON exp-9-56 CANCELLED AT 2025-02-23T08:48:49 ***

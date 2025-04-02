@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --job-name="sim5_1"
-#SBATCH --output="sim5_1.%j.%N.out"
+#SBATCH --job-name="sim5_single_"
+#SBATCH --output="sim5_single.%j.%N.out"
 #SBATCH --partition=debug
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
