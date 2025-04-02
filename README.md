@@ -2,7 +2,7 @@
 Photofission Study for Prof. Edison Liang - Geant4
 
 ## Installation Instructions
-In an effort to standardize use of monte carlo simulation programs such as Geant4, it makes sense to ensure that all versions of geant4 and data datables are the same. As of 11/7/2024, the most recent version of Geant4 which is compatible with the versions of gcc and cmake available on the SDSC Expanse-g cluster is Geant4-v10.7.0. It may prove useful to install the same version both locally and on the cluster; complete all development of a particular simulation, and then clone this repository to copy the code over on the remote (expanse) server.
+In an effort to standardize use of monte carlo simulation programs such as Geant4, it makes sense to ensure that all versions of geant4 and data datables are the same. As of 04/01/2025, the most recent version of Geant4 which is compatible with the versions of gcc and cmake available on the SDSC Expanse-g cluster is Geant4-v11.2.2. It may prove useful to install the same version both locally and on the cluster; complete all development of a particular simulation, and then clone this repository to copy the code over on the remote (expanse) server.
 
 ### Local Geant-4 Installation
 For my ease of access, my local code is contained within a directory called $HOME/liang-group. I'll install geant4 within this folder. Feel free to also copy the simulations contained in this repository as well via cloning the repository with HTTPS.
@@ -25,23 +25,23 @@ brew install xerces-c
 ```
 mkdir geant4
 cd geant4
-wget https://gitlab.cern.ch/geant4/geant4/-/archive/v10.7.0/geant4-v10.7.0.tar.gz
-tar -xzvf geant4-v10.7.0.tar.gz
+wget https://gitlab.cern.ch/geant4/geant4/-/archive/v11.2.2/geant4-v11.2.2.tar.gz
+tar -xzvf geant4-v11.2.2.tar.gz
 ```
 
 3. Verify the compressed source code has been unpacked and make an installation directory
 ```
-rm geant4-v10.7.0.tar.gz
-mkdir geant4-v10.7.0-install
+rm geant4-v11.2.2.tar.gz
+mkdir geant4-v11.2.2-install
 ```
-There should now only be two objects in the Geant4 folder, both directories: geant4-v10.7.0-install and geant4-v10.7.0
+There should now only be two objects in the Geant4 folder, both directories: geant4-v11.2.2-install and geant4-v11.2.2
 
- Prepare build files for Geant4 using the following commands:
+Prepare build files for Geant4 using the following commands:
 ```
-cd geant4-v10.7.0
+cd geant4-v11.2.2
 mkdir build
 cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/liang-group/geant4/geant4-v10.7.0-install \
+cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/liang-group/geant4/geant4-v11.2.2-install \
 -DGEANT4_BUILD_MULTITHREADED=ON \
 -DGEANT4_INSTALL_DATA=ON \
 -DGEANT4_USE_GDML=ON \
@@ -60,8 +60,8 @@ make install
 6. Note, after installing the data, you may need to specify the path for Geant4 to recognize it. You may also need to specifically add the executable to the path.
 
 ```
-export G4DATA=$HOME/liang-group/geant4/geant4-v10.7.0-install/share/Geant4-10.7.0/data
-source $HOME/liang-group/geant4/geant4-v10.7.0-install/bin/geant4.sh
+export G4DATA=$HOME/liang-group/geant4/geant4-v11.2.2-install/share/Geant4-11.2.2/data
+source $HOME/liang-group/geant4/geant4-v11.2.2-install/bin/geant4.sh
 ```
 
 After installing Geant4 locally, you can test the simulation1 code. Inside this directory is a copy of the exampleB1 simulation from the official geant4 release.
@@ -73,8 +73,8 @@ Access the expanse cluster via: ssh <ACCESS_ID>@login.expanse.sdsc.edu
 ```
 cd $HOME
 mkdir geant4
-wget https://gitlab.cern.ch/geant4/geant4/-/archive/v10.7.0/geant4-v10.7.0.tar.gz
-tar -xzvf geant4-v10.7.0.tar.gz
+wget https://gitlab.cern.ch/geant4/geant4/-/archive/v11.2.2/geant4-v11.2.2.tar.gz
+tar -xzvf geant4-v11.2.2.tar.gz
 ```
 
 2. Load the Expanse modules from spider for C/C++ compilation
@@ -85,17 +85,17 @@ module load cmake/3.21.4
 
 3. Verify the compressed source code has been unpacked and make an installation directory
 ```
-rm geant4-v10.7.0.tar.gz
-mkdir geant4-v10.7.0-install
+rm geant4-v11.2.2.tar.gz
+mkdir geant4-v11.2.2-install
 ```
-There should now only be two objects in the Geant4 folder, both directories: geant4-v10.7.0-install and geant4-v10.7.0
+There should now only be two objects in the Geant4 folder, both directories: geant4-v11.2.2-install and geant4-v11.2.2
 
 4. Prepare build files for Geant4 using the following commands:
 ```
-cd geant4-v10.7.0
+cd geant4-v11.2.2
 mkdir build
 cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/geant4/geant4-v10.7.0-install \
+cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/geant4/geant4-v11.2.2-install \
 -DGEANT4_BUILD_MULTITHREADED=ON \
 -DGEANT4_INSTALL_DATA=ON \
 -DGEANT4_BUILD_CXXSTD=17
@@ -111,8 +111,8 @@ make install
 
 Note, after installing the data, you may need to specify the path for Geant4 to recognize it. You may also need to specifically add the executable to the path.
 ```
-export G4DATA=$HOME/geant4/geant4-v10.7.0-install/share/Geant4-10.7.0/data
-source $HOME/geant4/geant4-v10.7.0-install/bin/geant4.sh
+export G4DATA=$HOME/geant4/geant4-v11.2.2-install/share/Geant4-11.2.2/data
+source $HOME/geant4/geant4-v11.2.2-install/bin/geant4.sh
 ```
 
 ## Submitting Jobs on Expanse
