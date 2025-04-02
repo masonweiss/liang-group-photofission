@@ -4,11 +4,11 @@
 #SBATCH --partition=debug
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=128
-#SBATCH --mem=249208M
+#SBATCH --cpus-per-task=64
+#SBATCH --mem=64G
 #SBATCH --account=riu122
 #SBATCH --export=ALL
-#SBATCH -t 00:30:00
+#SBATCH -t 00:05:00
 
 
 module purge
