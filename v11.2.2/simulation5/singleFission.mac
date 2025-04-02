@@ -85,6 +85,9 @@
 /analysis/h1/set 50 25000  0. 25. MeV  	    #e- energy from compton (at creation)
 /analysis/h1/set 51 25000  0. 25. MeV  	    #e- energy from pair production (at creation)
 /analysis/h1/set 52 25000  0. 25. MeV  	    #energy of all particles at detector
+/analysis/h1/set 53 25000  0. 200. MeV  	    #energy of charged particles from photonuclear reactions
+/analysis/h1/set 54 25000  0. 200. MeV  	    #energy of charged particles from nFission reactions
+/analysis/h1/set 55 25000  0. 200. MeV  	    #energy of charged particles from pair production
 
 #/run/printProgress 100
 #/run/beamOn 1000

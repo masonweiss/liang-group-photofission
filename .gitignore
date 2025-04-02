@@ -1,5 +1,6 @@
 build/
 .ipynb_checkpoints/
 .DS_STORE
+.vscode/
 *~
 *#

@@ -4,11 +4,11 @@
 #include "TH1.h"
 
 void merge_histos() {
-    const int num_radii = 5;      // rad_idx ranges from 0 to 4
+    const int num_radii = 4;      // rad_idx ranges from 0 to 3
     const int num_samples = 10;   // sample_idx ranges from 0 to 9
     const int hist_count = 52;    // 52 histograms named 1 to 52
     
-    std::string rootfile_dir = "feb23_2300_1billion"; // Root Directory
+    std::string rootfile_dir = "mar02_2000_1billion_U233"; // Root Directory
     std::string output_dir = "merged_histograms"; // Output directory
 
     system(("mkdir -p " + rootfile_dir + "/" + output_dir).c_str()); // Create output directory if it doesn't exist

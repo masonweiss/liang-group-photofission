@@ -150,9 +150,22 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
     if (processName == "compt" && particle == G4Electron::Electron()) {
       analysis->FillH1(50, energy); // energy
     }
-    // compton scattering gamma
+    // compton scattering e-
     if (processName == "conv" && particle == G4Electron::Electron()) {
       analysis->FillH1(51, energy); // energy
+    }
+
+    // charged products from photonuclear reaction
+    if (processName == "photonNuclear" && charge != 0) {
+      analysis->FillH1(53, energy); // energy
+    }
+    // charged products from nFission reaction
+    if (processName == "nFission" && charge != 0) {
+      analysis->FillH1(54, energy); // energy
+    }
+    // charged products from pair production reaction
+    if (processName == "conv" && charge != 0) {
+      analysis->FillH1(55, energy); // energy
     }
 
     // all photo-nuclear resultant particles

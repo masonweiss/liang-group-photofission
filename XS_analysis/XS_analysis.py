@@ -31,7 +31,10 @@ for (label, file), color in zip(files.items(), colors):
 
         # Flatten the values into a single list
         raw_numbers = []
+        print("==================")
         for line in data_lines:
+            if label == "U-238":
+                print(line)
             values = line.strip().split()
             raw_numbers.extend(map(float, values))  # Convert to floats
 
@@ -40,8 +43,9 @@ for (label, file), color in zip(files.items(), colors):
         data = np.array(raw_numbers[: 2 * num_pairs]).reshape(-1, 2)
 
         # Extract photon energy and cross-section
-        photon_energy = data[:, 0]  # Energy in MeV
-        cross_section = data[:, 1]  # Cross-section in mb
+        photon_energy = data[:, 0]  # Energy in eV
+        photon_energy = photon_energy / 1e6 # Energy in MeV
+        cross_section = data[:, 1]  # Cross-section in barns
 
         # Plot full range
         ax1.plot(photon_energy, cross_section, label=label, color=color)
@@ -52,7 +56,7 @@ for (label, file), color in zip(files.items(), colors):
 ax1.set_xscale("log")  # Log scale for energy
 ax1.set_yscale("log")  # Log scale for cross-section
 ax1.set_xlabel("Neutron Energy (MeV)")
-ax1.set_ylabel("Cross-Section (mb)")
+ax1.set_ylabel("Cross-Section (Barns)")
 ax1.set_title("Neutron Fission Cross-Section (Full Range)")
 ax1.legend()
 ax1.grid(True, which="both", linestyle="--", linewidth=0.5)
@@ -64,16 +68,18 @@ plt.savefig('nFissionXS_full.png')
 fig2, ax2 = plt.subplots(figsize=(8, 6))
 
 # Copy everything from the first figure to the second
+lowval = 1
+highval = 20
 for line in ax1.get_lines():
     x_data, y_data = line.get_xdata(), line.get_ydata()
-    mask = (x_data >= 0.01) & (x_data <= 20)  # Zoom in range 0.01 - 20 MeV
+    mask = (x_data >= lowval) & (x_data <= highval)  # Zoom in
     ax2.plot(x_data[mask], y_data[mask], label=line.get_label(), color=line.get_color())
 
 #ax2.set_xscale("log")  # Log scale for energy
-ax2.set_yscale("log")  # Log scale for cross-section
+#ax2.set_yscale("log")  # Log scale for cross-section
 ax2.set_xlabel("Neutron Energy (MeV)")
-ax2.set_ylabel("Cross-Section (mb)")
-ax2.set_title("Neutron Fission Cross-Section (0.01 - 20 MeV)")
+ax2.set_ylabel("Cross-Section (Barns)")
+ax2.set_title("Neutron Fission Cross-Section (zoomed)")
 ax2.legend()
 ax2.grid(True, which="both", linestyle="--", linewidth=0.5)
 

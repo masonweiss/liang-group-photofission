@@ -5,11 +5,12 @@ import re
 from matplotlib import pyplot as plt
 
 # custom parameters
-job_id = 37200732
-data_directory = "feb23_2300_1billion/"
-num_indices = 50  # 50 indices (rows)
+job_id = 37409278
+data_directory = "mar02_2000_1billion_U233/"
+num_indices = 40  # only 40 indices (rows)
 num_gamma = 1e9
-gamma_energy = 15 # in MeV
+gamma_energy = 13.8 # in MeV
+num_groups = 4
 
 # fixed parameters
 process_names = [
@@ -21,11 +22,10 @@ process_names = [
 particle_names = ["anti_nu_e", "e+", "e-", "gamma", "neutron"]
 
 # Initialize NumPy arrays (2D: 50 rows for indices, 2 columns for count and total Emean)
-num_indices = 50
 particle_data_creation = np.zeros((num_indices, len(particle_names), 2))  # [count, total Emean]
 particle_data_detection = np.zeros((num_indices, len(particle_names), 2))  # [count, total Emean]
 
-size_maps = {"10 cm":100, "5 cm":50, "1 cm":10, "5 mm":5, "1 mm":1}
+size_maps = {"5 cm":50, "1 cm":10, "5 mm":5, "1 mm":1} # "10 cm":100 exxcluded
 
 num_processes = len(process_names)
 
@@ -33,7 +33,7 @@ num_processes = len(process_names)
 process_data = np.zeros((num_indices, num_processes+2), dtype=object)
 
 # Regular expression to extract process calls
-absorber_regex = re.compile(r"The Absorber is (\d+\s*\w+)  of U238")
+absorber_regex = re.compile(r"The Absorber is (\d+\s*\w+)  of")
 particle_regex = re.compile(r"(\S+):\s+(\d+)\s+Emean\s*=\s*([\d\.]+)\s*(MeV|keV)")
 process_regex = re.compile(r"\s*([\S]+)\s*=\s*(\d+)\s*")
 
@@ -149,7 +149,6 @@ for idx in range(num_indices):
                     particle_data_detection[idx, particle_idx, 1] += emean_value
 
 # Define number of groups (5 groups of 10)
-num_groups = 5
 grouped_particle_data_creation = np.zeros((num_groups, len(particle_names), 2))  # [count, total Emean]
 grouped_particle_data_detection = np.zeros((num_groups, len(particle_names), 2))  # [count, total Emean]
 
