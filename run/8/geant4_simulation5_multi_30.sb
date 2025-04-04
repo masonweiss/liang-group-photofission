@@ -8,8 +8,8 @@
 #SBATCH --mem=249208M
 #SBATCH --account=riu122
 #SBATCH --export=ALL
-#SBATCH --array=0-49
-#SBATCH -t 02:00:00
+#SBATCH --array=0-30
+#SBATCH -t 00:10:00
 
 module purge
 module load slurm
@@ -24,8 +24,7 @@ export OMP_NUM_THREADS=128
 RADIUS_VALUES=(1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 4.0)
 
 # Compute index for radius and job number
-RADIUS_INDEX=$((SLURM_ARRAY_TASK_ID / 10))
-JOB_NUM=$((SLURM_ARRAY_TASK_ID % 10))
+RADIUS_INDEX=$((0+SLURM_ARRAY_TASK_ID))
 
 # Select radius value
 RADIUS=${RADIUS_VALUES[$RADIUS_INDEX]}
@@ -36,8 +35,8 @@ SEED2=$((20000 + SLURM_ARRAY_TASK_ID))
 
 # Define paths
 MACRO_TEMPLATE="/home/mweiss1/liang-group-photofission/v11.2.2/simulation5/build/singleFission.mac"
-MACRO_FILE="/home/mweiss1/liang-group-photofission/v11.2.2/simulation5/build/singleFission_${RADIUS_INDEX}_${JOB_NUM}.mac"
-OUTPUT_FILE="sim5_${RADIUS_INDEX}_${JOB_NUM}"
+MACRO_FILE="/home/mweiss1/liang-group-photofission/v11.2.2/simulation5/build/singleFission_${RADIUS_INDEX}.mac"
+OUTPUT_FILE="sim5_${RADIUS_INDEX}"
 
 # Create the new macro file with modified output file name, radius, and random seeds
 sed -e "s|/testhadr/det/setRadius .* cm|/testhadr/det/setRadius ${RADIUS} cm|" \

@@ -5,12 +5,15 @@ import re
 from matplotlib import pyplot as plt
 
 # custom parameters
-job_id = 37409278
-data_directory = "mar02_2000_1billion_U233/"
-num_indices = 40  # only 40 indices (rows)
-num_gamma = 1e9
+job_id = 38067202
+data_directory = "apr02_2000_100million_U233/"
+# num_indices = 50  # only 50 indices (rows)
+num_indices = 31  # only 30 indices (rows)
+# num_gamma = 1e9
+num_gamma = 1e8
 gamma_energy = 13.8 # in MeV
-num_groups = 4
+num_groups = 31
+num_runs_per_group = 1
 
 # fixed parameters
 process_names = [
@@ -25,7 +28,8 @@ particle_names = ["anti_nu_e", "e+", "e-", "gamma", "neutron"]
 particle_data_creation = np.zeros((num_indices, len(particle_names), 2))  # [count, total Emean]
 particle_data_detection = np.zeros((num_indices, len(particle_names), 2))  # [count, total Emean]
 
-size_maps = {"5 cm":50, "1 cm":10, "5 mm":5, "1 mm":1} # "10 cm":100 exxcluded
+# size_maps = {"5 cm":50, "1 cm":10, "5 mm":5, "1 mm":1} # "10 cm":100 exxcluded
+size_maps = data = {"1 cm": 10, "1.1 cm": 11, "1.2 cm": 12, "1.3 cm": 13, "1.4 cm": 14, "1.5 cm": 15, "1.6 cm": 16, "1.7 cm": 17, "1.8 cm": 18, "1.9 cm": 19, "2 cm": 20, "2.1 cm": 21, "2.2 cm": 22, "2.3 cm": 23, "2.4 cm": 24, "2.5 cm": 25, "2.6 cm": 26, "2.7 cm": 27, "2.8 cm": 28, "2.9 cm": 29, "3 cm": 30, "3.1 cm": 31, "3.2 cm": 32, "3.3 cm": 33, "3.4 cm": 34, "3.5 cm": 35, "3.6 cm": 36, "3.7 cm": 37, "3.8 cm": 38, "3.9 cm": 39, "4 cm": 40}
 
 num_processes = len(process_names)
 
@@ -33,7 +37,7 @@ num_processes = len(process_names)
 process_data = np.zeros((num_indices, num_processes+2), dtype=object)
 
 # Regular expression to extract process calls
-absorber_regex = re.compile(r"The Absorber is (\d+\s*\w+)  of")
+absorber_regex = re.compile(r"The Absorber is (\d*\.?\d+\s*\w+)  of")
 particle_regex = re.compile(r"(\S+):\s+(\d+)\s+Emean\s*=\s*([\d\.]+)\s*(MeV|keV)")
 process_regex = re.compile(r"\s*([\S]+)\s*=\s*(\d+)\s*")
 
@@ -148,93 +152,93 @@ for idx in range(num_indices):
                     particle_data_detection[idx, particle_idx, 0] += float(count)
                     particle_data_detection[idx, particle_idx, 1] += emean_value
 
-# Define number of groups (5 groups of 10)
-grouped_particle_data_creation = np.zeros((num_groups, len(particle_names), 2))  # [count, total Emean]
-grouped_particle_data_detection = np.zeros((num_groups, len(particle_names), 2))  # [count, total Emean]
-
-# Aggregate data into 5 groups (Summing every 10 rows)
-for group_idx in range(num_groups):
-    start_idx = group_idx * 10
-    end_idx = start_idx + 10
-
-    grouped_particle_data_creation[group_idx] = np.sum(particle_data_creation[start_idx:end_idx], axis=0)
-    grouped_particle_data_detection[group_idx] = np.sum(particle_data_detection[start_idx:end_idx], axis=0)
-
-grouped_particle_data_creation[:, :, 1] /= 10
-grouped_particle_data_detection[:, :, 1] /= 10
-
-# Convert to structured NumPy array and group by absorber thickness
-absorbers = process_data[:, 0]  # First column (absorber thickness)
-process_counts = process_data[:, 1:].astype(int)  # Convert rest to integers
-
-# Find unique absorber thickness values
-unique_absorbers = np.unique(absorbers)
-
-# Initialize grouped data array
-grouped_data = np.zeros((len(unique_absorbers), process_counts.shape[1] + 1), dtype=object)
-
-# Aggregate values by absorber thickness
-for i, absorber in enumerate(list(size_maps.keys())[::-1]):
-    mask = absorbers == absorber  # Find rows with the same absorber
-    grouped_data[i, 0] = size_maps[absorber]  # Keep absorber name
-    grouped_data[i, 1:] = np.sum(process_counts[mask], axis=0)  # Sum process counts
-
 process_names.append("Other")
 
-for i, rad in enumerate(list(size_maps.keys())[::-1]):
-    print(f"\n\n\n============= {rad} =============")
+# # Define number of groups (5 groups of 10)
+# grouped_particle_data_creation = np.zeros((num_groups, len(particle_names), 2))  # [count, total Emean]
+# grouped_particle_data_detection = np.zeros((num_groups, len(particle_names), 2))  # [count, total Emean]
 
-    print("Process Calls:")
-    for j, process in enumerate(process_names):
-        print(f"{process.ljust(30)}{grouped_data[i, j+1]}")
+# # Aggregate data into 5 groups (Summing every 10 rows)
+# for group_idx in range(num_groups):
+#     start_idx = group_idx * num_runs_per_group
+#     end_idx = start_idx + num_runs_per_group
 
-    print("\nParticles at CREATION")
-    for j, particle in enumerate(particle_names):
-        a = grouped_particle_data_creation[i, j, 0]
-        b = round(grouped_particle_data_creation[i, j, 1], 8)
-        c = a * b / (num_gamma)
-        print(f"{particle.ljust(20)} |      Count: {str(int(a)).ljust(15)} |    Mean Energy {str(b).ljust(12)} MeV     |     Total Energy of all particles per gamma {str(c).ljust(12)} MeV")
+#     grouped_particle_data_creation[group_idx] = np.sum(particle_data_creation[start_idx:end_idx], axis=0)
+#     grouped_particle_data_detection[group_idx] = np.sum(particle_data_detection[start_idx:end_idx], axis=0)
+
+# grouped_particle_data_creation[:, :, 1] /= num_runs_per_group
+# grouped_particle_data_detection[:, :, 1] /= num_runs_per_group
+
+# # Convert to structured NumPy array and group by absorber thickness
+# absorbers = process_data[:, 0]  # First column (absorber thickness)
+# process_counts = process_data[:, 1:].astype(int)  # Convert rest to integers
+
+# # Find unique absorber thickness values
+# unique_absorbers = np.unique(absorbers)
+
+# # Initialize grouped data array
+# grouped_data = np.zeros((len(unique_absorbers), process_counts.shape[1] + 1), dtype=object)
+
+# # Aggregate values by absorber thickness
+# for i, absorber in enumerate(list(size_maps.keys())[::-1]):
+#     mask = absorbers == absorber  # Find rows with the same absorber
+#     grouped_data[i, 0] = size_maps[absorber]  # Keep absorber name
+#     grouped_data[i, 1:] = np.sum(process_counts[mask], axis=0)  # Sum process counts
+
+# for i, rad in enumerate(list(size_maps.keys())[::-1]):
+#     print(f"\n\n\n============= {rad} =============")
+
+#     print("Process Calls:")
+#     for j, process in enumerate(process_names):
+#         print(f"{process.ljust(30)}{grouped_data[i, j+1]}")
+
+#     print("\nParticles at CREATION")
+#     for j, particle in enumerate(particle_names):
+#         a = grouped_particle_data_creation[i, j, 0]
+#         b = round(grouped_particle_data_creation[i, j, 1], 8)
+#         c = a * b / (num_gamma)
+#         print(f"{particle.ljust(20)} |      Count: {str(int(a)).ljust(15)} |    Mean Energy {str(b).ljust(12)} MeV     |     Total Energy of all particles per gamma {str(c).ljust(12)} MeV")
     
-    print("\nParticles at DETECTION")
-    for j, particle in enumerate(particle_names):
-        a = grouped_particle_data_detection[i, j, 0]
-        b = round(grouped_particle_data_detection[i, j, 1], 8)
-        c = a * b / (num_gamma)
-        print(f"{particle.ljust(20)} |      Count: {str(int(a)).ljust(15)} |    Mean Energy {str(b).ljust(12)} MeV     |     Total Energy of all particles per gamma {str(c).ljust(12)} MeV")
+#     print("\nParticles at DETECTION")
+#     for j, particle in enumerate(particle_names):
+#         a = grouped_particle_data_detection[i, j, 0]
+#         b = round(grouped_particle_data_detection[i, j, 1], 8)
+#         c = a * b / (num_gamma)
+#         print(f"{particle.ljust(20)} |      Count: {str(int(a)).ljust(15)} |    Mean Energy {str(b).ljust(12)} MeV     |     Total Energy of all particles per gamma {str(c).ljust(12)} MeV")
 
-# Convert first column to numeric values for sorting
-numeric_bar_names = grouped_data[:, 0].astype(int)  
-values = grouped_data[:, 1:].astype(int)
+# # Convert first column to numeric values for sorting
+# numeric_bar_names = grouped_data[:, 0].astype(int)  
+# values = grouped_data[:, 1:].astype(int)
 
-# Sort indices based on numeric values
-sorted_indices = np.argsort(numeric_bar_names)
-numeric_bar_names = numeric_bar_names[sorted_indices]
-values = values[sorted_indices]
+# # Sort indices based on numeric values
+# sorted_indices = np.argsort(numeric_bar_names)
+# numeric_bar_names = numeric_bar_names[sorted_indices]
+# values = values[sorted_indices]
 
-os.makedirs(f"{data_directory}merged_histograms/process_calls", exist_ok=True)
+# os.makedirs(f"{data_directory}merged_histograms/process_calls", exist_ok=True)
 
-# Generate bar charts for each column
-for i, process in enumerate(process_names):
-    plt.figure(figsize=(8, 6))
-    bars = plt.bar(numeric_bar_names.astype(str), values[:, i], color='skyblue')
+# # Generate bar charts for each column
+# for i, process in enumerate(process_names):
+#     plt.figure(figsize=(8, 6))
+#     bars = plt.bar(numeric_bar_names.astype(str), values[:, i], color='skyblue')
 
-    for bar in bars:
-        height = bar.get_height()
-        plt.text(bar.get_x() + bar.get_width() / 2, height, f"{height:,}", ha='center', va='bottom', fontsize=10)
+#     for bar in bars:
+#         height = bar.get_height()
+#         plt.text(bar.get_x() + bar.get_width() / 2, height, f"{height:,}", ha='center', va='bottom', fontsize=10)
 
-    # Add values on top of bars
-    # for j, val in enumerate(values[:, i]):
-    #     plt.text(numeric_bar_names[j], val, f"{val:,}", ha='center', va='bottom', fontsize=10, rotation=90)
+#     # Add values on top of bars
+#     # for j, val in enumerate(values[:, i]):
+#     #     plt.text(numeric_bar_names[j], val, f"{val:,}", ha='center', va='bottom', fontsize=10, rotation=90)
 
-    plt.xlabel("Absorber Thickness")
-    plt.ylabel("Count")
-    plt.title(f"Process: {process}")
-    plt.xticks(rotation=45)
+#     plt.xlabel("Absorber Thickness")
+#     plt.ylabel("Count")
+#     plt.title(f"Process: {process}")
+#     plt.xticks(rotation=45)
 
-    # Save each chart with its process name
-    plt.tight_layout()
-    plt.savefig(f"{data_directory}merged_histograms/process_calls/{process}.png")
-    plt.close()  # Close figure to avoid overlap
+#     # Save each chart with its process name
+#     plt.tight_layout()
+#     plt.savefig(f"{data_directory}merged_histograms/process_calls/{process}.png")
+#     plt.close()  # Close figure to avoid overlap
 
-# # Save as CSV for verification
-# np.savetxt("process_data.csv", process_data, delimiter=",", header=",".join(process_names), fmt="%d")
+# Save as CSV for verification
+np.savetxt(data_directory+"process_data.csv", process_data[:,1:], delimiter=",", header=",".join(process_names), fmt="%d")
