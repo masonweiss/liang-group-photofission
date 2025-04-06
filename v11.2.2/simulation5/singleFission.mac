@@ -3,7 +3,7 @@
 #  
 /run/verbose 2
 #
-/testhadr/det/setIsotopeMat U238 92 238 19.05 g/cm3
+/testhadr/det/setIsotopeMat U233 92 233 18.64 g/cm3
 /testhadr/det/setRadius 1.0 cm
 #
 /run/initialize
@@ -21,7 +21,7 @@
 /testhadr/tracking/countParticles true
 #
 /gun/particle gamma
-/gun/energy 15000000 eV
+/gun/energy 13800000 eV
 #
 /analysis/setFileName singleFission
 /random/setSeeds 1235 5678

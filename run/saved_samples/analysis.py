@@ -5,14 +5,14 @@ import re
 from matplotlib import pyplot as plt
 
 # custom parameters
-job_id = 38067202
-data_directory = "apr02_2000_100million_U233/"
+job_id = 38248016
+data_directory = "apr06_1500_100million_U238/"
 # num_indices = 50  # only 50 indices (rows)
-num_indices = 31  # only 30 indices (rows)
+num_indices = 50  # only 30 indices (rows)
 # num_gamma = 1e9
 num_gamma = 1e8
-gamma_energy = 13.8 # in MeV
-num_groups = 31
+gamma_energy = 15.0 # in MeV
+num_groups = 50
 num_runs_per_group = 1
 
 # fixed parameters
@@ -29,7 +29,19 @@ particle_data_creation = np.zeros((num_indices, len(particle_names), 2))  # [cou
 particle_data_detection = np.zeros((num_indices, len(particle_names), 2))  # [count, total Emean]
 
 # size_maps = {"5 cm":50, "1 cm":10, "5 mm":5, "1 mm":1} # "10 cm":100 exxcluded
-size_maps = data = {"1 cm": 10, "1.1 cm": 11, "1.2 cm": 12, "1.3 cm": 13, "1.4 cm": 14, "1.5 cm": 15, "1.6 cm": 16, "1.7 cm": 17, "1.8 cm": 18, "1.9 cm": 19, "2 cm": 20, "2.1 cm": 21, "2.2 cm": 22, "2.3 cm": 23, "2.4 cm": 24, "2.5 cm": 25, "2.6 cm": 26, "2.7 cm": 27, "2.8 cm": 28, "2.9 cm": 29, "3 cm": 30, "3.1 cm": 31, "3.2 cm": 32, "3.3 cm": 33, "3.4 cm": 34, "3.5 cm": 35, "3.6 cm": 36, "3.7 cm": 37, "3.8 cm": 38, "3.9 cm": 39, "4 cm": 40}
+# size_maps = data = {"1 cm": 10, "1.1 cm": 11, "1.2 cm": 12, "1.3 cm": 13, "1.4 cm": 14, "1.5 cm": 15, "1.6 cm": 16, "1.7 cm": 17, "1.8 cm": 18, "1.9 cm": 19, "2 cm": 20, "2.1 cm": 21, "2.2 cm": 22, "2.3 cm": 23, "2.4 cm": 24, "2.5 cm": 25, "2.6 cm": 26, "2.7 cm": 27, "2.8 cm": 28, "2.9 cm": 29, "3 cm": 30, "3.1 cm": 31, "3.2 cm": 32, "3.3 cm": 33, "3.4 cm": 34, "3.5 cm": 35, "3.6 cm": 36, "3.7 cm": 37, "3.8 cm": 38, "3.9 cm": 39, "4 cm": 40}
+size_maps = {
+  "0.2 cm": 2, "0.4 cm": 4, "0.6 cm": 6, "0.8 cm": 8, "1 cm": 10, "1.2 cm": 12, "1.4 cm": 14,
+  "1.6 cm": 16, "1.8 cm": 18, "2 cm": 20, "2.2 cm": 22, "2.4 cm": 24, "2.6 cm": 26,
+  "2.8 cm": 28, "3 cm": 30, "3.2 cm": 32, "3.4 cm": 34, "3.6 cm": 36, "3.8 cm": 38,
+  "4 cm": 40, "4.2 cm": 42, "4.4 cm": 44, "4.6 cm": 46, "4.8 cm": 48, "5 cm": 50,
+  "5.2 cm": 52, "5.4 cm": 54, "5.6 cm": 56, "5.8 cm": 58, "6 cm": 60, "6.2 cm": 62,
+  "6.4 cm": 64, "6.6 cm": 66, "6.8 cm": 68, "7 cm": 70, "7.2 cm": 72, "7.4 cm": 74,
+  "7.6 cm": 76, "7.8 cm": 78, "8 cm": 80, "8.2 cm": 82, "8.4 cm": 84, "8.6 cm": 86,
+  "8.8 cm": 88, "9 cm": 90, "9.2 cm": 92, "9.4 cm": 94, "9.6 cm": 96, "9.8 cm": 98,
+  "10 cm": 100
+}
+
 
 num_processes = len(process_names)
 

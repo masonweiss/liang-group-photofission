@@ -3,11 +3,11 @@ import array
 import numpy as np
 
 # custom parameters
-data_directory = "apr02_2000_100million_U233/"
+data_directory = "apr06_1500_100million_U238/"
 # histos = "merged_histograms/"
 histos = ""
 counts = "process_data.csv"
-num_groups = 31  # = # of rows in COUNTS and # of root files in HISTOS
+num_groups = 50  # = # of rows in COUNTS and # of root files in HISTOS
 process_names = ["nFission", "photonNuclear", "conv"]
 process_names_idx = [14,17,7]
 hist_idxs = ["54", "53", "55"]
