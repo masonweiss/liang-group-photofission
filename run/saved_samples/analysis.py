@@ -5,14 +5,14 @@ import re
 from matplotlib import pyplot as plt
 
 # custom parameters
-job_id = 38248016
-data_directory = "apr06_1500_100million_U238/"
+job_id = 38248896
+data_directory = "apr06_2000_100million_U233/"
 # num_indices = 50  # only 50 indices (rows)
-num_indices = 50  # only 30 indices (rows)
+num_indices = 28  # only 28 indices (rows)
 # num_gamma = 1e9
 num_gamma = 1e8
-gamma_energy = 15.0 # in MeV
-num_groups = 50
+gamma_energy = 13.8 # in MeV
+num_groups = 28
 num_runs_per_group = 1
 
 # fixed parameters
