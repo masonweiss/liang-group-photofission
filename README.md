@@ -160,7 +160,7 @@ A slurm batch script can be used to submit a series of jobs (in an array format)
 
 Of particular importance are the number of process calls and the associated energy (as found in charged particles at creation) resulting from neutron fission, photofission, and pair production. 
 
-The job can be submitted from the web browser Expanse job composer tool [here]([url](https://portal.expanse.sdsc.edu/pun/sys/myjobs)). 
+The job can be submitted from the web browser Expanse job composer tool [here]([url](https://portal.expanse.sdsc.edu/pun/sys/myjobs)). Note that the provided .sb files only run the executable; before submitting the job, you should follow the steps just above to make a build folder and build the executable.
 
 The job's progress can be monitored (with verbose output) with the following command:
 ```
@@ -171,7 +171,3 @@ The total utilization for the user, and the overall project, can be found with t
 expanse-client user -r expanse
 expanse-client project <project-id> -p
 ```
-
-## Specific Runs
-### Simulation 4
-  * 36634700 | Shared | 64 cpu/node | 64GB mem | 01:16:04 | 1e9 particles | no histograms | sim4_1.36634700.exp-1-37.out
