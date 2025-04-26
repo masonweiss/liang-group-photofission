@@ -89,7 +89,5 @@
 /analysis/h1/set 54 25000  0. 200. MeV  	    #energy of charged particles from nFission reactions
 /analysis/h1/set 55 25000  0. 200. MeV  	    #energy of charged particles from pair production
 
-#/run/printProgress 100
-#/run/beamOn 1000
-/run/printProgress 100
-/run/beamOn 100
+/run/printProgress 1000
+/run/beamOn 1000000

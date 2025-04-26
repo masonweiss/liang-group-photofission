@@ -11,7 +11,7 @@
 
 PrimaryGeneratorAction::PrimaryGeneratorAction()
 {
-  G4int n_particle = 1000000;
+  G4int n_particle = 1;
   fParticleGun  = new G4ParticleGun(n_particle);
   
   // default particle kinematic
