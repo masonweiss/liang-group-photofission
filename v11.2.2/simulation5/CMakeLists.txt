@@ -1,7 +1,7 @@
 #----------------------------------------------------------------------------
 # Setup the project
 cmake_minimum_required(VERSION 3.16...3.27)
-project(Hadr06)
+project(simulation5)
 
 #----------------------------------------------------------------------------
 # Find Geant4 package, activating all available UI and Vis drivers by default
@@ -31,23 +31,21 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 #----------------------------------------------------------------------------
 # Add the executable, and link it to the Geant4 libraries
 #
-add_executable(Hadr06 Hadr06.cc ${sources} ${headers})
-target_link_libraries(Hadr06 ${Geant4_LIBRARIES} )
+add_executable(simulation5 simulation5.cc ${sources} ${headers})
+target_link_libraries(simulation5 ${Geant4_LIBRARIES} )
 
 #----------------------------------------------------------------------------
 # Copy all scripts to the build directory, i.e. the directory in which we
-# build Hadr06. This is so that we can run the executable directly because it
+# build simulation5. This is so that we can run the executable directly because it
 # relies on these scripts being in the current working directory.
 #
-set(Hadr04_SCRIPTS
-    hadr06.in
-    run1.mac
+set(Simulation5_SCRIPTS
     singleFission.mac 
     vis.mac
     plotHisto.C
   )
 
-foreach(_script ${Hadr04_SCRIPTS})
+foreach(_script ${Simulation5_SCRIPTS})
   configure_file(
     ${PROJECT_SOURCE_DIR}/${_script}
     ${PROJECT_BINARY_DIR}/${_script}
@@ -58,4 +56,4 @@ endforeach()
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
-install(TARGETS Hadr06 DESTINATION bin)
+install(TARGETS simulation5 DESTINATION bin)

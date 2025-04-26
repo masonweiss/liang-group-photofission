@@ -1,8 +1,4 @@
-# --------------------------------------------------------------
-# GNUmakefile for examples module.  Gabriele Cosmo, 06/04/98.
-# --------------------------------------------------------------
-
-name := Hadr06
+name := simulation5
 G4TARGET := $(name)
 G4EXLIB := true
 

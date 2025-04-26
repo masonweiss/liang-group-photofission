@@ -1,0 +1,49 @@
+#!/bin/bash
+#SBATCH --job-name="sim5"
+#SBATCH --output="sim5_%a_%A_%j.out"
+#SBATCH --partition=compute
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=128
+#SBATCH --mem=249208M
+#SBATCH --account=riu122
+#SBATCH --export=ALL
+#SBATCH --array=0-49
+#SBATCH -t 02:00:00
+
+module purge
+module load slurm
+module load cpu/0.17.3b
+module load gcc/10.2.0/npcyll4
+module load cmake/3.21.4
+
+# SET the number of OpenMP threads
+export OMP_NUM_THREADS=128
+
+# Define radius values
+RADIUS_VALUES=(0.1 0.5 1.0 5.0 10.0)
+
+# Compute index for radius and job number
+RADIUS_INDEX=$((SLURM_ARRAY_TASK_ID / 10))
+JOB_NUM=$((SLURM_ARRAY_TASK_ID % 10))
+
+# Select radius value
+RADIUS=${RADIUS_VALUES[$RADIUS_INDEX]}
+
+# Generate a unique seed
+SEED1=$((10000 + SLURM_ARRAY_TASK_ID))
+SEED2=$((20000 + SLURM_ARRAY_TASK_ID))
+
+# Define paths
+MACRO_TEMPLATE="/home/mweiss1/liang-group-photofission/v11.2.2/simulation5/build/singleFission.mac"
+MACRO_FILE="/home/mweiss1/liang-group-photofission/v11.2.2/simulation5/build/singleFission_${RADIUS_INDEX}_${JOB_NUM}.mac"
+OUTPUT_FILE="sim5_${RADIUS_INDEX}_${JOB_NUM}"
+
+# Create the new macro file with modified output file name, radius, and random seeds
+sed -e "s|/testhadr/det/setRadius .* cm|/testhadr/det/setRadius ${RADIUS} cm|" \
+    -e "s|/analysis/setFileName .*|/analysis/setFileName ${OUTPUT_FILE}|" \
+    -e "s|/random/setSeeds .*|/random/setSeeds ${SEED1} ${SEED2}|" \
+    $MACRO_TEMPLATE > $MACRO_FILE
+
+# Run Geant4 with the modified macro for this particular run
+/home/mweiss1/liang-group-photofission/v11.2.2/simulation5/build/simulation5 $MACRO_FILE
