@@ -64,7 +64,7 @@ export G4DATA=$HOME/liang-group/geant4/geant4-v11.2.2-install/share/Geant4-11.2.
 source $HOME/liang-group/geant4/geant4-v11.2.2-install/bin/geant4.sh
 ```
 
-After installing Geant4 locally, you can test the simulation1 code. Inside this directory is a copy of the exampleB1 simulation from the official geant4 release.
+After installing Geant4 locally, you can test the exampleB1 simulation from the official Geant4 release.
 
 ## Remote Geant-4 Installation
 Access the expanse cluster via: ssh <ACCESS_ID>@login.expanse.sdsc.edu
@@ -115,7 +115,52 @@ export G4DATA=$HOME/geant4/geant4-v11.2.2-install/share/Geant4-11.2.2/data
 source $HOME/geant4/geant4-v11.2.2-install/bin/geant4.sh
 ```
 
+## Running simulation5
+
+With Geant4 properly configured, this repository can be cloned on the Expanse cluster (or your own machine). If on expanse, ensure gcc/10.2.0 and cmake/3.21.4 have been loaded in properly. From the liang-group-photofission/v11.2.2/simulation5 folder, the most recent version of the project can be built as follows:
+
+```
+cd liang-group-photofission/v11.2.2/simulation5
+mkdir build
+cd build
+cmake ..
+make
+```
+
+The macro file **singlefission.mac** is configured to set the capsule radius to 1.0 cm and the material to U233; this can easily be modified. To run the simulation with the provided number of photons in the macro file, call:
+
+```
+./simulation5 singleFission.mac
+```
+
+This launches one run of 13.8 MeV photons, and records the information at creation and detection into a selection of root histograms as follows:
+
+| Histogram # | Description |
+|----------|-------------|
+| 1        | Energy deposition at detector |
+| 2        | Energy deposition at detector, z location |
+| 3        | Energy flow |
+| 4–14     | Energy spectrum of (γ, e⁻, e⁺, n, p, d, α, ion, baryon, meson, ν) at creation |
+| 15–25    | Energy spectrum of (γ, e⁻, e⁺, n, p, d, α, ion, baryon, meson, ν) at detector |
+| 26       | Total energy created |
+| 27–33    | Solid polar angle of (γ, e⁻, e⁺, n, p, d, α) at detector |
+| 34–40    | Radial phi angle of (γ, e⁻, e⁺, n, p, d, α) at detector |
+| 41–42    | Energy spectrum of (photoneutrons, nFission neutrons) at creation |
+| 43–44    | Nucleon number distribution for (photonuclear, nFission) reactions |
+| 45–46    | Energy from photonuclear reactions at creation for (all particles, fission fragments) |
+| 47–48    | Energy from nFission reactions at creation for (all particles, fission fragments) |
+| 49       | Energy of e⁺ and e⁻ from pair production at creation |
+| 50–51    | Energy of e⁻ from (Compton, pair production) at creation |
+| 52       | Energy of all particles at detector |
+| 53–55    | Energy of charged particles from (photonuclear, nFission, pair production) at creation |
+
 ## Submitting Jobs on Expanse
+
+A slurm batch script can be used to submit a series of jobs (in an array format) to the Expanse cluster. In run/saved_samples, two submission scripts are provided: geant4_simulation5_multi.sb and geant4_simulation5_multi_30.sb. The first was used to generate 50 total runs consisting of 10 runs of 100 million gammas at 5 specific radius values. The second was used to generate 30 total runs consisting of 1 run each with 100 million gammas at 30 specific radius values. The results are found in the other provided directories. Various analysis codes are provided to process the root files and generate the data found [here]([url](https://docs.google.com/spreadsheets/d/1vCgci1fYrsasOQ67LbEuTv-OTo1NwpQssSS7F0jTfH0/edit?usp=sharing)).
+
+Of particular importance are the number of process calls and the associated energy (as found in charged particles at creation) resulting from neutron fission, photofission, and pair production. 
+
+The job can be submitted from the web browser Expanse job composer tool [here]([url](https://portal.expanse.sdsc.edu/pun/sys/myjobs)). 
 
 The job's progress can be monitored (with verbose output) with the following command:
 ```
@@ -124,7 +169,7 @@ scontrol show job <id>
 The total utilization for the user, and the overall project, can be found with the following commands:
 ```
 expanse-client user -r expanse
-expanse-client project riu122 -p
+expanse-client project <project-id> -p
 ```
 
 ## Specific Runs
